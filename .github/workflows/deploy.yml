@@ -3,7 +3,7 @@ name: Deploy Spring Boot to NCP
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-deploy:
