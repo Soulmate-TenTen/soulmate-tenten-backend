@@ -47,6 +47,4 @@ jobs:
         key: ${{ secrets.NCP_SSH_KEY }}
         port: ${{ secrets.NCP_SSH_PORT }}
         script: |
-          pkill -f 'java -jar' || true
-          cd /home/${{ secrets.NCP_USER }}/deploy
-          setsid nohup java -jar *.jar > app.log 2>&1 < /dev/null &
+          /home/${{ secrets.NCP_USER }}/deploy/deploy.sh
