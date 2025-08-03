@@ -1,9 +1,20 @@
 package com.ten.soulmate.chatting.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.List;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import com.ten.soulmate.global.type.AnswerType;
+import com.ten.soulmate.global.type.ChatType;
 import com.ten.soulmate.member.entity.Member;
+import com.ten.soulmate.road.entity.Road;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,43 +22,52 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "ChattingList")
+@Table(name = "chattinglist")
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class ChattingList {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "chatId", nullable = false)
-    private Chatting chat;
+    private Chatting chatting;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "memberId", nullable = false)
     private Member member;
 
-    @Lob
-    private String question;
+    @Column(columnDefinition = "TEXT", name="message")
+    private String message;
 
-    @Column(nullable = false)
-    private LocalDateTime questionTime;
+    @CreationTimestamp
+    @Column(nullable = false, name="createAt")
+    private LocalDateTime createAt;
 
-    @Lob
-    @Column(nullable = false)
-    private String answer;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 10, name="answerType")
+    private AnswerType answerType;
 
-    @Column(nullable = false)
-    private LocalDateTime answerTime;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 10, name="chatType")
+    private ChatType chatType;
 
-    @Column(nullable = false, length = 10)
-    private String answerType;
+    @Column(length = 10, name="finYn")
+    private String finYn;
+
+    @OneToMany(mappedBy = "chatList", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Road> roads;
+
 }
 

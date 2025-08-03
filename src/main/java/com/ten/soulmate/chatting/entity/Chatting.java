@@ -2,6 +2,9 @@ package com.ten.soulmate.chatting.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.ten.soulmate.member.entity.Member;
 import com.ten.soulmate.road.entity.Road;
 import jakarta.persistence.CascadeType;
@@ -16,29 +19,33 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "Chatting")
+@Table(name = "chatting")
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Chatting {
-    @Id
+	
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "memberId", nullable = false)
     private Member member;
 
-    @Column(nullable = false)
+    @CreationTimestamp
+    @Column(nullable = false, name="createAt")
     private LocalDateTime createAt;
 
-    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL)
-    private List<Road> roads;
-
-    @OneToMany(mappedBy = "chat", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "chatting", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ChattingList> chattingLists;
+
+    @OneToMany(mappedBy = "chatting", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Road> roads;
 }

@@ -3,7 +3,11 @@ package com.ten.soulmate.road.entity;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import com.ten.soulmate.chatting.entity.Chatting;
+import com.ten.soulmate.chatting.entity.ChattingList;
 import com.ten.soulmate.member.entity.Member;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -17,34 +21,49 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "Road")
+@Table(name = "road")
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Road {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "chatId", nullable = false)
-    private Chatting chat;
+    @JoinColumn(name = "chatListId")
+    private ChattingList chatList;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "chatId", nullable = false)
+    private Chatting chatting;
+
+    @ManyToOne(optional = false)
     @JoinColumn(name = "memberId", nullable = false)
     private Member member;
 
-    @Column
+    @CreationTimestamp
     private LocalDateTime createAt;
 
-    @Column
+    @UpdateTimestamp
     private LocalDateTime updateAt;
 
-    @OneToMany(mappedBy = "road", cascade = CascadeType.ALL)
+    @Column(length = 500, name="summary")
+    private String summary;
+
+    @Column(length = 100, name="answerA")
+    private String answerA;
+
+    @Column(length = 100, name="answerB")
+    private String answerB;
+
+    @OneToMany(mappedBy = "road", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
 }
 

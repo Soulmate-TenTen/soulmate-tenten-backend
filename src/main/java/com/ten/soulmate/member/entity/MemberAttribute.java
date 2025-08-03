@@ -10,38 +10,34 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "MemberAttribute")
+@Table(name = "memberattribute")
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class MemberAttribute {
-    @Id
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "memberId", nullable = false)
     private Member member;
 
-    @Column(nullable = false, length = 20)
-    private String value;
+    @Column(length = 20, nullable = false, name="valueAttribute")
+    private String valueAttribute;
 
-    @Column(nullable = false, length = 200)
+    @Column(length = 200, nullable = false, name="decision")
     private String decision;
 
-    @Column(nullable = false, length = 200)
+    @Column(length = 200, nullable = false, name="regret")
     private String regret;
 
-    @Column(name = "Field4", nullable = false, length = 400)
-    private String field4;
-
-    @Column(nullable = false, length = 200)
+    @Column(length = 200, nullable = false, name="decisionTrust")
     private String decisionTrust;
-
-    @Column(nullable = false, length = 400)
-    private String decisionPast;
 }

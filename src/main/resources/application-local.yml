@@ -10,12 +10,13 @@ spring:
 
   jpa:
     hibernate:
-        ddl-auto: update  
-    show-sql: true       
-    properties:
-      hibernate:
-        format_sql: true  
+        ddl-auto: update
         dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true  		
+        naming: 
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true       
+       
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
