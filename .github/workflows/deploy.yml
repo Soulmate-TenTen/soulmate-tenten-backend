@@ -18,7 +18,10 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: '17'
-
+        
+    - name: Grant execute permission to gradlew
+      run: chmod +x ./gradlew
+        
     - name: Build with Gradle
       run: ./gradlew clean build
 
@@ -42,3 +45,4 @@ jobs:
         script: |
           pkill -f 'java -jar' || true
           nohup java -jar /home/${{ secrets.NCP_USER }}/deploy/*.jar > app.log 2>&1 &
+    
