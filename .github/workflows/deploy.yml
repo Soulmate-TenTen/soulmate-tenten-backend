@@ -37,7 +37,7 @@ jobs:
         key: ${{ secrets.NCP_SSH_KEY }}
         port: ${{ secrets.NCP_SSH_PORT }}
         source: build/libs/*.jar
-        target: /home/${{ secrets.NCP_USER }}/app
+        target: /home/${{ secrets.NCP_USER }}/deploy
 
     - name: Run Spring Boot JAR remotely
       uses: appleboy/ssh-action@v1.0.3
