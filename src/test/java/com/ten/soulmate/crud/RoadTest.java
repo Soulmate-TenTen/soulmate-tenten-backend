@@ -48,7 +48,6 @@ public class RoadTest {
 				.pw("1234")
 				.role(MemberType.USER)
 				.name("테스트")
-				.profileImg("imageUrl")
 				.soulmateName("소울")
 				.soulmateType(SoulMateType.F)
 				.build();
