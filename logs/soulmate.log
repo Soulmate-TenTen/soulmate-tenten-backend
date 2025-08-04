@@ -2471,3 +2471,5 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction silentl
 2025-08-04 21:55:32 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
 2025-08-04 21:55:32 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
 2025-08-04 21:55:33 [http-nio-7777-exec-7] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 475 ms
+2025-08-04 21:58:16 [http-nio-7777-exec-10] INFO  c.t.s.road.controller.RoadController - ==================================[ getRoadList  ]==================================
+2025-08-04 21:58:16 [http-nio-7777-exec-10] INFO  c.t.s.road.service.RoadService - Get RoadList Success!
