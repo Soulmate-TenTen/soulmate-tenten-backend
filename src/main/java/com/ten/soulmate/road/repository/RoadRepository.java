@@ -25,5 +25,7 @@ public interface RoadRepository extends JpaRepository<Road, Long>{
             "ORDER BY roadStatus ASC, createAt DESC", nativeQuery = true)
 	List<Road> findRoadList(@Param("memberId") Long memberId, @Param("targetDate") LocalDate targetDate); 
 
+	@Query("SELECT COUNT(r) FROM Road r WHERE r.member.id = :memberId")
+	long countByMemberId(@Param("memberId") Long memberId);
 
 }

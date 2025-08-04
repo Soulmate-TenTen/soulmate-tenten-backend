@@ -31,12 +31,13 @@ public class OnBoradingController {
 	@ApiResponses(value = {			
 			@ApiResponse(responseCode = "200", description = "온보딩, 소울메이트 성향 삽입/갱신 성공.",content = @Content(schema = @Schema(implementation = ResponseDto.class))),
 			@ApiResponse(responseCode = "401", description = "온보딩, 소울메이트 성향 삽입/갱신 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
-	})
+	})	
 	@PostMapping("/onboardingResult")
 	public ResponseEntity<?> setOnBoardingResult(@RequestBody OnBoardingDto request)
 	{		
 		log.info("==================================[ Set OnBoardingResult  ]==================================");
 		return onBoardingService.setOnBoardingResult(request);
 	}
+		
 	
 }

@@ -4,12 +4,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDto;
 import com.ten.soulmate.road.dto.GetRoadResponseDto;
+import com.ten.soulmate.road.dto.RoadCountResponseDto;
 import com.ten.soulmate.road.service.RoadService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -53,6 +55,17 @@ public class RoadController {
 		return roadService.CheckCalendarRoadDay(request);
 	}
 	
+	@Operation(summary = "기로 카운트", description = "첫 화면과 마이페이지에 사용되는 선택 횟수.")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "기로 카운트 성공.",content = @Content(schema = @Schema(implementation = RoadCountResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "기로 카운트 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+	@GetMapping("/countRoad")
+	public ResponseEntity<?> countRoad(@RequestParam("memberId") Long memberId)
+	{
+		log.info("==================================[ countRoad  ]==================================");	
+		return roadService.countRoad(memberId);
+	}
 	
 	
 }
