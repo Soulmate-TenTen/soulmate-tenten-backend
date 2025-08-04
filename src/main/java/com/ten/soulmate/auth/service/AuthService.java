@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.ten.soulmate.auth.dto.LoginDto;
 import com.ten.soulmate.auth.dto.LoginResponseDto;
+import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.global.type.MemberType;
 import com.ten.soulmate.member.entity.Member;
 import com.ten.soulmate.member.repository.MemberRepository;
@@ -24,6 +25,7 @@ public class AuthService {
 	public ResponseEntity<?> login(LoginDto request)
 	{				
 		LoginResponseDto response = new LoginResponseDto();
+
 			
 		try {
 			
@@ -38,8 +40,10 @@ public class AuthService {
 									.build();
 				
 				response.setMemberId(memberRepository.saveAndFlush(newMember).getId());
+				response.setNewMemberYn("Y");
 			}else {
 				response.setMemberId(member.get().getId());
+				response.setNewMemberYn("N");
 			}
 			
 			log.info("Login Success");
@@ -48,8 +52,10 @@ public class AuthService {
 		} catch (Exception e) {
 			
 			log.error("Login Error : "+e.getMessage());
+			ResponseDto res = new ResponseDto();
+			res.setMessage("Failed");
 			
-			return ResponseEntity.status(401).body(Map.of("message","Failed"));
+			return ResponseEntity.status(401).body(res);
 		}		
 	}
 
