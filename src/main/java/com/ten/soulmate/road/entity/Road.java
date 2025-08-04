@@ -63,6 +63,15 @@ public class Road {
     @Column(length = 100, name="answerB")
     private String answerB;
 
+    @Column(length = 50, name="result")
+    private String result;
+    
+    @Column(name="roadStatus")
+    private int roadStatus;
+    
+    @Column(length = 200, name="title")
+    private String title;
+    
     @OneToMany(mappedBy = "road", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
 }

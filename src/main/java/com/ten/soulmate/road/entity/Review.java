@@ -44,9 +44,6 @@ public class Review {
 	    @Column(columnDefinition = "TEXT")
 	    private String content;
 
-	    @Column(length = 10, name="result")
-	    private String result;
-
 	    @CreationTimestamp
 	    @Column(nullable = false, name="createAt")
 	    private LocalDateTime createAt;
