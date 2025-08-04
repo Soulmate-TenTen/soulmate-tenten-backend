@@ -1,6 +1,5 @@
 package com.ten.soulmate.auth.controller;
 
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +9,6 @@ import com.ten.soulmate.auth.dto.LoginDto;
 import com.ten.soulmate.auth.dto.LoginResponseDto;
 import com.ten.soulmate.auth.service.AuthService;
 import com.ten.soulmate.global.dto.ResponseDto;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -29,7 +27,7 @@ public class AuthController {
 
 	private final AuthService authService;
 	
-	@Operation(summary = "로그인 API", description = "카카오 회원으로 부터 받은 회원 정보를 저장합니다. email, name, profileImg")
+	@Operation(summary = "로그인 API", description = "카카오 회원으로 부터 받은 회원 정보를 저장합니다. email, name")
 	@ApiResponses(value = {			
 			@ApiResponse(responseCode = "200", description = "회원 인증 성공.",content = @Content(schema = @Schema(implementation = LoginResponseDto.class))),
 			@ApiResponse(responseCode = "401", description = "회원 인증 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))

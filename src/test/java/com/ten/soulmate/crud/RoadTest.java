@@ -79,6 +79,9 @@ public class RoadTest {
 					.summary("퇴사때문에 고민을 하고 있습니다.")
 					.answerA("선퇴사를 한다.")
 					.answerB("이직 후 퇴사를 한다.")
+					.result("긍정적인 답변")
+					.title("제목")
+					.roadStatus(2)
 					.build();
 		
 		Road savedRoad = roadRepository.save(road);
@@ -87,16 +90,16 @@ public class RoadTest {
 						.road(savedRoad)
 						.member(member)
 						.content("소울이와의 상담을 통해 결국 선퇴사를 결정하기로 했다.")
-						.result("긍정적인 답변")
+						
 						.build();
 		Review savedRevies = reviewRepository.save(review);
 		
 		assertThat(savedRoad.getSummary()).isEqualTo("퇴사때문에 고민을 하고 있습니다.");
 		assertThat(savedRoad.getAnswerA()).isEqualTo("선퇴사를 한다.");
 		assertThat(savedRoad.getAnswerB()).isEqualTo("이직 후 퇴사를 한다.");
-		
+		assertThat(savedRoad.getResult()).isEqualTo("긍정적인 답변");
+
 		assertThat(savedRevies.getContent()).isEqualTo("소울이와의 상담을 통해 결국 선퇴사를 결정하기로 했다.");
-		assertThat(savedRevies.getResult()).isEqualTo("긍정적인 답변");
 				
 	}
 	
