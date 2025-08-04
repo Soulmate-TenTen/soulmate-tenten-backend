@@ -38,7 +38,6 @@ public class ChattingTest {
 	void saveAndFindChattingWithChattingList() {
 		
 		Member member = Member.builder()
-				.email("test@test.com")
 				.pw("1234")
 				.role(MemberType.USER)
 				.name("테스트")
@@ -62,7 +61,6 @@ public class ChattingTest {
 									.message("나 퇴사를 할 지 고민이야")
 									.answerType(AnswerType.N)
 									.chatType(ChatType.M)
-									.finYn("N")
 									.build();
 		chattingListRepository.save(chattingList1);
 		
@@ -72,7 +70,6 @@ public class ChattingTest {
 				.message("뭐 때문에 그러시죠?")
 				.answerType(AnswerType.N)
 				.chatType(ChatType.A)
-				.finYn("N")
 				.build();
 		chattingListRepository.save(chattingList2);
 
@@ -83,7 +80,6 @@ public class ChattingTest {
 				.message("직무가 나랑 안맞아.")
 				.answerType(AnswerType.N)
 				.chatType(ChatType.M)
-				.finYn("N")
 				.build();
 		
 		chattingListRepository.save(chattingList3);
@@ -94,22 +90,13 @@ public class ChattingTest {
 				.message("리포트 입니다......")
 				.answerType(AnswerType.R)
 				.chatType(ChatType.A)
-				.finYn("N")
 				.build();
 		
 		chattingListRepository.save(chattingList4);
 
-		chattingListRepository.updateFinYnNative(savedChatting.getId(), "Y");		
-		em.clear();
 		
 		List<ChattingList> savedChattingList = chattingListRepository.findByChattingId(savedChatting.getId());
-		
-		
-		for(ChattingList chatList : savedChattingList)
-		{
-			assertThat(chatList.getFinYn()).isEqualTo("Y");
-		}
-				
+			
 		
 		for(int i=0; i<savedChattingList.size(); i++)
 		{

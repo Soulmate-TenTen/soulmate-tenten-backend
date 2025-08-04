@@ -1,9 +1,6 @@
 package com.ten.soulmate.auth.service;
 
-import java.util.Map;
 import java.util.Optional;
-
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import com.ten.soulmate.auth.dto.LoginDto;
@@ -32,23 +29,26 @@ public class AuthService {
 			
 		try {
 			
-			Optional<Member> member = memberRepository.findByEmail(request.getEmail());
+			Optional<Member> member = memberRepository.findByName(request.getName());			
+					
 			if(!member.isPresent())
 			{
 				Member newMember = Member.builder()
-									.email(request.getEmail())
 									.pw("kakao")
 									.name(request.getName())
 									.role(MemberType.USER)
 									.build();
 				
-				response.setMemberId(memberRepository.saveAndFlush(newMember).getId());
+				Long newMemberId = memberRepository.saveAndFlush(newMember).getId();
+				response.setMemberId(newMemberId);
+				
+				
 				response.setNewMemberYn("Y");
 				
 				//모든 사용자는 첫 로그인 시 채팅방이 하나 생성되어야 한다.
 				Chatting chatting = Chatting.builder()
 									.member(newMember).build();
-				chattingRepository.save(chatting);
+				chattingRepository.save(chatting);											
 				
 			}else {
 				response.setMemberId(member.get().getId());

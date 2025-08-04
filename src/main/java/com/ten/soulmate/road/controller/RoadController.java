@@ -31,7 +31,7 @@ public class RoadController {
 		
 	@Operation(summary = "기로 리스트 API", description = "선택한 날짜의 기로 리스트")
 	@ApiResponses(value = {			
-			@ApiResponse(responseCode = "200", description = "회원 인증 성공.",content = @Content(schema = @Schema(implementation = GetRoadResponseDto.class))),
+			@ApiResponse(responseCode = "200", description = "기로 리스트 조회 성공.",content = @Content(schema = @Schema(implementation = GetRoadResponseDto.class))),
 			@ApiResponse(responseCode = "400", description = "기로 리스트 조회 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
 	})
 	@GetMapping("/getRoadList")
@@ -52,6 +52,7 @@ public class RoadController {
 		log.info("==================================[ CheckCalendarRoadDay  ]==================================");	
 		return roadService.CheckCalendarRoadDay(request);
 	}
+	
 	
 	
 }

@@ -44,7 +44,6 @@ public class RoadTest {
 	void saveAndFindRoadWithRevies()
 	{
 		Member member = Member.builder()
-				.email("test@test.com")
 				.pw("1234")
 				.role(MemberType.USER)
 				.name("테스트")
@@ -67,7 +66,6 @@ public class RoadTest {
 				.message("리포트 입니다......")
 				.answerType(AnswerType.R)
 				.chatType(ChatType.A)
-				.finYn("N")
 				.build();
 		
 		chattingListRepository.save(chattingList);
