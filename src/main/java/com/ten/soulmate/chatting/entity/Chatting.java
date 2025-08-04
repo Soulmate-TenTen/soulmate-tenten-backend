@@ -43,6 +43,9 @@ public class Chatting {
     @Column(nullable = false, name="createAt")
     private LocalDateTime createAt;
 
+    @Column(length = 10, name="finYn")
+    private String finYn;
+    
     @OneToMany(mappedBy = "chatting", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ChattingList> chattingLists;
 

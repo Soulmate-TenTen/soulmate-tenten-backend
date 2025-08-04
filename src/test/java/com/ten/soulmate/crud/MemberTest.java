@@ -28,7 +28,6 @@ public class MemberTest {
 	void saveAndFindMemberWithMemberAttribute() {
 	
 		Member member = Member.builder()
-						.email("test@test.com")
 						.pw("1234")
 						.role(MemberType.USER)
 						.name("테스트")
@@ -48,7 +47,6 @@ public class MemberTest {
 		
 		MemberAttribute savedMemberAttribute = memberAttributeRepository.save(memberAttribute);
 		
-        assertThat(savedMember.getEmail()).isEqualTo("test@test.com");
         assertThat(savedMember.getRole()).isEqualTo(MemberType.USER);
         assertThat(savedMember.getSoulmateType()).isEqualTo(SoulMateType.F);
 

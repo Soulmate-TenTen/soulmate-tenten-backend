@@ -63,9 +63,6 @@ public class ChattingList {
     @Column(length = 10, name="chatType")
     private ChatType chatType;
 
-    @Column(length = 10, name="finYn")
-    private String finYn;
-
     @OneToMany(mappedBy = "chatList", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Road> roads;
 
