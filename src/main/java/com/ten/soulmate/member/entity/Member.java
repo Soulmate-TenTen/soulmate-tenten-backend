@@ -46,14 +46,11 @@ public class Member {
 	    @Column(nullable = false, length = 50, name="name")
 	    private String name;
 
-	    @Column(length = 200, name="profileImg")
-	    private String profileImg;
-
 	    @Column(length = 50, name="soulmateName")
 	    private String soulmateName;
 
 	    @Enumerated(EnumType.STRING)
-	    @Column(nullable = false, length = 10,  name = "soulmateType")
+	    @Column(length = 10,  name = "soulmateType")
 	    private SoulMateType soulmateType;
 
 	    // 연관관계 매핑 - cascade 포함 (체인 삭제 대응)
