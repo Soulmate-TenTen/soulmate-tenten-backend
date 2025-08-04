@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ten.soulmate.global.dto.ResponseDto;
+import com.ten.soulmate.road.dto.CheckCalendarRoadDto;
+import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDto;
 import com.ten.soulmate.road.dto.GetRoadResponseDto;
 import com.ten.soulmate.road.service.RoadService;
@@ -27,7 +29,7 @@ public class RoadController {
 	
 	private final RoadService roadService;
 		
-	@Operation(summary = "기로 리스트 API", description = "기로 리스트 및 기로 작성 날짜를 ")
+	@Operation(summary = "기로 리스트 API", description = "선택한 날짜의 기로 리스트")
 	@ApiResponses(value = {			
 			@ApiResponse(responseCode = "200", description = "회원 인증 성공.",content = @Content(schema = @Schema(implementation = GetRoadResponseDto.class))),
 			@ApiResponse(responseCode = "400", description = "기로 리스트 조회 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
@@ -39,6 +41,17 @@ public class RoadController {
 		return roadService.getRoadList(request);
 	}
 
+	@Operation(summary = "기로 생성 날짜 리스트 API(켈린더 표시용)", description = "켈린더에 표시하기 위한 해당 월의 기로 날짜 리스트")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "기로 생성 날짜 리스트 조회 성공.",content = @Content(schema = @Schema(implementation = CheckCalendarRoadResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "기로 생성 날짜 리스트 조회 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+	@GetMapping("/checkCalendarRoadDay")
+	public ResponseEntity<?> CheckCalendarRoadDay(@ModelAttribute CheckCalendarRoadDto request)
+	{
+		log.info("==================================[ CheckCalendarRoadDay  ]==================================");	
+		return roadService.CheckCalendarRoadDay(request);
+	}
 	
 	
 }
