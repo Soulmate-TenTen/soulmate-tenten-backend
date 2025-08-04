@@ -1,5 +1,6 @@
 package com.ten.soulmate.road.service;
 
+import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -70,8 +71,9 @@ public class RoadService {
 	
 	public ResponseEntity<?> CheckCalendarRoadDay(CheckCalendarRoadDto request)
 	{		
-		try {
-			List<Integer> dayList = roadRepository.findExistRoadDay(request.getSelectMonth().getYear() , request.getSelectMonth().getMonth().getValue(), request.getMemberId());
+		try {			
+			YearMonth ym = YearMonth.parse(request.getSelectMonth());
+			List<Integer> dayList = roadRepository.findExistRoadDay(ym.getYear() , ym.getMonth().getValue(), request.getMemberId());
 			CheckCalendarRoadResponseDto response = new CheckCalendarRoadResponseDto();			
 			response.setExistsRoadDay(dayList);		
 			log.info("Check Calendar Road Day Success!");
