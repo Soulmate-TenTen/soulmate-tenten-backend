@@ -15,4 +15,9 @@ public interface MemberRepository extends JpaRepository<Member, Long>{
 	@Modifying
 	@Query(value = "UPDATE member SET soulmateType = :type WHERE id = :memberId", nativeQuery = true)
 	void updateSoulMateType(@Param("type") String type, @Param("memberId") Long memberId);
+	
+	
+	@Modifying
+	@Query(value = "UPDATE member SET soulmateName = :soulmateName WHERE id = :memberId", nativeQuery = true)
+	void updateSoulMateName(@Param("soulmateName") String soulmateName, @Param("memberId") Long memberId);
 }

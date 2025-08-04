@@ -11,6 +11,7 @@ import com.ten.soulmate.road.dto.CheckCalendarRoadDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDto;
 import com.ten.soulmate.road.dto.GetRoadResponseDto;
+import com.ten.soulmate.road.dto.RoadCountResponseDto;
 import com.ten.soulmate.road.dto.RoadData;
 import com.ten.soulmate.road.entity.Road;
 import com.ten.soulmate.road.repository.RoadRepository;
@@ -89,4 +90,25 @@ public class RoadService {
 		}		
 	}
 	
+	public ResponseEntity<?> countRoad(Long memberId)
+	{
+		try {
+			
+			RoadCountResponseDto response = new RoadCountResponseDto();
+			response.setRoadCount(roadRepository.countByMemberId(memberId));			
+			
+			log.info("Count Road Success!");
+			
+			return ResponseEntity.ok(response);				
+		} catch(Exception e)
+		{
+			ResponseDto res = new ResponseDto();
+			res.setMessage("Failed");
+			
+			log.error("Count Road Error : "+e.getMessage());
+			
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
+		}
+		
+	}
 }
