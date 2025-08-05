@@ -22,3 +22,19 @@ springdoc:
     path: /swagger-ui.html
     operationsSorter: method
     tagsSorter: alpha
+
+clova:
+  api:
+    url: https://clovastudio.stream.ntruss.com/testapp
+    endpoint:
+      dash: /v3/chat-completions/HCX-DASH-002
+      hcx007: /v3/chat-completions/HCX-007
+      hcx005: /v3/chat-completions/HCX-005
+      summary: /v1/api-tools/summarization/v2
+    key: nv-6d80db4255ae41d987964a1c64a93820nTUJ
+
+soulmate:
+  answer-type:
+    T: 이성을 기반으로 해결책을 제시
+    F: 감정을 기반으로 해결책을 제시
+      
