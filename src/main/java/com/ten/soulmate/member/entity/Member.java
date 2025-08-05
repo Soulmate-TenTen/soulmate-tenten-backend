@@ -16,6 +16,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -65,5 +66,12 @@ public class Member {
 
 	    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
 	    private List<MemberAttribute> memberAttributes;
+	    
+	    @PrePersist
+	    public void setDefaultSoulmateName() {
+	        if (this.soulmateName == null || this.soulmateName.trim().isEmpty()) {
+	            this.soulmateName = "우리";
+	        }
+	    }
 }
 

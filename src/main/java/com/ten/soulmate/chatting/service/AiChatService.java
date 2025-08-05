@@ -107,9 +107,46 @@ public class AiChatService {
     
     //HCX-005
     //정보량 판단용 모델
-    public boolean ResponseCheckMessage()
-    {
-    	return false;
+    public boolean ResponseCheckMessage(AiRequestDto aiRequestDto)
+    {   	
+    	try {
+			String systemPrompt = promptService.getSystemPrompt("CheckPrompt");	     
+	        
+	        Map<String, String> replacements = Map.of(
+    		        "member", aiRequestDto.getMemberName()
+    		    );
+			
+	    	String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+	        
+			HttpHeaders headers = new HttpHeaders();
+	        headers.setContentType(MediaType.APPLICATION_JSON);
+	        headers.set("Authorization", "Bearer "+apiKey);	         	
+	        
+	        Map<String, Object> body = new HashMap<>();
+	         body.put("messages", new Object[] {
+	         		Map.of("role", "system", "content", fullPrompt),
+	                Map.of("role", "user", "content", aiRequestDto.getMessage())
+	         });
+	        
+	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+             ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+hcx005, request, String.class);
+             JsonNode root = objectMapper.readTree(response.getBody());
+             String answer = root.path("result").path("message").path("content").asText();
+			
+             log.info("AI Check Result : "+answer);
+                         
+             if(answer.equals("Yes"))
+            	 return true;
+                          
+             return false;
+             
+		} catch (IOException e) {			
+			log.error("HCX-005-DASH Error : "+e.getMessage());
+			e.printStackTrace();
+			
+			return false;
+		}
+    	
     }
     
     //요약
