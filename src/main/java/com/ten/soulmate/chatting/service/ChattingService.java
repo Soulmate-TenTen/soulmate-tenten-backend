@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
+import com.ten.soulmate.chatting.dto.AiRequestDto;
 import com.ten.soulmate.chatting.dto.ChattingDto;
 import com.ten.soulmate.chatting.dto.ChattingListDto;
 import com.ten.soulmate.chatting.entity.Chatting;
@@ -16,7 +17,10 @@ import com.ten.soulmate.chatting.repository.ChattingListRepository;
 import com.ten.soulmate.chatting.repository.ChattingRepository;
 import com.ten.soulmate.global.type.AnswerType;
 import com.ten.soulmate.global.type.ChatType;
+import com.ten.soulmate.global.type.SoulMateType;
 import com.ten.soulmate.member.entity.Member;
+import com.ten.soulmate.member.entity.MemberAttribute;
+import com.ten.soulmate.member.repository.MemberAttributeRepository;
 import com.ten.soulmate.member.repository.MemberRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +43,8 @@ public class ChattingService {
     private final ChattingRepository chattingRepository;
     private final ChattingListRepository chattingListRepository;
     private final MemberRepository memberRepository;
+    private final MemberAttributeRepository memberAttributeRepository;
+    private final AiChatService aiChatService;
 	
 	//SSE 연결 요청
 	public Flux<String> connect(@RequestParam Long memberId){    	
@@ -51,8 +57,7 @@ public class ChattingService {
                 .doFinally(signalType -> {
                     userSinkMap.remove(memberId);
                     tempChatMap.remove(memberId); 
-                });
-		
+                });		
     }
 	
 	//채팅 로직
@@ -76,8 +81,34 @@ public class ChattingService {
         log.info("SSE Send Success! [memberId : "+memberId+"]");
         
         //여기에 챗봇 로직 추가해야함
-        String aiResponse = "";
+        Member member = memberRepository.findById(memberId).get();
+        MemberAttribute memberAttribute = memberAttributeRepository.findByMemberId(memberId).get();
+        String memberName = member.getName();
+        String soulmateName = member.getSoulmateName();
+        String valueAttribute = memberAttribute.getValueAttribute();
+        String decision = memberAttribute.getDecision();
+        String regret = memberAttribute.getRegret();
+        String decisionTrust = memberAttribute.getDecisionTrust();
+        SoulMateType soulmateType = member.getSoulmateType();
         
+        //1. 대화형 챗봇 로직
+        AiRequestDto aiRequestDto = AiRequestDto.builder()
+        							.message(message)
+        							.memberName(memberName)
+        							.soulmateName(soulmateName)
+        							.valueAttribute(valueAttribute)
+        							.decision(decision)
+        							.regret(regret)
+        							.decisionTrust(decisionTrust)
+        							.soulMateType(soulmateType)
+        							.build();
+        							       
+        
+        String aiResponse = aiChatService.ResponseChatMessage(aiRequestDto);
+        
+        
+        log.info("AI CHAT : "+aiResponse);
+                
         //여기에 정보량 판단 로직 추가하고 판단 결과를 담아야함
         AnswerType AiAnswerType = null;
         
@@ -107,6 +138,9 @@ public class ChattingService {
             sink.tryEmitComplete(); // SSE 종료
             
             log.info("Chatting List Save Success! [memberId : "+memberId+"]");
+            
+            //기로 생성로직 필요
+            
         }
     }
 	 
@@ -132,6 +166,14 @@ public class ChattingService {
                 
         //채팅이 종료되었기 때문에 Chatting의 finYn Y로 변경
 	    chattingRepository.updateFinYnToYByChatId(chatting.getId());
-	        
+	    
+	    //다음 채팅방을 생성
+	    Chatting newChatting = Chatting.builder()
+	    						.member(member)
+	    						.finYn("N")
+	    						.build();
+	    chattingRepository.save(newChatting);
+	    
+	    log.info("New Chatting Room Created!");	        
     }
 }
