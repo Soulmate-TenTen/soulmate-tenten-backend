@@ -2,9 +2,7 @@ package com.ten.soulmate.chatting.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;
-
 import org.hibernate.annotations.CreationTimestamp;
-
 import com.ten.soulmate.member.entity.Member;
 import com.ten.soulmate.road.entity.Road;
 import jakarta.persistence.CascadeType;
@@ -21,7 +19,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 
 @Entity
 @Table(name = "chatting")

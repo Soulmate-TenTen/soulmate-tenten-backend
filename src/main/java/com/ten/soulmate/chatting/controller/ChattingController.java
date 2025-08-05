@@ -1,0 +1,62 @@
+package com.ten.soulmate.chatting.controller;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import com.ten.soulmate.chatting.dto.ChattingDto;
+import com.ten.soulmate.chatting.service.ChattingService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Flux;
+
+@Slf4j
+@RestController
+@RequestMapping("/api/chatting")
+@RequiredArgsConstructor
+@Tag(name = "Chatting API", description = "채팅 관련 API")
+public class ChattingController {
+	
+	private final ChattingService chattingService;
+
+	@Operation( summary = "SSE 연결", description = "SSE 스트림을 통해 AI 챗봇의 실시간 응답을 수신합니다.")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "SSE 연결 성공, text/event-stream 형식으로 응답됨"
+					,content =@Content(mediaType = MediaType.TEXT_EVENT_STREAM_VALUE, schema = @Schema(type = "string")))
+	})
+    @GetMapping(value = "/sse", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<String> connect(@RequestParam("memberId") Long memberId){    
+		log.info("==================================[ SSE Connect  ]==================================");	
+    	log.info("SSE Connection Member Id : "+memberId);
+    	
+		return chattingService.connect(memberId);
+    }
+    
+	@Operation( summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
+			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+		            description = "채팅 요청 정보",
+		            required = true,
+		            content = @Content(schema = @Schema(implementation = ChattingDto.class))
+		        ))
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
+	})
+    @PostMapping("/send")
+    public void chat(@RequestBody ChattingDto request)
+    {
+    	log.info("==================================[ SSE Send  ]==================================");	
+    	log.info("SSE Send Member Id : "+request.getMemberId());
+    	
+    	chattingService.handleChat(request);
+    }
+    
+}
