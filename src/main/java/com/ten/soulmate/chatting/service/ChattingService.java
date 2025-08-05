@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.ten.soulmate.chatting.dto.AiRequestDto;
 import com.ten.soulmate.chatting.dto.ChattingDto;
 import com.ten.soulmate.chatting.dto.ChattingListDto;
+import com.ten.soulmate.chatting.dto.ReportAiResponse;
 import com.ten.soulmate.chatting.entity.Chatting;
 import com.ten.soulmate.chatting.entity.ChattingList;
 import com.ten.soulmate.chatting.repository.ChattingListRepository;
@@ -118,40 +119,53 @@ public class ChattingService {
                        
         //2. 정보량 판단 로직       
         //여기에 정보량 판단 로직 추가하고 판단 결과를 담아야함      
-        String userPrompt = buildUserPrompt(tempChatMap.get(memberId));             
+        String userPrompt = buildUserPrompt(tempChatMap.get(memberId), "HCX-005");             
         aiRequestDto.setMessage(userPrompt);
         AnswerType AiAnswerType = null;      
         
         if(aiChatService.ResponseCheckMessage(aiRequestDto))
         {
-        	AiAnswerType = AnswerType.R;        	
+        	AiAnswerType = AnswerType.R;        
+        	        	
+        	//리포트 생성가능 알림(프론트에 전달)
+        	sink.tryEmitNext("REPORT");       	
+        	       	
         	//리포트 생성로직 필요
+        	String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007"); 
+        	aiRequestDto.setMessage(userPromptReport);
+        	ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);       	        
+        	
+        	
         	
         }
         else {
         	AiAnswerType = AnswerType.N;
         	tempChatMap.get(memberId).add(aiResponseDto);
+            sink.tryEmitNext(aiResponse);
+            
+            // 2. SSE 응답 전송     
+            log.info("SSE AI Response Success! [memberId : "+memberId+"]");
         }
         
         log.info("AI Check Success! [memberId : "+memberId+"]");             
-        
-               
-        // 2. SSE 응답 전송
-        sink.tryEmitNext(aiResponse);
-        
-        log.info("SSE AI Response Success! [memberId : "+memberId+"]");
-        
+                           
         
         // 3. 리포트일 경우 DB 저장
         if (AiAnswerType == AnswerType.R) {
             saveToDB(memberId, tempChatMap.get(memberId));
 
+            //채팅내역 요약
+            String userPromptSummary = buildUserPrompt(tempChatMap.get(memberId), "Summary");
+            aiRequestDto.setMessage(userPromptSummary);
+            aiChatService.ResponseSummaryMessage(aiRequestDto);
+            
             //채팅내역 초기화
             tempChatMap.put(memberId, new ArrayList<>());
             
             log.info("Chatting List Save Success! [memberId : "+memberId+"]");
             
-            //기로 생성로직 필요
+            //기로 생성로직 필요  
+            
             
         }
     }
@@ -188,8 +202,9 @@ public class ChattingService {
 	    log.info("New Chatting Room Created!");	        
     }
 	
-	private String buildUserPrompt(List<ChattingListDto> chattingList) {
+	private String buildUserPrompt(List<ChattingListDto> chattingList, String type) {
 	    StringBuilder userPrompt = new StringBuilder();
+	    
 	    userPrompt.append("--- 대화 시작 ---\n");
 
 	    for (ChattingListDto chat : chattingList) {
@@ -201,9 +216,23 @@ public class ChattingService {
 	    }
 
 	    userPrompt.append("--- 대화 끝 ---\n");
-	    userPrompt.append("이 대화를 바탕으로 보고서를 작성하기에 필요한 정보가 충분한가요?\n");
-	    userPrompt.append("[답변은 answer로만 해주세요]\n");
-
+	    
+	    if(type.equals("HCX-005"))
+	    {
+	    	userPrompt.append("이 대화를 바탕으로 보고서를 작성하기에 필요한 정보가 충분한가요?\n");
+		    userPrompt.append("[답변은 answer로만 해주세요]\n");
+	    }	
+	    
+	    if(type.equals("HCX-007"))
+	    {
+	    	userPrompt.append("이 대화를 바탕으로 보고서를 작성해주세요.");
+	    }	
+	   	    
+	    if(type.equals("Summary"))
+	    {
+	    	userPrompt.append("이 대화를 바탕으로 요약된 제목(title)과 내용(content)을 알려주세요.");
+	    }
+	    
 	    return userPrompt.toString();
 	}
 	

@@ -3,10 +3,10 @@ system : |
   지금부터 당신은 아래 주어진 [부가정보]와 대화 내용을 바탕으로 {member}(user)이 고민중인 선택지 중 한가지를 선택하여 답변해주세요.
 
   [부가정보]
-  - {member}(user)의 삶에서 가장 중요한 가치 하나는 성공 입니다. 
-  - {member}(user)은 결정을 내릴 때 오래 고민하고 결정을 미루는 편입니다.
-  - {member}(user)은 후회할 때 가장 많이 하는 생각은 '어디서부터 잘못된걸까' 입니다.
-  - {member}(user)은 선택 앞에서 가장 믿는 것은 과거 경험 입니다.
+  - {member}(user)의 삶에서 가장 중요한 가치 하나는 {valueAttribute} 입니다. 
+  - {member}(user)은 결정을 내릴 때 {decision} 입니다.
+  - {member}(user)은 후회할 때 가장 많이 하는 생각은 {regret} 입니다.
+  - {member}(user)은 선택 앞에서 가장 믿는 것은 {decisionTrust} 입니다.
 
   <formatting>
   ✅ A안: OO
