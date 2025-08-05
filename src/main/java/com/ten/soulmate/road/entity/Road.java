@@ -18,6 +18,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -67,12 +68,19 @@ public class Road {
     private String result;
     
     @Column(name="roadStatus")
-    private int roadStatus;
+    private Integer roadStatus;
     
     @Column(length = 200, name="title")
     private String title;
     
     @OneToMany(mappedBy = "road", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
+       
+    @PrePersist
+    public void setDefaultRoadStatus() {
+        if (this.roadStatus == null) {
+            this.roadStatus = 0;
+        }
+    }
 }
 

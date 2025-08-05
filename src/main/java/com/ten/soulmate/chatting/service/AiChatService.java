@@ -141,28 +141,112 @@ public class AiChatService {
              return false;
              
 		} catch (IOException e) {			
-			log.error("HCX-005-DASH Error : "+e.getMessage());
+			log.error("HCX-005 Error : "+e.getMessage());
 			e.printStackTrace();
 			
 			return false;
 		}
     	
     }
+
+    //HCX-007
+    //Report용 모델
+    public ReportAiResponse ResponseReportMessage(AiRequestDto aiRequestDto)
+    { 	
+    	ReportAiResponse responseAi = new ReportAiResponse();
+    	try {
+    		
+    		String systemPrompt = promptService.getSystemPrompt("ReportPrompt");
+        	String soulmate = aiRequestDto.getSoulmateName();
+        	String member = aiRequestDto.getMemberName();
+        	String valueAttribute = aiRequestDto.getValueAttribute();
+        	String decision = aiRequestDto.getDecision();
+        	String regret = aiRequestDto.getRegret();
+        	String decisionTrust = aiRequestDto.getDecisionTrust();    		    		
+    		
+	       	Map<String, String> replacements = Map.of(
+	       		        "soulmate", soulmate,
+	       		        "member", member,
+	       		        "valueAttribute", valueAttribute,
+	       		        "decision", decision,
+	       		        "regret", regret,
+	       		        "decisionTrust",decisionTrust
+	       		    );
+	    	String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+
+	    	HttpHeaders headers = new HttpHeaders();
+	         headers.setContentType(MediaType.APPLICATION_JSON);
+	         headers.set("Authorization", "Bearer "+apiKey);
+	         	         
+	         Map<String, Object> body = new HashMap<>();
+	         body.put("messages", new Object[] {
+	         		Map.of("role", "system", "content", fullPrompt),
+	                Map.of("role", "user", "content", aiRequestDto.getMessage())
+	         });
+	         body.put("thinking.effort", "high");
+	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+	         ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+hcx007, request, String.class);
+             JsonNode root = objectMapper.readTree(response.getBody());
+             String content = root.path("result").path("message").path("content").asText();
+             String thinkingContent = root.path("result").path("message").path("thinkingContent").asText();                                             
+             responseAi.setContent(content);
+             responseAi.setThinkingContent(thinkingContent);
+             
+             log.info("HCX-007 Content : "+content);
+             log.info("======================================================================================");
+             log.info("HCX-007 Thinking Content : "+thinkingContent);	       	    		
+    	}    	
+    	catch(Exception e)
+    	{
+    		responseAi.setContent(null);
+            responseAi.setThinkingContent(null);
+            
+            log.error("HCX-007 Error : "+e.getMessage());
+    	}
+    	return responseAi;
+    }   
+
     
     //요약
     //내용 요약 모델
-    public SummaryAiResponse ResponseSummaryMessage()
+    public SummaryAiResponse ResponseSummaryMessage(AiRequestDto aiRequestDto)
     {
-    	return new SummaryAiResponse();
-    }
-    
-    //HCX-007
-    //Report용 모델
-    public ReportAiResponse ResponseReportMessage()
-    {
-    	return new ReportAiResponse();
-    }
-    
-    
+    	SummaryAiResponse reponse =new SummaryAiResponse();    	
+    	
+    	try {
+			String systemPrompt = promptService.getSystemPrompt("SummaryPrompt");
 
+	        Map<String, String> replacements = Map.of(
+    		        "soulmate", aiRequestDto.getSoulmateName(),
+    		        "member", aiRequestDto.getMemberName()
+    		    );
+			
+	    	String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+	        
+			HttpHeaders headers = new HttpHeaders();
+	        headers.setContentType(MediaType.APPLICATION_JSON);
+	        headers.set("Authorization", "Bearer "+apiKey);	         	
+	        
+	        Map<String, Object> body = new HashMap<>();
+	         body.put("messages", new Object[] {
+	         		Map.of("role", "system", "content", fullPrompt),
+	                Map.of("role", "user", "content", aiRequestDto.getMessage())
+	         });
+	        
+	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+             ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+hcx005, request, String.class);
+             JsonNode root = objectMapper.readTree(response.getBody());
+             String answer = root.path("result").path("message").path("content").asText();
+             	
+             log.info("Summary Content : "+answer);
+             
+		} catch (IOException e) {			
+			log.error("HCX-002-DASH Error : "+e.getMessage());
+			e.printStackTrace();
+
+		}
+    	    	
+    	return reponse;
+    }
+    
 }
