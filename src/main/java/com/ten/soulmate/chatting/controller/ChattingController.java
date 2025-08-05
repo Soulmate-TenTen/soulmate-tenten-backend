@@ -33,7 +33,7 @@ public class ChattingController {
 			@ApiResponse(responseCode = "200", description = "SSE 연결 성공, text/event-stream 형식으로 응답됨"
 					,content =@Content(mediaType = MediaType.TEXT_EVENT_STREAM_VALUE, schema = @Schema(type = "string")))
 	})
-    @GetMapping(value = "/sse", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/sse/connect", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<String> connect(@RequestParam("memberId") Long memberId){    
 		log.info("==================================[ SSE Connect  ]==================================");	
     	log.info("SSE Connection Member Id : "+memberId);
@@ -50,7 +50,7 @@ public class ChattingController {
 	@ApiResponses(value = {			
 			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
 	})
-    @PostMapping("/send")
+    @PostMapping("/sse/send")
     public void chat(@RequestBody ChattingDto request)
     {
     	log.info("==================================[ SSE Send  ]==================================");	
@@ -58,5 +58,20 @@ public class ChattingController {
     	
     	chattingService.handleChat(request);
     }
+	
+	@Operation(
+	    summary = "SSE 연결 종료",
+	    description = "클라이언트 로그아웃 시 SSE 연결을 종료합니다."
+	)
+	@ApiResponses(value = {
+	    @ApiResponse(responseCode = "200", description = "SSE 연결 종료 성공")
+	})
+	@PostMapping("/sse/close")
+	public void closeSse(@RequestParam("memberId") Long memberId) {
+	    log.info("==================================[ SSE Close  ]==================================");
+	    log.info("SSE Close Member Id : " + memberId);
+
+	    chattingService.disconnect(memberId);
+	}
     
 }

@@ -15,6 +15,6 @@ public interface ChattingRepository extends JpaRepository<Chatting, Long>{
 	Optional<Chatting> findActiveChatting(@Param("memberId") Long memberId);
 	
 	@Modifying
-	@Query("UPDATE Chatting c SET c.finYn = 'Y' WHERE c.id = :chatId")
+	@Query(value = "UPDATE chatting SET finYn = 'Y' WHERE id = :chatId",nativeQuery = true)
 	void updateFinYnToYByChatId(@Param("chatId") Long chatId);
 }

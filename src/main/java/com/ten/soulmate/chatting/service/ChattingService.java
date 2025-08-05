@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.transaction.annotation.Transactional;
 import com.ten.soulmate.chatting.dto.AiRequestDto;
 import com.ten.soulmate.chatting.dto.ChattingDto;
 import com.ten.soulmate.chatting.dto.ChattingListDto;
@@ -22,12 +22,10 @@ import com.ten.soulmate.member.entity.Member;
 import com.ten.soulmate.member.entity.MemberAttribute;
 import com.ten.soulmate.member.repository.MemberAttributeRepository;
 import com.ten.soulmate.member.repository.MemberRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Sinks;
-
 
 @Slf4j
 @Service
@@ -47,7 +45,7 @@ public class ChattingService {
     private final AiChatService aiChatService;
 	
 	//SSE 연결 요청
-	public Flux<String> connect(@RequestParam Long memberId){    	
+	public Flux<String> connect(Long memberId){    	
         Sinks.Many<String> sink = Sinks.many().unicast().onBackpressureBuffer();
 		userSinkMap.put(memberId, sink);
         tempChatMap.put(memberId, new ArrayList<>());
@@ -61,6 +59,7 @@ public class ChattingService {
     }
 	
 	//채팅 로직
+	@Transactional
 	public void handleChat(ChattingDto request) {
         Long memberId = request.getMemberId();
         String message = request.getQuestion();
@@ -106,36 +105,49 @@ public class ChattingService {
         
         String aiResponse = aiChatService.ResponseChatMessage(aiRequestDto);
         
-        
         log.info("AI CHAT : "+aiResponse);
-                
-        //여기에 정보량 판단 로직 추가하고 판단 결과를 담아야함
-        AnswerType AiAnswerType = null;
         
         ChattingListDto aiResponseDto = ChattingListDto.builder()
                 .chatting(null)
                 .member(null)
                 .message(aiResponse)
                 .createAt(LocalDateTime.now())
-                .answerType(AiAnswerType)
+                .answerType(AnswerType.N)
                 .chatType(ChatType.A)
-                .build();
+                .build(); 
+                       
+        //2. 정보량 판단 로직       
+        //여기에 정보량 판단 로직 추가하고 판단 결과를 담아야함      
+        String userPrompt = buildUserPrompt(tempChatMap.get(memberId));             
+        aiRequestDto.setMessage(userPrompt);
+        AnswerType AiAnswerType = null;      
         
+        if(aiChatService.ResponseCheckMessage(aiRequestDto))
+        {
+        	AiAnswerType = AnswerType.R;        	
+        	//리포트 생성로직 필요
+        	
+        }
+        else {
+        	AiAnswerType = AnswerType.N;
+        	tempChatMap.get(memberId).add(aiResponseDto);
+        }
         
-        tempChatMap.get(memberId).add(aiResponseDto);
+        log.info("AI Check Success! [memberId : "+memberId+"]");             
         
+               
         // 2. SSE 응답 전송
         sink.tryEmitNext(aiResponse);
         
         log.info("SSE AI Response Success! [memberId : "+memberId+"]");
         
         
-        // 3. 리포트일 경우 DB 저장 + SSE 종료
-        if (aiResponseDto.getAnswerType() == AnswerType.R) {
+        // 3. 리포트일 경우 DB 저장
+        if (AiAnswerType == AnswerType.R) {
             saveToDB(memberId, tempChatMap.get(memberId));
-            userSinkMap.remove(memberId);
-            tempChatMap.remove(memberId);
-            sink.tryEmitComplete(); // SSE 종료
+
+            //채팅내역 초기화
+            tempChatMap.put(memberId, new ArrayList<>());
             
             log.info("Chatting List Save Success! [memberId : "+memberId+"]");
             
@@ -144,8 +156,7 @@ public class ChattingService {
         }
     }
 	 
-	@Transactional
-	private void saveToDB(Long memberId, List<ChattingListDto> chatList) {
+	public void saveToDB(Long memberId, List<ChattingListDto> chatList) {
         Member member = memberRepository.findById(memberId)
             .orElseThrow(() -> new RuntimeException("회원을 찾을 수 없습니다."));
 
@@ -176,4 +187,35 @@ public class ChattingService {
 	    
 	    log.info("New Chatting Room Created!");	        
     }
+	
+	private String buildUserPrompt(List<ChattingListDto> chattingList) {
+	    StringBuilder userPrompt = new StringBuilder();
+	    userPrompt.append("--- 대화 시작 ---\n");
+
+	    for (ChattingListDto chat : chattingList) {
+	        if (chat.getChatType() == ChatType.M) {
+	            userPrompt.append("User : ").append(chat.getMessage()).append("\n");
+	        } else if (chat.getChatType() == ChatType.A) {
+	            userPrompt.append("Assistant : ").append(chat.getMessage()).append("\n");
+	        }
+	    }
+
+	    userPrompt.append("--- 대화 끝 ---\n");
+	    userPrompt.append("이 대화를 바탕으로 보고서를 작성하기에 필요한 정보가 충분한가요?\n");
+	    userPrompt.append("[답변은 answer로만 해주세요]\n");
+
+	    return userPrompt.toString();
+	}
+	
+	public void disconnect(Long memberId) {
+	    if (userSinkMap.containsKey(memberId)) {
+	        userSinkMap.get(memberId).tryEmitComplete(); // 스트림 종료
+	        userSinkMap.remove(memberId);                // Sink 제거
+	        tempChatMap.remove(memberId);                // 채팅 내용 초기화
+
+	        log.info("SSE Disconnected. [memberId : {}]", memberId);
+	    } else {
+	        log.warn("No SSE Connection found to close for memberId : {}", memberId);
+	    }
+	}
 }

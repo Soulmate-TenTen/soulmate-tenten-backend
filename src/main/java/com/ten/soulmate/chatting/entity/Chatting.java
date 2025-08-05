@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -48,4 +49,13 @@ public class Chatting {
 
     @OneToMany(mappedBy = "chatting", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Road> roads;
+
+    @PrePersist
+    public void prePersist() {
+        if (this.finYn == null) {
+            this.finYn = "N";
+        }
+    }
+
 }
+
