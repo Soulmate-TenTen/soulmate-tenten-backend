@@ -3,16 +3,20 @@ package com.ten.soulmate.road.service;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
+import com.ten.soulmate.road.dto.GetRoadDetailResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDto;
 import com.ten.soulmate.road.dto.GetRoadResponseDto;
 import com.ten.soulmate.road.dto.RoadCountResponseDto;
 import com.ten.soulmate.road.dto.RoadData;
+import com.ten.soulmate.road.dto.SaveRoadDto;
 import com.ten.soulmate.road.entity.Road;
 import com.ten.soulmate.road.repository.RoadRepository;
 import lombok.RequiredArgsConstructor;
@@ -92,8 +96,7 @@ public class RoadService {
 	
 	public ResponseEntity<?> countRoad(Long memberId)
 	{
-		try {
-			
+		try {			
 			RoadCountResponseDto response = new RoadCountResponseDto();
 			response.setRoadCount(roadRepository.countByMemberId(memberId));			
 			
@@ -111,4 +114,62 @@ public class RoadService {
 		}
 		
 	}
+	
+	public ResponseEntity<?> getRoadDetail(Long roadId)
+	{
+		try {
+			Optional<Road> road = roadRepository.findById(roadId);
+						
+			GetRoadDetailResponseDto response = GetRoadDetailResponseDto.builder()
+												.thinkingContent(road.get().getThinkinContent())
+												.conclusion(road.get().getConclusion())
+												.titleA(road.get().getTitleA())
+												.contentA(road.get().getAnswerA())
+												.titleB(road.get().getTitleB())
+												.contentB(road.get().getAnswerB())
+												.result(road.get().getResult())
+												.review(road.get().getReview())
+												.build();
+			return ResponseEntity.ok(response);							
+		} catch(Exception e)
+		{
+			ResponseDto res = new ResponseDto();
+			res.setMessage("Failed");
+			log.error("Get Road Detail Error : "+e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
+		}
+	}
+	
+	@Transactional
+	public ResponseEntity<?> saveRoad(SaveRoadDto request)
+	{
+		ResponseDto res = new ResponseDto();
+		try {
+			
+			Optional<Road> road = roadRepository.findById(request.getId());		
+			//선택만 했을 경우 상태를 1로 갱신
+			if (request.getResult() != null && !request.getResult().isBlank()) {
+			    
+			    // 선택만 했을 경우 (회고 없음)
+			    if (request.getReview() == null || request.getReview().isBlank()) {
+			        road.get().updateResult(request.getResult());
+			    }
+
+			    // 선택 + 회고 모두 작성했을 경우
+			    else {
+			        road.get().updateResultAndReview(request.getResult(), request.getReview());
+			    }
+			}
+			res.setMessage("Success");
+			return ResponseEntity.ok(res);
+			
+		} catch(Exception e)
+		{
+			res.setMessage("Failed");
+			log.error("Save Road : "+e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
+		}
+						
+	}
+	
 }

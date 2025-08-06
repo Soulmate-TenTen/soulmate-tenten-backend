@@ -3,15 +3,20 @@ package com.ten.soulmate.road.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
+import com.ten.soulmate.road.dto.GetRoadDetailResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDto;
 import com.ten.soulmate.road.dto.GetRoadResponseDto;
 import com.ten.soulmate.road.dto.RoadCountResponseDto;
+import com.ten.soulmate.road.dto.SaveRoadDto;
 import com.ten.soulmate.road.service.RoadService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -59,13 +64,36 @@ public class RoadController {
 	@ApiResponses(value = {			
 			@ApiResponse(responseCode = "200", description = "기로 카운트 성공.",content = @Content(schema = @Schema(implementation = RoadCountResponseDto.class))),
 			@ApiResponse(responseCode = "400", description = "기로 카운트 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
-	})
+	})	
 	@GetMapping("/countRoad")
 	public ResponseEntity<?> countRoad(@RequestParam("memberId") Long memberId)
 	{
 		log.info("==================================[ countRoad  ]==================================");	
 		return roadService.countRoad(memberId);
 	}
+		
+	@Operation(summary = "기로 상세 조회 API", description = "선택한 기로의 상세 조회, 리포트 생성 후 첫 화면")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "기로 상세 조회 성공.",content = @Content(schema = @Schema(implementation = GetRoadDetailResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "기로 상세 조회 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+	@GetMapping("/getRoadDetail")
+	public ResponseEntity<?> getRoadDetail(@RequestParam("roadId") Long roadId)
+	{
+		log.info("==================================[ getReport  ]==================================");	
+		return roadService.getRoadDetail(roadId);
+	}
 	
+	@Operation(summary = "기로 저장 API", description = "기로의 선택과 회고를 저장")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "기로 저장 성공.",content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "기로 저장 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+	@PatchMapping("/saveRoad")
+	public ResponseEntity<?> saveRoad(@RequestBody SaveRoadDto request)
+	{
+		log.info("==================================[ saveRoad  ]==================================");	
+		return roadService.saveRoad(request);
+	}
 	
 }
