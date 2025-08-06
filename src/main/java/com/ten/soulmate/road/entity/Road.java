@@ -77,13 +77,23 @@ public class Road {
     
     @Column(length = 100, name="titleB")
     private String titleB;
-    
-    
+       
     @PrePersist
     public void setDefaultRoadStatus() {
         if (this.roadStatus == null) {
             this.roadStatus = 0;
         }
+    }
+    
+    public void updateResult(String result) {
+        this.result = result;
+        this.roadStatus = 1;  // 선택만 했을 때
+    }
+
+    public void updateResultAndReview(String result, String review) {
+        this.result = result;
+        this.review = review;
+        this.roadStatus = 2;  // 선택과 회고 둘 다 했을 때
     }
 }
 

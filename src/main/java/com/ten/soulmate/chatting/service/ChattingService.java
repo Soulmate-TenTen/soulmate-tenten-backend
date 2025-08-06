@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
@@ -152,8 +153,6 @@ public class ChattingService {
                     .chatType(ChatType.A)
                     .build();       	
         	        	
-        	//chatId 전달
-        	sink.tryEmitNext("chatId : "+chattingRepository.findActiveChatting(memberId).get().getId());  
         	
         	//리포트 내역 넣기
         	tempChatMap.get(memberId).add(aiResponseDtoReport);
@@ -178,7 +177,10 @@ public class ChattingService {
             aiRequestDto.setMessage(userPromptSummary);
             SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
         	        	
-            saveToDB(memberId, tempChatMap.get(memberId),summary, reportData);
+            Long roadId =saveToDB(memberId, tempChatMap.get(memberId),summary, reportData);
+              
+            //roadId 전달
+        	sink.tryEmitNext("roadId : "+roadId);  
             
             //채팅내역 초기화
             tempChatMap.put(memberId, new ArrayList<>());
@@ -188,7 +190,7 @@ public class ChattingService {
         }
     }
 	 
-	public void saveToDB(Long memberId, List<ChattingListDto> chatList, SummaryAiResponse summary, ReportAiResponse reportData) {
+	public Long saveToDB(Long memberId, List<ChattingListDto> chatList, SummaryAiResponse summary, ReportAiResponse reportData) {
         Member member = memberRepository.findById(memberId)
             .orElseThrow(() -> new RuntimeException("회원을 찾을 수 없습니다."));
 
@@ -233,11 +235,7 @@ public class ChattingService {
 	    			.thinkinContent(reportData.getThinkingContent())
 	    			.build();
 	    
-	    roadRepository.save(road);
-
-	    //로드 상세
-	    //회고 작성
-	    //프롬프트 수정	    	    
+	   return roadRepository.saveAndFlush(road).getId();    	    
     }
 	
 	private String buildUserPrompt(List<ChattingListDto> chattingList, String type) {
