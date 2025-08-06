@@ -92,4 +92,22 @@ public class ChattingController {
 	
 		return chattingService.getChattingList(roadId);
 	}
+	
+	
+	@Operation(
+		    summary = "채팅 중 중간에 나갔을 때(대화 내용 초기화)",
+		    description = "채팅 중 리포트가 생성되지 않고 나간다면 대화가 초기화 됩니다."
+		)
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "채팅 초기화 성공.",content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "채팅 초기화 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+	@GetMapping("/reset")
+	public ResponseEntity<?> chattingReset(@RequestParam("memberId") Long memberId)
+	{
+	    log.info("==================================[ Chatting Reset  ]==================================");
+	    
+	    return chattingService.chattingReset(memberId);
+	}
+	
 }

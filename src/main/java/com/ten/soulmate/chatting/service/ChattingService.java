@@ -7,13 +7,10 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.ten.soulmate.chatting.dto.AiRequestDto;
 import com.ten.soulmate.chatting.dto.ChattingDto;
 import com.ten.soulmate.chatting.dto.ChattingListDto;
@@ -35,7 +32,6 @@ import com.ten.soulmate.member.repository.MemberAttributeRepository;
 import com.ten.soulmate.member.repository.MemberRepository;
 import com.ten.soulmate.road.entity.Road;
 import com.ten.soulmate.road.repository.RoadRepository;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
@@ -332,4 +328,23 @@ public class ChattingService {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
 		}
 	}
+	
+	public ResponseEntity<?> chattingReset(Long memberId)
+	{		
+		ResponseDto res = new ResponseDto();
+		try {		
+            tempChatMap.put(memberId, new ArrayList<>());
+            
+			log.info("Chatting Reset Success!");
+
+			res.setMessage("Success");
+			return ResponseEntity.ok(res);
+		} catch(Exception e)
+		{
+			res.setMessage("Failed");
+			log.error("Chatting Reset Error : "+e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
+		}
+	}
+	
 }
