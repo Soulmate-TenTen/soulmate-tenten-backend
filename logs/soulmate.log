@@ -2174,3 +2174,424 @@ java.util.NoSuchElementException: No value present
 2025-08-06 16:08:16 [http-nio-7777-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 526 ms
 2025-08-06 16:08:22 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ Get ChattingList  ]==================================
 2025-08-06 16:08:22 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - Get Chatting List Success!
+2025-08-06 16:18:48 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 24556 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-06 16:18:48 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-06 16:18:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-06 16:18:49 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 153 ms. Found 5 JPA repository interfaces.
+2025-08-06 16:18:50 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-06 16:18:50 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-06 16:18:50 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-06 16:18:50 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-06 16:18:50 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-06 16:18:50 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2279 ms
+2025-08-06 16:18:51 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-06 16:18:51 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-06 16:18:51 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-06 16:18:51 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-06 16:18:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-06 16:18:52 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4888d1ea
+2025-08-06 16:18:52 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-06 16:18:52 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-06 16:18:52 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-06 16:18:53 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06 16:18:53 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-06 16:18:54 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-06 16:18:54 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-06 16:18:55 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-06 16:18:55 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-06 16:18:55 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 7.627 seconds (process running for 8.114)
+2025-08-06 16:29:58 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 18452 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-06 16:29:58 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-06 16:29:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-06 16:29:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 134 ms. Found 5 JPA repository interfaces.
+2025-08-06 16:30:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-06 16:30:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-06 16:30:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-06 16:30:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-06 16:30:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-06 16:30:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1815 ms
+2025-08-06 16:30:00 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-06 16:30:00 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-06 16:30:00 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-06 16:30:00 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-06 16:30:00 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-06 16:30:01 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@41f23499
+2025-08-06 16:30:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-06 16:30:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-06 16:30:01 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-06 16:30:02 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06 16:30:02 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-06 16:30:03 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-06 16:30:03 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-06 16:30:04 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-06 16:30:04 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-06 16:30:04 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 6.661 seconds (process running for 7.129)
+2025-08-06 16:30:10 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-06 16:30:10 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-06 16:30:10 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-06 16:30:11 [http-nio-7777-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 532 ms
+2025-08-06 16:30:18 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Connect  ]==================================
+2025-08-06 16:30:18 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - SSE Connection Member Id : 3
+2025-08-06 16:30:18 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-06 16:30:49 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:30:49 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:30:49 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:30:52 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - AI CHAT : 힐링을 위한 여행지를 찾고 계시는군요! 자연과 문화가 어우러진 몇 가지 장소를 추천드릴게요.
+
+1. **제주도**: 아름다운 해변, 한라산 등 자연 경관이 뛰어나며 다양한 액티비티를 즐길 수 있습니다.
+2. **강원도 속초**: 동해안의 맑은 바다와 설악산의 웅장한 산세를 동시에 경험할 수 있는 곳입니다.
+3. **경주**: 한국의 역사와 문화를 느낄 수 있는 곳으로,
+2025-08-06 16:30:52 [http-nio-7777-exec-6] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 16:30:52 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 16:30:52 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:31:15 [http-nio-7777-exec-7] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:31:15 [http-nio-7777-exec-7] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:31:15 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:31:17 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - AI CHAT : 2박 3일의 짧은 기간이라면 제주도도 충분히 좋은 선택이 될 수 있습니다. 제주도는 다양한 관광 명소와 맛집, 그리고 여유로운 산책로 등이 잘 갖춰져 있어 짧은 시간 안에도 알찬 여행을 즐기실 수 있을 것입니다. 다만, 이동 시간을 고려하여 계획을 세우시면 더욱 효율적으로 여행하실 수 있으니 참고하시기 바랍니다. 또한, 코로나19 상황에 따른 방역 지침도 확인하시고 안전한 여행을 계획하시기를 권장드립니다.
+2025-08-06 16:31:17 [http-nio-7777-exec-7] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 16:31:17 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 16:31:17 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:31:48 [http-nio-7777-exec-8] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:31:48 [http-nio-7777-exec-8] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:31:48 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:31:50 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - AI CHAT : 혼자 떠나는 여행도 충분히 매력적입니다. 혼자 여행하면 자기 자신과의 교감을 통해 내면을 돌아보고, 자유로운 분위기 속에서 새로운 경험을 쌓을 수 있습니다. 
+
+다만, 혼자 여행할 때는 안전이 가장 중요합니다. 특히 낯선 지역에서는 사전에 충분한 정보를 수집하고, 비상 연락망을 확보하며, 현지 법규와 관습을 숙지해야 합니다. 또, 혼자 다니는 만큼 스스로를 보호하기 위해 주변 환경에 대한 경계심을 늦추지
+2025-08-06 16:31:51 [http-nio-7777-exec-8] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 16:31:51 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 16:31:51 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:32:24 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:32:24 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:32:24 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:32:25 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님께서 최근에 힐링이 필요해서 여행을 가고 싶어 하셨고, 그중에서 2박 3일로 제주도를 가볼까 고민 중이라고 말씀하셨습니다. 혼자 가는 여행이지만 충분히 괜찮으며, 안전에 유의하면서 즐거운 여행 되시길 바랍니다.
+2025-08-06 16:32:26 [http-nio-7777-exec-10] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 16:32:26 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 16:32:26 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:32:51 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:32:51 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:32:51 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:32:53 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - AI CHAT : 혼자 제주도로 여행을 가신다면 다음과 같은 활동을 추천드립니다:
+
+1. **자연 탐방**: 한라산 국립공원이나 성산일출봉, 섭지코지 등을 방문하여 제주의 자연을 만끽하세요. 특히 한라산은 다양한 등산로가 있어 자신의 체력에 맞게 선택할 수 있습니다.
+2. **오름 오르기**: 제주도에는 많은 오름이 있으며, 비교적 쉬운 오름부터 도전해보시는 것도 좋습니다. 오름을 오르면서
+2025-08-06 16:32:53 [http-nio-7777-exec-9] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 16:32:53 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 16:32:53 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:33:22 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:33:22 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:33:22 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:33:24 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - AI CHAT : 제주도에서 산과 바다 중에서 선택하신다면, **한라산과 성산일출봉**을 추천드립니다. 한라산은 제주도의 중심에 위치한 산으로, 다양한 등산로를 통해 멋진 풍경을 감상할 수 있습니다. 정상에서는 제주 전역을 조망할 수 있고, 계절마다 다른 매력을 느낄 수 있습니다. 한편, 성산일출봉은 유네스코 세계자연유산으로 지정된 곳으로, 일출을 보기 좋은 장소로 유명합니다. 이곳에서는 바다
+2025-08-06 16:33:24 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 16:33:24 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 16:33:24 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:33:51 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:33:51 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:33:51 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:33:52 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동님과 저는 총 두 번의 대화를 나누었습니다. 첫 번째 대화에서는 힐링 여행지와 혼자 여행 시 주의사항에 대해 이야기했고, 두 번째 대화에서는 제주도 여행지에 대해 논의했습니다. 추가로 궁금한 점이 있으시면 언제든지 질문해 주세요.
+2025-08-06 16:33:52 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-06 16:34:01 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "산_추천",
+  "answerA": "✅ A안: 한라산 & 성산일출봉\n✅ 가치 일치도: 높음\n이유: 사용자님은 성공을 중요시하며, 한라산 등반은 성취감과 자연 치유 효과를 동시에 제공합니다. 성산일출봉에서의 일출 관람은 새로운 시작을 상징해 동기부여가 됩니다.",
+  
+  "titleB": "바다_비추천",
+  "answerB": "❌ B안: 해변 위주 여행\n❌ 가치 일치도: 낮음\n이유: 바다는 휴식엔 좋으나 단기 여행에선 사진 촬영 외 특별한 성취감 제공이 제한적입니다. 혼자 여행 시 심리적 만족도가 떨어질 수 있습니다.",
+  
+  "conclusion": "홍길동님의 핵심 가치는 '성공'이며,\n과거 경험 기반 신속한 결정 성향을 고려해 볼 때,\n이번 선택에서 후회 가능성이 더 낮은 방향은 A안(한라산 & 성산일출봉)입니다."
+}
+2025-08-06 16:34:01 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-06 16:34:01 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 오늘 사용자와의 대화를 정리해보면, 사용자는 힐링을 위해 여행을 계획 중이고, 특히 제주도에 관심이 많습니다. 처음에는 여행지 추천을 요청했고, 이후 2박 3일 일정으로 제주도 가능 여부, 혼자 여행해도 괜찮은지에 대해 질문했습니다. 이어서 혼자 여행 시 활동 추천을 받았고, 마지막으로 산 vs 바다 중 선택을 부탁했습니다. 총 6번의 대화가 이루어졌습니다.
+
+사용자의 핵심 가치는 '성공'이며, 결정을 미루고 후회할 때 과거의 경험을 신뢰한다는 점을 고려해야 합니다. 현재 사용자가 제주도 여행을 확정하려는 단계이므로, 그의 성향상 이미 얻은 정보와 경험을 기반으로 결론을 내려야 할 시점입니다. 따라서 산과 바다 중 하나를 명확히 추천해주는 것이 도움이 될 것입니다.
+
+대화 흐름 상 사용자는 산과 바다 중 선택을 요구했고, 이전 답변에서 한라산과 성산일출봉을 언급했지만 아직 완전히 결정하지 못한 상태입니다. 사용자의 성공을 중요시하는 성격과 빠른 결정을 유도하기 위해 두 옵션(A안: 산, B안: 바다)을 비교하여 가치 일치도와 이유를 제시해야 합니다. 결론적으로, 사용자의 선호도와 상황을 종합해 볼 때 산(한라산)을 추천하는 것이 더 적합하다고 판단됩니다.
+2025-08-06 16:34:01 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:34:03 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "혼자서 떠나는 제주도 여행, 산 vs 바다 어디가 좋을까요?", "content": "사용자는 힐링을 위해 혼자서 2박 3일 일정으로 제주도를 가려 하며, 산과 바다 중 어느 곳을 방문할지 고민하고 있다. 이에 대해 어시스턴트는 한라산과 성산일출봉을 추천하였다."}
+2025-08-06 16:34:03 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-06 16:34:03 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
+2025-08-06 16:34:38 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Close  ]==================================
+2025-08-06 16:34:38 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - SSE Close Member Id : 3
+2025-08-06 16:34:38 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-06 16:34:59 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - ==================================[ Get ChattingList  ]==================================
+2025-08-06 16:34:59 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - Get Chatting List Success!
+2025-08-06 16:36:11 [http-nio-7777-exec-8] INFO  c.t.s.road.controller.RoadController - ==================================[ getReport  ]==================================
+2025-08-06 16:36:53 [http-nio-7777-exec-10] INFO  c.t.s.road.controller.RoadController - ==================================[ countRoad  ]==================================
+2025-08-06 16:36:53 [http-nio-7777-exec-10] INFO  c.t.s.road.service.RoadService - Count Road Success!
+2025-08-06 16:47:24 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Connect  ]==================================
+2025-08-06 16:47:24 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - SSE Connection Member Id : 3
+2025-08-06 16:47:24 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-06 16:47:54 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:47:54 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:47:54 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:47:55 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 퇴사 결정은 중요한 문제이기 때문에 신중하게 고려해야 합니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 앞으로 어떤 목표를 이루기 위해 퇴사를 생각하고 계신지 궁금합니다.
+2025-08-06 16:47:56 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 16:47:56 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 16:47:56 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:48:42 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:48:42 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:48:42 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:48:44 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 포괄임금제로 인해 추가 수당을 받지 못하는 상황이 힘드셨군요. 이러한 상황에서 퇴사를 고려하시는 것은 충분히 이해가 갑니다.
+
+혹시 다른 회사나 직업을 알아보고 계신다면, 그 분야에서 어떤 조건이 홍길동 님에게 더 적합한지 생각해 보시는 것도 좋을 것 같습니다. 또한, 현재 직장에서 문제를 해결하기 위한 대화가 가능한지도 고려해 보세요. 만약 대화가 어렵거나 변화가 없다면, 새로운 기회를 모색하는 것이 장기적으로 홍길
+2025-08-06 16:48:44 [http-nio-7777-exec-3] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 16:48:44 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 16:48:44 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:49:42 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 16:49:42 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 16:49:42 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 16:49:43 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 가고 싶던 기업에 지원을 앞두고 계시다니 정말 기대가 크실 것 같습니다. 
+
+그럼, 퇴사를 결심하신 후 새로운 직장을 찾기 전까지의 기간 동안 어떻게 시간을 효율적으로 활용하실 계획인지 여쭤봐도 될까요? 또, 혹시 예상되는 재정적인 부분에서의 리스크를 대비하기 위한 계획이 있으신지요?
+2025-08-06 16:49:44 [http-nio-7777-exec-5] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-06 16:49:53 [http-nio-7777-exec-5] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사후집중",
+  "answerA": "✅ A안: 퇴사 후 새 회사 준비\n✅ 가치 일치도: 높음\n이유 : 성공을 최우선시하는 홍길동님에게 원하는 기업 지원을 위해 시간과 자원을 집중 투입하는 전략이 목표 달성 가능성을 높일 것으로 보입니다. 현재 직장의 비효율적 근로조건 개선 여지가 낮아 보이므로, 새로운 기회 탐색 시도가 후회 최소화 방향성과 부합함.",
+  
+  "titleB": "병행준비",
+  "answerB": "❌ B안: 현직장 유지하며 이직 준비\n❌ 가치 일치도: 낮음\n이유 : 시간/체력 한계로 효과적인 준비가 어려운 구조적 문제가 있음. 포괄임금제와 과다업무 지속 시 정신적 피로 누적 및 목표 지연 발생 가능성 높아 성공 추구의 핵심가치 구현 어려움.",
+  
+  "conclusion": "홍길동님의 핵심 가치는 **성공**이며,\n성향상 과감한 결단 필요 시점임을 감안할 때, 현재 환경 제약 극복을 위해서는 A안(퇴사후집중)이 후회 가능성을 낮추는 현실적인 선택지로 판단됩니다."
+}
+2025-08-06 16:49:53 [http-nio-7777-exec-5] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-06 16:49:53 [http-nio-7777-exec-5] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 오늘 사용자가 퇴사 고민을 하고 있어. 주요 이유는 과도한 업무량과 포괄임금제로 인한 추가수당 부재 때문이지. 게다가 원하는 기업에 지원하려면 시간을 투자해야 해서 현재 직장 생활과 병행하기 어려워 보여. 사용자의 핵심 가치는 '성공'이고, 결정을 미루며 과거의 경험을 신뢰한다는 점을 기억해야 해.
+
+먼저 A안은 퇴사 후 새 회사에 집중하는 거야. 이건 성공을 추구하는 사용자에게 맞는 선택일 수 있지. 하지만 리스크가 크고 안정성을 잃게 돼. 반면 B안은 현재 직장을 다니면서 이직을 준비하는 건데, 시간 부족으로 어려울 것 같아. 그러나 경제적 안정은 유지되니까 위험 부담이 적어. 
+
+사용자의 성향을 보면 과감한 결단을 내려야 할 때는 행동을 취하지만, 후회를 피하려 하잖아. 그래서 현재 상황에서는 퇴사가 더 나은 선택처럼 보일 수도 있겠네. 하지만 과거 경험이 중요하니 이전 비슷한 상황을 떠올려 보는 게 도움이 될 거야. 결론적으로는 목표 달성을 위해 퇴사(A안)가 성공 추구에는 맞지만, 리스크 관리 측면에서는 B안이 안전하다는 딜레마가 있겠다. 그래도 사용자의 우선순위가 성공이라면 A안을 추천해야 하지 않을까?
+2025-08-06 16:49:53 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 16:49:55 [http-nio-7777-exec-5] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "퇴사와 이직 준비를 동시에 하기에는 시간적 여유가 부족한 상황입니다.", "content": "홍길동님은 현재 회사에서 야근과 주말출근으로 인한 스트레스와 함께 포괄임금제로 인해 추가수당을 받지 못해 힘든 상황에 처해 있습니다. 이에 따라 퇴사를 고민하며, 원하는 기업의 채용 공고가 떠서 지원을 하고자 하지만 현재 회사를 다니며 준비하기에는 시간이 부족하여 퇴사 후 준비하고자 합니다."}
+2025-08-06 16:49:55 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-06 16:49:55 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
+2025-08-06 16:52:57 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Close  ]==================================
+2025-08-06 16:52:57 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Close Member Id : 3
+2025-08-06 16:52:57 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-06 16:54:55 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - ==================================[ Get ChattingList  ]==================================
+2025-08-06 16:54:55 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - Get Chatting List Success!
+2025-08-06 16:55:15 [http-nio-7777-exec-1] INFO  c.t.s.road.controller.RoadController - ==================================[ getReport  ]==================================
+2025-08-06 17:38:58 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 29812 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-06 17:38:58 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-06 17:38:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-06 17:38:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 134 ms. Found 5 JPA repository interfaces.
+2025-08-06 17:39:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-06 17:39:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-06 17:39:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-06 17:39:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-06 17:39:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-06 17:39:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1980 ms
+2025-08-06 17:39:01 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-06 17:39:01 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-06 17:39:01 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-06 17:39:01 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-06 17:39:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-06 17:39:01 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4888d1ea
+2025-08-06 17:39:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-06 17:39:01 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-06 17:39:02 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-06 17:39:02 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06 17:39:03 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-06 17:39:04 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-06 17:39:04 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-06 17:39:05 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-06 17:39:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-06 17:39:05 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 6.976 seconds (process running for 7.451)
+2025-08-06 17:39:08 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-06 17:39:08 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-06 17:39:08 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-06 17:39:09 [http-nio-7777-exec-7] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 529 ms
+2025-08-06 17:39:18 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Connect  ]==================================
+2025-08-06 17:39:18 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - SSE Connection Member Id : 3
+2025-08-06 17:39:18 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-06 17:39:34 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 17:39:34 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 17:39:34 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 17:39:36 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - AI CHAT : 아직 질문이 없어서 답변을 드릴 수 없습니다. 어떤 음식을 먹고 싶은지, 혹은 무엇을 먹을 계획인지 말씀해 주시면 그에 맞는 추천이나 정보를 제공해 드리겠습니다.
+2025-08-06 17:39:36 [http-nio-7777-exec-5] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 17:39:36 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 17:39:36 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 17:39:59 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ Chatting Reset  ]==================================
+2025-08-06 17:40:20 [http-nio-7777-exec-8] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 17:40:20 [http-nio-7777-exec-8] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 17:40:20 [http-nio-7777-exec-8] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "java.util.List.add(Object)" because the return value of "java.util.Map.get(Object)" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "java.util.List.add(Object)" because the return value of "java.util.Map.get(Object)" is null
+	at com.ten.soulmate.chatting.service.ChattingService.handleChat(ChattingService.java:89)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728)
+	at com.ten.soulmate.chatting.service.ChattingService$$SpringCGLIB$$0.handleChat(<generated>)
+	at com.ten.soulmate.chatting.controller.ChattingController.chat(ChattingController.java:64)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-08-06 17:41:03 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 23884 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-06 17:41:03 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-06 17:41:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-06 17:41:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 132 ms. Found 5 JPA repository interfaces.
+2025-08-06 17:41:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-06 17:41:05 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-06 17:41:05 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-06 17:41:05 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-06 17:41:05 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-06 17:41:05 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1998 ms
+2025-08-06 17:41:05 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-06 17:41:05 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-06 17:41:05 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-06 17:41:06 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-06 17:41:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-06 17:41:06 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@73958426
+2025-08-06 17:41:06 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-06 17:41:06 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-06 17:41:07 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-06 17:41:07 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-06 17:41:07 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-06 17:41:08 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-06 17:41:08 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-06 17:41:09 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-06 17:41:09 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-06 17:41:09 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 7.05 seconds (process running for 7.529)
+2025-08-06 17:41:12 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-06 17:41:12 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-06 17:41:12 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-06 17:41:13 [http-nio-7777-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 551 ms
+2025-08-06 17:41:20 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Connect  ]==================================
+2025-08-06 17:41:20 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Connection Member Id : 3
+2025-08-06 17:41:20 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-06 17:41:34 [http-nio-7777-exec-7] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 17:41:34 [http-nio-7777-exec-7] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 17:41:34 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 17:41:36 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 어떤 일로 피곤함을 느끼셨나요? 휴식이 필요하신가요, 아니면 다른 방법으로 피로를 해소할 방법을 찾고 계신가요?
+2025-08-06 17:41:36 [http-nio-7777-exec-7] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 17:41:36 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 17:41:36 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 17:41:46 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - ==================================[ Chatting Reset  ]==================================
+2025-08-06 17:42:03 [http-nio-7777-exec-8] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 17:42:03 [http-nio-7777-exec-8] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 17:42:03 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 17:42:04 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - AI CHAT : 퇴사를 고려하고 있는 이유가 무엇인가요? 현재 직장에서 느끼는 불만족스러운 점이나, 새로운 기회를 찾고 싶은 마음이 있으신가요? 만약 그렇다면 어떤 종류의 일을 하고 싶으신지 구체적으로 말씀해 주시면 더 나은 조언을 드릴 수 있을 것 같습니다.
+2025-08-06 17:42:04 [http-nio-7777-exec-8] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 17:42:04 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 17:42:04 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 17:42:28 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 17:42:28 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 17:42:28 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 17:42:30 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - AI CHAT : 퇴사 결정은 신중하게 접근해야 할 문제입니다. 포괄임금제로 인해 야근수당을 받지 못하는 것은 큰 스트레스일 것입니다. 먼저, 이러한 문제를 해결하기 위해 회사 측과 협상을 시도해보는 것이 좋을 수 있습니다. 예를 들어, 노동청에 상담을 요청하거나 법적 조언을 구할 수도 있습니다.
+
+그러나 만약 협상이 실패하거나 상황이 개선되지 않는다면, 퇴사를 고려해볼 필요가 있습니다. 새로운 직장을 찾기 전에 자신의 경력 목표와 원하는 업무 환경을
+2025-08-06 17:42:30 [http-nio-7777-exec-9] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 17:42:30 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 17:42:30 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 17:42:57 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 17:42:57 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 17:42:57 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 17:42:59 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - AI CHAT : 퇴사를 고려할 때 몇 가지 중요한 요소를 고려해야 합니다. 첫째로, 현재 직장의 근무 조건이 사용자님의 건강과 행복에 부정적인 영향을 미치고 있다면 이는 매우 심각한 문제입니다. 포괄임금제와 같은 부당한 대우를 받고 있다면, 이를 해결하기 위한 노력이 필요합니다. 하지만 협상이 실패하거나 상황이 나아지지 않는다면, 새로운 직장을 찾는 것도 좋은 선택일 수 있습니다.
+
+또한, 사용자님이 배우고 성장할 기회가 부족하다고 느낀다면, 새로운 환경에서
+2025-08-06 17:42:59 [http-nio-7777-exec-10] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-06 17:42:59 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-06 17:42:59 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 17:43:27 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-06 17:43:27 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-06 17:43:27 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-06 17:43:41 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - AI CHAT : 지인의 회사에서 추천이 들어왔다면, 그 회사의 업무 환경과 문화가 이전 직장보다 나을 가능성이 있는지 조사해보시는 게 좋습니다. 또한, 해당 회사가 제공하는 교육과 성장 기회의 정도도 확인해보시기 바랍니다. 만약 이전 직장과 비교했을 때 더 나은 조건을 제공한다면, 새로운 기회를 받아들이는 것을 고려해 볼 만합니다. 그리고 옮기기 전에는 반드시 면접 등을 통해 직접 경험해 보시고 판단하시는 것이 중요합니다.
+2025-08-06 17:43:42 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-06 17:43:49 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사 후 새 직장",
+  "answerA": "✅ A안: 퇴사 후 지인 추천 회사 입사\n✅ 가치 일치도: 높음\n이유: 현재 직장의 열악한 근무환경(포괄임금제/성장기회 부족)이 사용자의 '성공' 가치를 저해함. 지인 추천 회사는 안정적인 환경과 성장 가능성을 제공할 것으로 예상됨.",
+  
+  "titleB": "현직장 잔류",
+  "answerB": "❌ B안: 현직장에 남아서 문제 해결 시도\n❌ 가치 일치도: 낮음\n이유: 포괄임금제 개선 및 사수 확보가 현실적으로 어려울 경우 시간 낭비될 위험 있음. 지속된 스트레스로 오히려 경력에 부정적 영향 미칠 수 있음.",
+  
+  "conclusion": "홍길동님의 핵심 가치는 **성공**이며,\n성향상 신중한 판단 필요하지만 현 상황에서는 새 직장 입사가 후회 가능성 낮아 보입니다.\n단, 최종 결정 전 반드시 새 회사의 구체적 조건을 확인하고 비교분석하시길 권장합니다."
+}
+2025-08-06 17:43:49 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-06 17:43:49 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 오늘 사용자가 퇴사 고민을 상담했네. 주요 문제는 야근 수당 없는 포괄임금제와 사수의 부재로 인한 커리어 성장 정체야. 사용자는 성공을 중요시하고 결정을 미루며 과거 경험을 신뢰하지. 지인의 추천으로 새 직장 제안도 받았어.
+
+먼저, 현직장 문제 해결 가능성 확인. 협상이나 법적 조치 시도해보라 했으니 그 부분을 강조해야겠어. 그런데 이미 문제가 심각하다면 퇴사가 답일 거야. 새 직장은 지인 추천이라 안정적일 수 있고, 성장 기회도 있을 것 같으니 이 부분도 언급해야 해.
+
+사용자의 핵심 가치가 성공이라면, 장기적인 커리어 발전을 위해 새 직장이 더 유리할 수 있어. 하지만 결정을 미루는 성향이니 서두르지 말고 충분히 검토하라고 조언해야겠다. 결론적으로 현직장 문제 해결이 어렵다면 새 직장으로 이동하는 게 후회가 적을 것 같아.
+2025-08-06 17:43:49 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-06 17:43:51 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "야근과 포괄임금제에 대한 불만으로 인한 퇴사 고민", "content": "사용자는 매일 야근을 하면서 포괄임금제로 인해 야근수당을 받지 못해 스트레스를 받고 있으며, 사수도 없어 커리어 향상에도 도움이 되지 않아 새로운 환경에서 일하고 싶어하며, 지인의 회사에서 추천이 들어와 그쪽으로 이직하고자 하는 고민을 이야기했습니다."}
+2025-08-06 17:43:51 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-06 17:43:51 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
+2025-08-06 17:44:13 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Close  ]==================================
+2025-08-06 17:44:13 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - SSE Close Member Id : 3
+2025-08-06 17:44:13 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-06 17:44:41 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ Get ChattingList  ]==================================
+2025-08-06 17:44:41 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - Get Chatting List Success!
