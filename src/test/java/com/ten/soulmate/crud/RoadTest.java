@@ -15,9 +15,7 @@ import com.ten.soulmate.global.type.MemberType;
 import com.ten.soulmate.global.type.SoulMateType;
 import com.ten.soulmate.member.entity.Member;
 import com.ten.soulmate.member.repository.MemberRepository;
-import com.ten.soulmate.road.entity.Review;
 import com.ten.soulmate.road.entity.Road;
-import com.ten.soulmate.road.repository.ReviewRepository;
 import com.ten.soulmate.road.repository.RoadRepository;
 
 
@@ -26,9 +24,6 @@ public class RoadTest {
 
 	@Autowired
 	RoadRepository roadRepository;
-	
-	@Autowired
-	ReviewRepository reviewRepository;
 	
 	@Autowired
 	MemberRepository memberRepository;
@@ -72,7 +67,6 @@ public class RoadTest {
 		
 		Road road = Road.builder()
 					.chatting(savedChatting)
-					.chatList(chattingList)
 					.member(savedMember)
 					.summary("퇴사때문에 고민을 하고 있습니다.")
 					.answerA("선퇴사를 한다.")
@@ -80,24 +74,15 @@ public class RoadTest {
 					.result("긍정적인 답변")
 					.title("제목")
 					.roadStatus(2)
+					.review("소울이와의 상담을 통해 결국 선퇴사를 결정하기로 했다.")
 					.build();
 		
 		Road savedRoad = roadRepository.save(road);
-		
-		Review review = Review.builder()
-						.road(savedRoad)
-						.member(member)
-						.content("소울이와의 상담을 통해 결국 선퇴사를 결정하기로 했다.")
-						
-						.build();
-		Review savedRevies = reviewRepository.save(review);
-		
+				
 		assertThat(savedRoad.getSummary()).isEqualTo("퇴사때문에 고민을 하고 있습니다.");
 		assertThat(savedRoad.getAnswerA()).isEqualTo("선퇴사를 한다.");
 		assertThat(savedRoad.getAnswerB()).isEqualTo("이직 후 퇴사를 한다.");
 		assertThat(savedRoad.getResult()).isEqualTo("긍정적인 답변");
-
-		assertThat(savedRevies.getContent()).isEqualTo("소울이와의 상담을 통해 결국 선퇴사를 결정하기로 했다.");
 				
 	}
 	

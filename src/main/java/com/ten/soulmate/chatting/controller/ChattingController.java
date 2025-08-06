@@ -28,7 +28,7 @@ public class ChattingController {
 	
 	private final ChattingService chattingService;
 
-	@Operation( summary = "SSE 연결", description = "SSE 스트림을 통해 AI 챗봇의 실시간 응답을 수신합니다.")
+	@Operation( summary = "SSE 연결", description = "SSE 스트림을 통해 AI 챗봇의 실시간 응답을 수신합니다. 만약 응답으로 'REPORT'가 온다면 리포트 생성중입니다.\n리포트 생성이 완료되면 'chatId : 1' 이런 형식으로 chatId값을 드리겠습니다. 이 값은 리포트 조회 API 사용 시 필요합니다.")
 	@ApiResponses(value = {			
 			@ApiResponse(responseCode = "200", description = "SSE 연결 성공, text/event-stream 형식으로 응답됨"
 					,content =@Content(mediaType = MediaType.TEXT_EVENT_STREAM_VALUE, schema = @Schema(type = "string")))

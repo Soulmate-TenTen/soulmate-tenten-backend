@@ -12,9 +12,14 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class ReportAiResponse {
-
-	private String content;
 	
 	private String thinkingContent;
+	
+	private String titleA;
+	private String titleB;
+	private String answerA;
+	private String answerB;
+	private String conclusion;
+
 	
 }

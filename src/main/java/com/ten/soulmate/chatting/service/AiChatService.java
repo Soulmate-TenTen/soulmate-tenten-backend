@@ -153,7 +153,7 @@ public class AiChatService {
     //Report용 모델
     public ReportAiResponse ResponseReportMessage(AiRequestDto aiRequestDto)
     { 	
-    	ReportAiResponse responseAi = new ReportAiResponse();
+    	ReportAiResponse responseAi = null;
     	try {
     		
     		String systemPrompt = promptService.getSystemPrompt("ReportPrompt");
@@ -189,18 +189,35 @@ public class AiChatService {
              JsonNode root = objectMapper.readTree(response.getBody());
              String content = root.path("result").path("message").path("content").asText();
              String thinkingContent = root.path("result").path("message").path("thinkingContent").asText();                                             
-             responseAi.setContent(content);
-             responseAi.setThinkingContent(thinkingContent);
+                         
+             content = cleanJson(content);
              
+             ObjectMapper objectMapper = new ObjectMapper();
+             JsonNode jsonData = objectMapper.readTree(content);
+
+             String titleA = jsonData.get("titleA").asText();
+             String answerA = jsonData.get("answerA").asText();  
+             
+             String titleB = jsonData.get("titleB").asText();    
+             String answerB = jsonData.get("answerB").asText();  
+             
+             String conclusion = jsonData.get("conclusion").asText();    
+                 
+             responseAi = ReportAiResponse.builder()
+            		 						.thinkingContent(thinkingContent)
+            		 						.titleA(titleA)
+            		 						.titleB(titleB)
+            		 						.answerA(answerA)
+            		 						.answerB(answerB)
+            		 						.conclusion(conclusion).build();
+
+          
              log.info("HCX-007 Content : "+content);
              log.info("======================================================================================");
              log.info("HCX-007 Thinking Content : "+thinkingContent);	       	    		
     	}    	
     	catch(Exception e)
-    	{
-    		responseAi.setContent(null);
-            responseAi.setThinkingContent(null);
-            
+    	{            
             log.error("HCX-007 Error : "+e.getMessage());
     	}
     	return responseAi;
@@ -211,7 +228,7 @@ public class AiChatService {
     //내용 요약 모델
     public SummaryAiResponse ResponseSummaryMessage(AiRequestDto aiRequestDto)
     {
-    	SummaryAiResponse reponse =new SummaryAiResponse();    	
+    	SummaryAiResponse responseAi = null;    	
     	
     	try {
 			String systemPrompt = promptService.getSystemPrompt("SummaryPrompt");
@@ -239,14 +256,35 @@ public class AiChatService {
              String answer = root.path("result").path("message").path("content").asText();
              	
              log.info("Summary Content : "+answer);
+            
+             answer = cleanJson(answer);
+             
+             ObjectMapper objectMapper = new ObjectMapper();
+             JsonNode jsonData = objectMapper.readTree(answer);
+
+             String title = jsonData.get("title").asText();
+             String content = jsonData.get("content").asText();           
+             
+             responseAi = SummaryAiResponse.builder()
+            		 		.summaryTitle(title)
+            		 		.summaryContent(content)
+            		 		.build();                       
              
 		} catch (IOException e) {			
-			log.error("HCX-002-DASH Error : "+e.getMessage());
-			e.printStackTrace();
-
+			log.error("HCX-005-Summary Error : "+e.getMessage());
+			e.printStackTrace();			
 		}
     	    	
-    	return reponse;
+    	return responseAi;
     }
     
+    
+    public static String cleanJson(String input) {
+        // 백틱 및 마크다운 태그 제거
+        return input
+                .replaceAll("(?m)^\\s*```[a-zA-Z]*\\s*$", "") // ```json, ``` 등 제거
+                .replaceAll("(?m)^\\s*```\\s*$", "")          // ``` 단독 제거
+                .replaceAll("`", "")                          // inline 백틱 제거
+                .trim();
+    }
 }
