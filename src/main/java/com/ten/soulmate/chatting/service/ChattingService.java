@@ -7,17 +7,25 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.ten.soulmate.chatting.dto.AiRequestDto;
 import com.ten.soulmate.chatting.dto.ChattingDto;
 import com.ten.soulmate.chatting.dto.ChattingListDto;
+import com.ten.soulmate.chatting.dto.ChattingListResponseDto;
+import com.ten.soulmate.chatting.dto.GetChattingListDto;
 import com.ten.soulmate.chatting.dto.ReportAiResponse;
 import com.ten.soulmate.chatting.dto.SummaryAiResponse;
 import com.ten.soulmate.chatting.entity.Chatting;
 import com.ten.soulmate.chatting.entity.ChattingList;
 import com.ten.soulmate.chatting.repository.ChattingListRepository;
 import com.ten.soulmate.chatting.repository.ChattingRepository;
+import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.global.type.AnswerType;
 import com.ten.soulmate.global.type.ChatType;
 import com.ten.soulmate.global.type.SoulMateType;
@@ -290,4 +298,38 @@ public class ChattingService {
 	}
 	
 	
+	public ResponseEntity<?> getChattingList(Long roadId)
+	{
+		try {
+			
+			Optional<Road> road = roadRepository.findById(roadId);
+			Long chatId = road.get().getChatting().getId();
+			
+			List<ChattingList> getChattingList = chattingListRepository.findByChattingId(chatId);
+			List<GetChattingListDto> chattingList = new ArrayList<GetChattingListDto>();
+			
+			for(ChattingList chatting : getChattingList)
+			{
+				GetChattingListDto chat = GetChattingListDto.builder()
+													.chatType(chatting.getChatType())
+													.message(chatting.getMessage())
+													.createAt(chatting.getCreateAt())
+													.build();					
+				chattingList.add(chat);
+			}
+			
+			ChattingListResponseDto chattingDataList = new ChattingListResponseDto();
+			chattingDataList.setChattingList(chattingList);
+			
+			log.info("Get Chatting List Success!");
+			
+			return ResponseEntity.ok(chattingDataList);			
+		} catch(Exception e)
+		{;
+			ResponseDto res = new ResponseDto();
+			res.setMessage("Failed");
+			log.error("Get Chatting List Error : "+e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
+		}
+	}
 }
