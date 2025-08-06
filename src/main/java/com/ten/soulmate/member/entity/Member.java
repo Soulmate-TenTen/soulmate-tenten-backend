@@ -5,7 +5,6 @@ import com.ten.soulmate.chatting.entity.Chatting;
 import com.ten.soulmate.chatting.entity.ChattingList;
 import com.ten.soulmate.global.type.MemberType;
 import com.ten.soulmate.global.type.SoulMateType;
-import com.ten.soulmate.road.entity.Review;
 import com.ten.soulmate.road.entity.Road;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -60,9 +59,6 @@ public class Member {
 
 	    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
 	    private List<Road> roads;
-
-	    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
-	    private List<Review> reviews;
 
 	    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
 	    private List<MemberAttribute> memberAttributes;
