@@ -58,17 +58,38 @@ public class ChattingService {
     private final AiChatService aiChatService;
 	
 	//SSE 연결 요청
-	public Flux<String> connect(Long memberId){    	
+//	private Flux<String> connect(Long memberId){    	
+//        Sinks.Many<String> sink = Sinks.many().unicast().onBackpressureBuffer();
+//		userSinkMap.put(memberId, sink);
+//        tempChatMap.put(memberId, new ArrayList<>());
+//        log.info("SSE Connection Success! [memberId : "+memberId+"]");
+//		
+//        return sink.asFlux()
+//                .doFinally(signalType -> {
+//                    userSinkMap.remove(memberId);
+//                    tempChatMap.remove(memberId); 
+//                });		
+//    }
+    
+    private Flux<String> connect(Long memberId) {
+        // 이미 연결된 sink가 있는 경우, 해당 Flux 그대로 반환
+        if (userSinkMap.containsKey(memberId)) {
+            log.warn("SSE Connection Already Exists! [memberId: {}]", memberId);
+            return userSinkMap.get(memberId).asFlux();
+        }
+
+        // 새 연결 생성
         Sinks.Many<String> sink = Sinks.many().unicast().onBackpressureBuffer();
-		userSinkMap.put(memberId, sink);
+        userSinkMap.put(memberId, sink);
         tempChatMap.put(memberId, new ArrayList<>());
-        log.info("SSE Connection Success! [memberId : "+memberId+"]");
-		
+        log.info("SSE Connection Success! [memberId : {}]", memberId);
+
         return sink.asFlux()
                 .doFinally(signalType -> {
                     userSinkMap.remove(memberId);
-                    tempChatMap.remove(memberId); 
-                });		
+                    tempChatMap.remove(memberId);
+                    log.info("SSE Disconnected! [memberId : {}]", memberId);
+                });
     }
 	
 	//채팅 로직
@@ -76,6 +97,8 @@ public class ChattingService {
 	public void handleChat(ChattingDto request) {
         Long memberId = request.getMemberId();
         String message = request.getQuestion();
+                
+        connect(memberId);       
 
         Sinks.Many<String> sink = userSinkMap.get(memberId);
         if (sink == null) return;
@@ -117,8 +140,8 @@ public class ChattingService {
         							       
         
         String userPromptChat = buildUserPrompt(tempChatMap.get(memberId), "DASH");             
-        aiRequestDto.setMessage(userPromptChat);
-                
+        aiRequestDto.setMessage(userPromptChat);       
+                             
         aiChatService.ResponseChatMessage(aiRequestDto, sink)
         .subscribe(response -> {
             log.info("AI CHAT : " + response);
@@ -143,7 +166,7 @@ public class ChattingService {
 
             if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
                 AiAnswerType = AnswerType.R;
-                sink.tryEmitNext("REPORT");
+                sink.tryEmitNext("REPORT");                                              
 
                 String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
                 aiRequestDto.setMessage(userPromptReport);
@@ -179,6 +202,10 @@ public class ChattingService {
 
                 sink.tryEmitNext("roadId : " + roadId);
                 tempChatMap.put(memberId, new ArrayList<>());
+                
+                //roadId를 보내고 연결종료
+                disconnect(memberId);
+                
                 log.info("Chatting List Save Success! [memberId : " + memberId + "]");
                                
             }
@@ -274,7 +301,7 @@ public class ChattingService {
 	    return userPrompt.toString();
 	}
 	
-	public void disconnect(Long memberId) {
+	private void disconnect(Long memberId) {
 	    if (userSinkMap.containsKey(memberId)) {
 	        userSinkMap.get(memberId).tryEmitComplete(); // 스트림 종료
 	        userSinkMap.remove(memberId);                // Sink 제거
@@ -326,7 +353,8 @@ public class ChattingService {
 	{		
 		ResponseDto res = new ResponseDto();
 		try {		
-            tempChatMap.put(memberId, new ArrayList<>());
+            //tempChatMap.put(memberId, new ArrayList<>());
+            disconnect(memberId);           
             
 			log.info("Chatting Reset Success!");
 
