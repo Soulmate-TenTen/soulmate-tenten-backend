@@ -9769,3 +9769,77 @@ B안은 현재 회사에 남아서 백엔드 역량을 스스로 키우는 방�
 2025-08-07 21:14:51 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
 2025-08-07 21:15:18 [http-nio-7777-exec-7] INFO  c.t.s.road.controller.RoadController - ==================================[ getReport  ]==================================
 2025-08-07 21:16:57 [http-nio-7777-exec-10] INFO  c.t.s.road.controller.RoadController - ==================================[ getReport  ]==================================
+2025-08-07 21:42:12 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 29176 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-07 21:42:12 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-07 21:42:13 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-07 21:42:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 297 ms. Found 5 JPA repository interfaces.
+2025-08-07 21:42:15 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-07 21:42:15 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-07 21:42:15 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-07 21:42:15 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-07 21:42:15 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-07 21:42:15 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3585 ms
+2025-08-07 21:42:16 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-07 21:42:16 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-07 21:42:16 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-07 21:42:16 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-07 21:42:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-07 21:42:17 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@58b03029
+2025-08-07 21:42:17 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-07 21:42:17 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-07 21:42:18 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-07 21:42:19 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-07 21:42:19 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-07 21:42:21 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-07 21:42:21 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-07 21:42:22 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-07 21:42:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-07 21:42:22 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 11.689 seconds (process running for 12.436)
+2025-08-07 21:42:25 [http-nio-7777-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-07 21:42:25 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-07 21:42:25 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-07 21:42:26 [http-nio-7777-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 975 ms
+2025-08-07 21:42:38 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 21:42:38 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 21:42:38 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 21:42:38 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 21:42:38 [http-nio-7777-exec-10] DEBUG o.s.w.r.f.client.ExchangeFunctions - [333a05fa] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 21:42:41 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [333a05fa] [3223f21d-1] Response 200 OK
+2025-08-07 21:42:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?
+2025-08-07 21:42:42 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 21:42:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 21:42:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 21:43:18 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 21:43:18 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 21:43:18 [http-nio-7777-exec-6] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 3]
+2025-08-07 21:43:18 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 21:43:18 [http-nio-7777-exec-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7e8d6f9f] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 21:43:19 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7e8d6f9f] [3223f21d-2] Response 200 OK
+2025-08-07 21:43:19 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 백엔드 개발자로서의 성장 기회를 놓치고 있다고 느끼시는군요. 혹시 다른 회사나 교육 프로그램을 통해 백엔드 기술을 배울 수 있는 기회가 있는지 탐색해보셨나요? 또한, 현재 회사에서 백엔드 관련 프로젝트를 맡을 수 있도록 요청해보는 것도 하나의 방법일 수 있습니다.
+2025-08-07 21:43:20 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-07 21:43:20 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - REPORT
+2025-08-07 21:43:26 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사후재도전",
+  "answerA": "현재 회사는 백엔드 역량 개발에 한계가 있으므로 퇴사 후 원하는 분야의 기회를 찾는 것이 성공 추구에 적합합니다. 과거 경험상 성장이 막힌 환경에서 머문 것을 후회할 가능성이 높아 보입니다.",
+  "titleB": "현직장유지",
+  "answerB": "회사 내에서 부서 이동이나 프로젝트 참여를 요구하며 잔류한다면 안정성은 있으나, 현 체제에서는 백엔드 성장 기회가 제한되어 성공 목표 달성에 부적합합니다.",
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 성공이며, 현재 회사가 백엔드 역량을 키우는 데 장애물이 되고 있습니다. 과거의 교훈으로 볼 때 정체된 환경에 머물면 후회가 클 수 있으므로, 새로운 기회 탐색(A안)이 후회 가능성을 낮추는 선택입니다."
+}
+2025-08-07 21:43:26 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-07 21:43:26 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 오늘 사용자가 퇴사 고민을 상담했어. 그는 백엔드 개발자로 성장하고 싶지만 회사에서 1년 넘게 프론트 엔드 업무만 시키니까 커리어에 문제가 생길 것 같다고 했지. 그의 핵심 가치는 성공이고, 결정을 미루며 과거 경험을 신뢰한다고 했으니 이 점을 고려해야 해.
+
+A안은 퇴사해서 새로운 기회를 찾는 거고, B안은 회사에 남아서 상황을 개선하려 노력하는 걸로 가정해보자. 사용자의 성공을 위해선 백엔드 경험이 필수적이니 회사를 떠나는 게 더 유리할 수도 있어. 하지만 과거 경험을 중시하니 현재 회사에서 해결책을 모색하려는 경향도 있을 거야. 그래도 현재 환경이 성장에 방해된다면 퇴사가 더 나은 선택일 것 같아. 따라서 A안이 가치 일치도가 높고 후회 가능성이 낮아 보여. 결론적으로 A안을 추천해야겠다.
+2025-08-07 21:43:26 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 21:43:28 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "백엔드 개발자로서의 성장에 대한 우려로 인한 퇴사 고민", "content": "홍길동님은 백엔드 개발자로서 성장하고 싶어하지만, 회사에서 1년 이상 프론트 업무만을 시키고 있어 커리어 발전에 우려가 되어 퇴사를 고민 중이십니다."}
+2025-08-07 21:43:29 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-07 21:43:29 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - roadId : 18
+2025-08-07 21:43:29 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-07 21:43:29 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
