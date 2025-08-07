@@ -19,6 +19,8 @@ public class ReportAiResponse {
 	private String titleB;
 	private String answerA;
 	private String answerB;
+	
+	private String recommend;
 	private String conclusion;
 
 	

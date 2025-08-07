@@ -69,6 +69,9 @@ public class Road {
     @Column(columnDefinition = "TEXT")
     private String thinkinContent;
     
+    @Column(length = 200, name="recommend")
+    private String recommend;
+    
     @Column(columnDefinition = "TEXT")
     private String conclusion;
        
