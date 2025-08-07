@@ -10,6 +10,8 @@ import com.ten.soulmate.chatting.repository.ChattingRepository;
 import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.global.type.MemberType;
 import com.ten.soulmate.member.entity.Member;
+import com.ten.soulmate.member.entity.MemberAttribute;
+import com.ten.soulmate.member.repository.MemberAttributeRepository;
 import com.ten.soulmate.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -40,8 +42,7 @@ public class AuthService {
 									.build();
 				
 				Long newMemberId = memberRepository.saveAndFlush(newMember).getId();
-				response.setMemberId(newMemberId);
-				
+				response.setMemberId(newMemberId);				
 				
 				response.setNewMemberYn("Y");
 				
@@ -52,6 +53,7 @@ public class AuthService {
 				
 			}else {
 				response.setMemberId(member.get().getId());
+		
 				response.setNewMemberYn("N");
 			}
 			
