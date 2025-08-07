@@ -166,6 +166,7 @@ public class ChattingService {
 
             if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
                 AiAnswerType = AnswerType.R;
+                log.info("REPORT");
                 sink.tryEmitNext("REPORT");                                              
 
                 String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
@@ -200,6 +201,7 @@ public class ChattingService {
                 // 동기 호출 (바로 호출)
                 Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportDataRef.get());
 
+                log.info("roadId : " + roadId);
                 sink.tryEmitNext("roadId : " + roadId);
                 tempChatMap.put(memberId, new ArrayList<>());
                 
@@ -255,6 +257,7 @@ public class ChattingService {
 	    			.answerA(reportData.getAnswerA())
 	    			.titleB(reportData.getTitleB())
 	    			.answerB(reportData.getAnswerB())
+	    			.recommend(reportData.getRecommend())
 	    			.conclusion(reportData.getConclusion())
 	    			.thinkinContent(reportData.getThinkingContent())
 	    			.build();

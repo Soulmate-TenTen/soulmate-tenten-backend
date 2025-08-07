@@ -8480,3 +8480,1292 @@ User : 난 백엔드 개발자로 커리어를 쌓고 싶은데 회사에서는 
 2025-08-07 18:15:26 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
 2025-08-07 18:15:26 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
 2025-08-07 18:15:26 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 19:13:42 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 30932 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-07 19:13:42 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "prod"
+2025-08-07 19:13:44 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-07 19:13:44 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 299 ms. Found 5 JPA repository interfaces.
+2025-08-07 19:13:46 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-07 19:13:46 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-07 19:13:46 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-07 19:13:46 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-07 19:13:46 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-07 19:13:46 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3523 ms
+2025-08-07 19:13:46 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-07 19:13:46 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-07 19:13:46 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-07 19:13:47 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-07 19:13:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-07 19:13:47 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e62e227
+2025-08-07 19:13:47 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-07 19:13:48 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-07 19:13:49 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-07 19:13:49 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-07 19:13:50 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-07 19:13:52 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-07 19:13:52 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-07 19:13:53 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-07 19:13:53 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-07 19:13:53 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 12.207 seconds (process running for 13.141)
+2025-08-07 19:15:23 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 25088 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-07 19:15:23 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-07 19:15:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-07 19:15:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 224 ms. Found 5 JPA repository interfaces.
+2025-08-07 19:15:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-07 19:15:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-07 19:15:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-07 19:15:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-07 19:15:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-07 19:15:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3103 ms
+2025-08-07 19:15:27 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-07 19:15:27 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-07 19:15:27 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-07 19:15:28 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-07 19:15:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-07 19:15:28 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c88d04f
+2025-08-07 19:15:28 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-07 19:15:28 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-07 19:15:30 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-07 19:15:30 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-07 19:15:30 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-07 19:15:32 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-07 19:15:32 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-07 19:15:33 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-07 19:15:33 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-07 19:15:33 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 10.892 seconds (process running for 11.659)
+2025-08-07 19:15:40 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-07 19:15:40 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-07 19:15:40 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-07 19:15:46 [http-nio-7777-exec-7] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 2058 ms
+2025-08-07 19:15:57 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 19:15:57 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 19:15:57 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 19:15:57 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 19:15:59 [http-nio-7777-exec-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6f9ebc0] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 19:16:04 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6f9ebc0] [71988c36-1] Response 200 OK
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:55431e03-6932-49ee-aae1-be9152122169
+event:token
+data:{"message":{"role":"assistant","content":"홍"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+id:ac936c7a-aeb0-400a-b654-2322a25ef1bd
+event:token
+data:{"message":{"role":"assistant","content":"길"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:91bb385b-a549-48d8-b2de-f95abd8ebb54
+event:token
+data:{"message":{"role":"assistant","content":"동"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:725c8430-25b1-4d62-b37c-99bb88e92f83
+event:token
+data:{"message":{"role":"assistant","content":" 님"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:db7724d4-4d6b-44b8-a79b-b6bd732a4809
+event:token
+data:{"message":{"role":"assistant","content":","},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:1be99638-743f-453c-bfd9-3e7989000794
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 퇴"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:7d72a035-d344-436d-8df9-3cddb7088faf
+event:token
+data:{"message":{"role":"assistant","content":"사"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:d88fdd59-bae1-4f9b-9999-67d46d9018dd
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 결정"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:6110ffe6-de9a-41d7-9da0-094dec1539b5
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"은"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:70fc24f9-f09d-4be3-9f80-e0b1473b2ff4
+event:token
+data:{"message":{"role":"assistant","content":" 신"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:904dc0d0-dc7a-4a79-a4ca-d1b01a275d81
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":""},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:5706269a-98fc-4a57-ab57-f8788006627b
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"중"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:1fddc655-baf3-46bb-90c3-7c3edfcc44ad
+event:token
+data:{"message":{"role":"assistant","content":"하게"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:7492a7c4-41fb-46e0-92de-dbd6c317e4f0
+event:token
+data:{"message":{"role":"assistant","content":" 고려"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:596591c7-9134-44ba-a410-a2ab5f2b94fd
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"해야"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:ff0e8097-cd6f-4437-a4e6-b957bc58f2c4
+event:token
+data:{"message":{"role":"assistant","content":" 할"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:19be21ec-6fbf-4955-aca3-38f33ca6ad39
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 중요한"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:425d3bb4-eeb8-4c17-b7c9-0ca28dfe0b87
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 문제"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:70d30cfc-6040-4b2b-a78c-7df65701ceac
+event:token
+data:{"message":{"role":"assistant","content":"입니다"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:f13319e6-5c7f-436c-bf84-27376dc06955
+event:token
+data:{"message":{"role":"assistant","content":"."},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:97f4ec57-f579-4e25-bfc8-33f18a3fc8bf
+event:token
+data:{"message":{"role":"assistant","content":""},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:89b336ad-8ab0-4b2c-b442-a64b6a927d7c
+event:token
+data:{"message":{"role":"assistant","content":" 현재"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:abcd108c-3f29-4c40-ba07-2540c3042629
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 직"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:237693e6-504d-473c-b985-c0b4e574da7f
+event:token
+data:{"message":{"role":"assistant","content":"장에서"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:b89ab1cd-7e72-473e-90fb-e944e6920b2d
+event:token
+data:{"message":{"role":"assistant","content":" 느끼는"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:aa931bb8-defa-499a-ad62-55a69b9c3af8
+event:token
+data:{"message":{"role":"assistant","content":""},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:f1e9945e-5532-43a6-b2fd-9a0babdbb6a0
+event:token
+data:{"message":{"role":"assistant","content":" 불"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:e8749089-a883-4c72-b1f0-47d5dc0cd9fe
+event:token
+data:{"message":{"role":"assistant","content":"만"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:ed19a3f6-2484-4b3c-a349-1e3648318ac8
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"족"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:65397f00-09f4-49bd-81fd-9c58ef5f1d7b
+event:token
+data:{"message":{"role":"assistant","content":"스러운"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:2e03cf4c-bb31-4469-8b51-8d507be398f9
+event:token
+data:{"message":{"role":"assistant","content":" 점"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:39b6d115-eb9a-4275-9114-03ad0164228b
+event:token
+data:{"message":{"role":"assistant","content":"이나"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:97a16b28-532e-491e-ade3-3e04ed445883
+event:token
+data:{"message":{"role":"assistant","content":" 퇴"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:4689cfd9-1308-4316-b987-40fb7eed6409
+event:token
+data:{"message":{"role":"assistant","content":"사를"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:55a6aaf9-f776-405c-9f60-be175b2886ab
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 고려"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:7595882d-e530-4c49-986b-f99c3d2e180c
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"하게"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:9e0725f9-2f74-4ba4-af1e-dd3354caab8b
+event:token
+data:{"message":{"role":"assistant","content":""},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:ad42afde-ee16-4f37-9255-e62bf1d2b6a3
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 된"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:257b6455-3446-4c95-b53d-97b7cc193936
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 구체적인"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:9ebbb9d7-3ee9-484e-8291-45af0fd44525
+event:token
+data:{"message":{"role":"assistant","content":" 이유가"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:47e42f17-9da1-46a2-ad9c-dfee66aa145d
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 있으"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:78b07e41-c568-41ed-a2a6-e027d360c4e9
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"신"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:0a9e0d7b-e013-4187-8249-b333470b3b6d
+event:token
+data:{"message":{"role":"assistant","content":"가요"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:b668df52-805d-41ae-86a1-22bfc3960b0d
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"?"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:f4c958b8-88e6-403e-820c-f76dfa537636
+event:token
+data:{"message":{"role":"assistant","content":" 그리고"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:a299098e-a272-4c31-bcaf-2ac858086e03
+event:token
+data:{"message":{"role":"assistant","content":" 장기"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:39000c36-d747-459f-b353-a84387239508
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"적인"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:19713215-5216-41c7-b1ce-1059e0641650
+event:token
+data:{"message":{"role":"assistant","content":" 경력"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:07eeb781-5ef1-426d-ac7e-340244a24e3f
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 목표"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:7989e70e-2462-4bec-be8f-3b589b84f7f5
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"와"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:d0c90519-5ea9-4756-92f3-6744c21ba80d
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 어떤"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:dc220cfb-d146-4fb2-a57f-b3fd5736c077
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 선택"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:abcd94c9-50d0-4830-8084-4671a6e7c89a
+event:token
+data:{"message":{"role":"assistant","content":"이"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:dc64bcb8-74e3-4617-bd4e-e05b8bc30884
+event:token
+data:{"message":{"role":"assistant","content":" 더"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:7d775db2-0924-4549-82c2-e438a2c1ede8
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 부합"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:0e69dae5-c9bd-45a1-8f9b-eb539fdc57c3
+event:token
+data:{"message":{"role":"assistant","content":"하는지"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:7871cae2-a89e-4b93-90b5-f40ff4377c88
+event:token
+data:{"message":{"role":"assistant","content":" 생각해"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:ba51e21f-1885-4e4b-8bf7-3b4458e6aead
+event:token
+data:{"message":{"role":"assistant","content":" 보"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:249aeff0-32b1-4aca-9da7-de41c60be69d
+event:token
+data:{"message":{"role":"assistant","content":"셨"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:800385cf-a72b-49c7-af46-d0c2f77f4bd2
+event:token
+data:{"message":{"role":"assistant","content":"나요"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:82153796-7d24-4cfe-9adf-af720497bf9a
+event:token
+data:
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"?"},"finishReason":null,"created":1754594163,"seed":3754881208,"usage":null}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:ffad614b-6ff8-480f-8231-56c30b85491d
+event:result
+data:{"message":{"role":"assistant","content":"홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?"},"finishReason":"stop","created":1754594163,"seed":3754881208,"usage":{"promptTokens":139,"completionTokens":62,"totalTokens":201}}
+
+
+2025-08-07 19:16:04 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?
+2025-08-07 19:16:05 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 19:16:05 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 19:16:05 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 19:16:05 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:2bea3fb3-d17d-4848-affe-3594c131ae31
+event:signal
+data:
+2025-08-07 19:16:05 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"data":"[DONE]"}
+
+
+2025-08-07 20:49:57 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 31044 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-07 20:49:57 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-07 20:49:58 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-07 20:49:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 221 ms. Found 5 JPA repository interfaces.
+2025-08-07 20:50:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-07 20:50:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-07 20:50:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-07 20:50:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-07 20:50:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-07 20:50:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3319 ms
+2025-08-07 20:50:00 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-07 20:50:01 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-07 20:50:01 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-07 20:50:01 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-07 20:50:01 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-07 20:50:02 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@745cf754
+2025-08-07 20:50:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-07 20:50:02 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-07 20:50:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-07 20:50:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-07 20:50:04 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-07 20:50:06 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-07 20:50:06 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-07 20:50:07 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-07 20:50:07 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-07 20:50:07 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 11.733 seconds (process running for 12.51)
+2025-08-07 20:50:09 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-07 20:50:09 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-07 20:50:09 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-08-07 20:50:10 [http-nio-7777-exec-5] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 848 ms
+2025-08-07 20:50:22 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - ==================================[ Chatting Reset  ]==================================
+2025-08-07 20:50:22 [http-nio-7777-exec-4] WARN  c.t.s.c.service.ChattingService - No SSE Connection found to close for memberId : 3
+2025-08-07 20:50:22 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - Chatting Reset Success!
+2025-08-07 20:50:37 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 20:50:37 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 20:50:37 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 20:50:37 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 20:50:37 [http-nio-7777-exec-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [10a9afe7] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 20:50:40 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [10a9afe7] [35da74da-1] Response 200 OK
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:349b7934-6f68-411d-989d-1950791bf7ed
+event:token
+data:{"message":{"role":"assistant","content":"홍"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+id:099b371b-c080-4962-9fdc-8b4a2553ae3d
+event:token
+data:{"message":{"role":"assistant","content":"길"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+id:c01c1841-db53-43e3-b1f9-f3c25bc2d530
+event:token
+data:{"message":{"role":"assistant","content":"동"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:74146d81-9d96-4ad6-bf39-5e7d634a0b95
+event:token
+data:{"message":{"role":"assistant","content":" 님"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:be56a72d-251f-46d8-8dba-d0b5021b0d23
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":","},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:48e1a188-3c6b-4a39-abba-923e65ea1844
+event:token
+data:{"message":{"role":"assistant","content":" 퇴"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:e58216aa-575e-4158-b7b2-ab4b99b28c03
+event:token
+data:{"message":{"role":"assistant","content":"사"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:54dfa972-2017-4b44-95d5-5fd029857981
+event:token
+data:{"message":{"role":"assistant","content":" 결정"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:fde09ebb-d971-49e0-b788-ad6fc9d6a34c
+event:token
+data:{"message":{"role":"assistant","content":"은"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:478879c6-6704-4b63-be17-ece6ade458f2
+event:token
+data:{"message":{"role":"assistant","content":" 신"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:962246ee-45f2-4d39-a395-e97874cd7cb4
+event:token
+data:{"message":{"role":"assistant","content":""},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:d30e9702-9953-4700-ab8a-a9464524de63
+event:token
+data:{"message":{"role":"assistant","content":"중"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:7be509a1-61a6-427f-b528-4f83b38452e8
+event:token
+data:{"message":{"role":"assistant","content":"하게"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:685d6090-9c80-4f70-af09-8e38a5bc729b
+event:token
+data:{"message":{"role":"assistant","content":" 고려"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:8c9c6db4-95d4-477b-8b40-a61f4ffebdf5
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"해야"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:45a9f037-187e-4235-9345-e70427c76361
+event:token
+data:{"message":{"role":"assistant","content":" 할"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+id:723a0752-fba9-4df4-9743-eddb27c56bd4
+event:token
+data:{"message":{"role":"assistant","content":" 중요한"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:0e068d23-cdd3-4a2e-9bb6-b7ae75dc6f24
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 문제"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:5ab0a4f1-2768-4898-8e88-9b63ee414a1b
+event:token
+data:{"message":{"role":"assistant","content":"입니다"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:5b3f306d-72a6-4934-b823-713a5a288f87
+event:token
+data:{"message":{"role":"assistant","content":"."},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:393ba2d0-b435-47d4-a4d7-b2847b1bb7ee
+event:token
+data:{"message":{"role":"assistant","content":""},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:57ae52e3-b790-4879-84ab-5232d93b88b8
+event:token
+data:{"message":{"role":"assistant","content":" 현재"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:478c5f1f-9d2d-49fc-b5b4-18c2fb9ce7ba
+event:token
+data:{"message":{"role":"assistant","content":" 직"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:aa92f30d-4f64-4524-9dee-02a7c72bd26f
+event:token
+data:{"message":{"role":"assistant","content":"장에서"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:873970ca-83b5-4497-bd91-27b7d8fa4bf5
+event:token
+data:{"message":{"role":"assistant","content":" 느끼는"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:f39791dd-f2ae-4726-9c18-c4278e7adaa6
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":""},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:de029bd7-ccd1-4347-8199-489c5811b54a
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 불"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:4227befc-6c28-4f3f-a658-2ab864d41d58
+event:token
+data:{"message":{"role":"assistant","content":"만"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:76b5c0db-bd82-48e0-a53e-4e9b458d0ff2
+event:token
+data:{"message":{"role":"assistant","content":"족"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:286d1563-d46d-4525-a296-dba016c6869e
+event:token
+data:{"message":{"role":"assistant","content":"스러운"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:5dca1d61-bba2-4941-9ab1-e7ee55f910b1
+event:token
+data:{"message":{"role":"assistant","content":" 점"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:c4224231-2011-4b4e-bec8-d26d424facfd
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"이나"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:43f71f35-fdc0-4ce2-b286-f8a10bdb7022
+event:token
+data:{"message":{"role":"assistant","content":" 퇴"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:8402edcd-9850-44e0-aa48-1c7facc31a2a
+event:token
+data:{"message":{"role":"assistant","content":"사를"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:3d0b6d41-547a-431a-a90a-1b35aa5bae47
+event:token
+data:{"message":{"role":"assistant","content":" 고려"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+id:0f8606b0-0b6f-4e2a-8627-42c383e56eb8
+event:token
+data:{"message":{"role":"assistant","content":"하게"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:f0175521-56d9-45cb-8a71-5610960eb3ba
+event:token
+data:{"message":{"role":"assistant","content":""},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:b024bddc-f232-46df-9cfe-b1484b02f960
+event:token
+data:{"message":{"role":"assistant","content":" 된"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:3dcc9c4c-246c-4bbd-9c04-f060b9fde5dc
+event:token
+data:{"message":{"role":"assistant","content":" 구체적인"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:8fceab3b-4b58-4f08-99e8-63f9a21214e0
+event:token
+data:{"message":{"role":"assistant","content":" 이유가"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:eafdf99f-5137-4b24-879d-9faffb99b969
+event:token
+data:{"message":{"role":"assistant","content":" 있으"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:d1657b75-6101-48c1-aeab-c9ae0f0c616b
+event:token
+data:{"message":{"role":"assistant","content":"신"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:e9699c16-dc7e-44b0-8c82-565677c4ec81
+event:token
+data:{"message":{"role":"assistant","content":"가요"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:c2003437-1920-4b0a-a712-6bd7502b1a34
+event:token
+data:{"message":{"role":"assistant","content":"?"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:3d47bab4-ad5e-4ce8-a017-cf21b7458ba5
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 그리고"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:d330ee7d-c1c0-46d8-81e9-0b24511fffbb
+event:token
+data:{"message":{"role":"assistant","content":" 장기"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:b5378a4f-7269-43ca-965c-51c3f12132b0
+event:token
+data:{"message":{"role":"assistant","content":"적인"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:c209f02d-d7db-4cb4-9ba8-c8453e2a3550
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 경력"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:d74dfcb8-11fb-494c-9cdc-ae215bd7ed8d
+event:token
+data:{"message":{"role":"assistant","content":" 목표"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:cb9c00a6-1a9a-4fd4-8028-dda668d5e566
+event:token
+data:{"message":{"role":"assistant","content":"와"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:8d5c0d6b-7906-4e2e-a9d9-384239b31185
+event:token
+data:{"message":{"role":"assistant","content":" 어떤"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:d8cd2c6f-21eb-4a59-8a79-b937027b9121
+event:token
+data:{"message":{"role":"assistant","content":" 선택"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:06e1ac02-ea21-446f-b546-99b18b033236
+event:token
+data:{"message":{"role":"assistant","content":"이"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:cf990591-d860-4f31-816d-dbcd4e44db0e
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":" 더"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:983f8613-5790-45e1-a8dc-41bf5bcfbc07
+event:token
+data:{"message":{"role":"assistant","content":" 부합"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:2391c039-8248-4729-9870-ca1c65cf670e
+event:token
+data:{"message":{"role":"assistant","content":"하는지"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+id:455fe55b-58c0-4410-9e6e-8ebc1db01ca1
+event:token
+data:{"message":{"role":"assistant","content":" 생각해"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:aa886de6-0438-4d55-9fe1-791c23288899
+event:token
+data:{"message":{"role":"assistant","content":" 보"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:508c30e1-df55-4a72-9783-2642baf8d2f1
+event:token
+data:
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - {"message":{"role":"assistant","content":"셨"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:e8453f5b-bf9c-4954-9881-2604b063d35e
+event:token
+data:{"message":{"role":"assistant","content":"나요"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:4bff5352-5ede-4c45-84d8-1b78b2db515f
+event:token
+data:{"message":{"role":"assistant","content":"?"},"finishReason":null,"created":1754599839,"seed":3386559178,"usage":null}
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - 
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:92679c92-6357-41f3-995c-dfd9036a5d9c
+event:result
+data:{"message":{"role":"assistant","content":"홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?"},"finishReason":"stop","created":1754599839,"seed":3386559178,"usage":{"promptTokens":139,"completionTokens":62,"totalTokens":201}}
+
+
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?
+2025-08-07 20:50:40 [reactor-http-nio-2] ERROR reactor.core.publisher.Operators - Operator called default onErrorDropped
+reactor.core.Exceptions$ErrorCallbackNotImplemented: while scanning a block scalar
+ in 'reader', line 1, column 9:
+    system: | 		 
+            ^
+expected a comment or a line break, but found 	(9)
+ in 'reader', line 1, column 11:
+    system: | 		 
+              ^
+
+Caused by: org.yaml.snakeyaml.scanner.ScannerException: while scanning a block scalar
+ in 'reader', line 1, column 9:
+    system: | 		 
+            ^
+expected a comment or a line break, but found 	(9)
+ in 'reader', line 1, column 11:
+    system: | 		 
+              ^
+
+	at org.yaml.snakeyaml.scanner.ScannerImpl.scanBlockScalarIgnoredLine(ScannerImpl.java:1804)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.scanBlockScalar(ScannerImpl.java:1644)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchBlockScalar(ScannerImpl.java:1039)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchLiteral(ScannerImpl.java:1011)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.fetchMoreTokens(ScannerImpl.java:425)
+	at org.yaml.snakeyaml.scanner.ScannerImpl.checkToken(ScannerImpl.java:239)
+	at org.yaml.snakeyaml.parser.ParserImpl$ParseBlockMappingValue.produce(ParserImpl.java:669)
+	at org.yaml.snakeyaml.parser.ParserImpl.peekEvent(ParserImpl.java:161)
+	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:57)
+	at org.yaml.snakeyaml.comments.CommentEventsCollector$1.peek(CommentEventsCollector.java:43)
+	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:136)
+	at org.yaml.snakeyaml.comments.CommentEventsCollector.collectEvents(CommentEventsCollector.java:116)
+	at org.yaml.snakeyaml.composer.Composer.composeScalarNode(Composer.java:249)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:214)
+	at org.yaml.snakeyaml.composer.Composer.composeKeyNode(Composer.java:386)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingChildren(Composer.java:357)
+	at org.yaml.snakeyaml.composer.Composer.composeMappingNode(Composer.java:329)
+	at org.yaml.snakeyaml.composer.Composer.composeNode(Composer.java:218)
+	at org.yaml.snakeyaml.composer.Composer.getNode(Composer.java:141)
+	at org.yaml.snakeyaml.composer.Composer.getSingleNode(Composer.java:167)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getSingleData(BaseConstructor.java:179)
+	at org.yaml.snakeyaml.Yaml.loadFromReader(Yaml.java:508)
+	at org.yaml.snakeyaml.Yaml.load(Yaml.java:449)
+	at com.ten.soulmate.global.prompt.PromptService.getSystemPrompt(PromptService.java:17)
+	at com.ten.soulmate.chatting.service.AiChatService.ResponseCheckMessage(AiChatService.java:131)
+	at com.ten.soulmate.chatting.service.ChattingService.lambda$1(ChattingService.java:167)
+	at reactor.core.publisher.LambdaSubscriber.onNext(LambdaSubscriber.java:160)
+	at reactor.core.publisher.FluxFlatMap$FlatMapMain.tryEmitScalar(FluxFlatMap.java:492)
+	at reactor.core.publisher.FluxFlatMap$FlatMapMain.onNext(FluxFlatMap.java:424)
+	at reactor.core.publisher.FluxFilterFuseable$FilterFuseableSubscriber.onNext(FluxFilterFuseable.java:118)
+	at reactor.core.publisher.FluxRefCount$RefCountInner.onNext(FluxRefCount.java:242)
+	at reactor.core.publisher.FluxPublish$PublishSubscriber.drain(FluxPublish.java:571)
+	at reactor.core.publisher.FluxPublish$PublishSubscriber.onNext(FluxPublish.java:310)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:122)
+	at reactor.core.publisher.MonoFlatMapMany$FlatMapManyInner.onNext(MonoFlatMapMany.java:251)
+	at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:79)
+	at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onNext(FluxOnAssembly.java:539)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:122)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onNext(FluxPeek.java:200)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:122)
+	at reactor.netty.channel.FluxReceive.drainReceiver(FluxReceive.java:292)
+	at reactor.netty.channel.FluxReceive.onInboundNext(FluxReceive.java:401)
+	at reactor.netty.channel.ChannelOperations.onInboundNext(ChannelOperations.java:435)
+	at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:843)
+	at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:115)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:107)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436)
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:346)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:318)
+	at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:442)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1519)
+	at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1377)
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1428)
+	at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:530)
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:469)
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:290)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:444)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:412)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1357)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:440)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:420)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:868)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:796)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:732)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:658)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:562)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:998)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2025-08-07 20:50:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - id:643e2d87-bd84-4b37-b180-387cea289e36
+event:signal
+data:{"data":"[DONE]"}
+
+
+2025-08-07 20:52:18 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 10260 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-07 20:52:18 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-07 20:52:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-07 20:52:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 248 ms. Found 5 JPA repository interfaces.
+2025-08-07 20:52:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-07 20:52:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-07 20:52:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-07 20:52:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-07 20:52:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-07 20:52:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3257 ms
+2025-08-07 20:52:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-07 20:52:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-07 20:52:22 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-07 20:52:23 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-07 20:52:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-07 20:52:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@254513e8
+2025-08-07 20:52:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-07 20:52:23 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-07 20:52:24 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-07 20:52:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-07 20:52:25 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-07 20:52:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-07 20:52:28 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-07 20:52:31 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-07 20:52:31 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-07 20:52:31 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 13.744 seconds (process running for 14.649)
+2025-08-07 20:52:32 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-07 20:52:32 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-07 20:52:32 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-07 20:52:36 [http-nio-7777-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 3691 ms
+2025-08-07 20:52:58 [http-nio-7777-exec-7] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 20:52:58 [http-nio-7777-exec-7] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 20:52:58 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 20:52:58 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 20:52:59 [http-nio-7777-exec-7] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1cd07201] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 20:53:01 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1cd07201] [c6fcf752-1] Response 200 OK
+2025-08-07 20:53:02 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?
+2025-08-07 20:53:02 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 20:53:02 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 20:53:02 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 20:53:40 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 20:53:40 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 20:53:40 [http-nio-7777-exec-9] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 3]
+2025-08-07 20:53:40 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 20:53:40 [http-nio-7777-exec-9] DEBUG o.s.w.r.f.client.ExchangeFunctions - [32da5d0d] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 20:53:40 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [32da5d0d] [c6fcf752-2] Response 200 OK
+2025-08-07 20:53:41 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 포괄임금제로 인해 추가 수당을 받지 못하는 상황이 힘드실 것 같습니다. 이러한 문제를 해결하기 위해 회사 측과 협상을 시도해보셨나요? 혹은 다른 직장을 알아보는 것도 하나의 방법일 수 있습니다. 혹시 다른 직장 정보를 찾고 계신가요?
+2025-08-07 20:53:42 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 20:53:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 20:53:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 20:54:25 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 20:54:25 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 20:54:25 [http-nio-7777-exec-5] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 3]
+2025-08-07 20:54:25 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 20:54:25 [http-nio-7777-exec-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [12ade79d] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 20:54:25 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [12ade79d] [c6fcf752-3] Response 200 OK
+2025-08-07 20:54:26 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 팀장님의 반응이 실망스러우셨을 것 같습니다. 이런 상황에서 다른 동료나 상급자에게 해당 문제를 제기하거나 인사팀에 상담을 요청해 보는 것은 어떨까요? 또한, 자신의 경력과 역량을 강화할 수 있는 새로운 기회를 모색해 보는 것도 좋은 방법이 될 수 있습니다.
+2025-08-07 20:54:26 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-07 20:54:26 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - REPORT
+2025-08-07 20:54:36 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사 및 새 기회 탐색",
+  "answerA": "✅ A안: 퇴사 후 새 직장 찾기\n✅ 가치 일치도: 높음\n이유 : 현재 회사의 비인간적 근무환경(포괄임금제 악용, 야근 강요)이 사용자님의 워라밸과 성장 가능성을 저해합니다. 성공을 추구하는 관점에서 지속 가능한 경력을 쌓으려면 공정한 보상체계와 개인 성장이 보장되는 환경으로 이동하는 것이 필수적입니다. 과거 경험상 상사와의 소통으로는 문제가 해결되지 않았으므로, 외부에서 더 나은 조건을 찾아 도전하는 것이 현명합니다.",
+  
+  "titleB": "잔류 및 내부 협상 지속",
+  "answerB": "❌ B안: 회사에 남아서 문제 해결 시도\n❌ 가치 일치도: 낮음\n이유 : 이미 팀장과의 대화 시도가 실패했고 조직 문화 자체가 근로착취적이라면 개선을 기대하기 어렵습니다. 계속 남아있을 경우 신체적/정신적 소진뿐 아니라 커리어 정체로 이어질 위험이 큽니다. 성공을 위한 자원(시간·에너지)을 낭비하게 되어 장기적 목표 달성에 부정적 영향을 미칠 것입니다.",
+  
+  "conclusion": "홍길동님의 핵심 가치는 '성공'이므로 현재 회사에서 얻을 수 있는 것보다 잃게 될 것이 더 많습니다. 과거의 교훈('소통만으로 변화 어려움')에 따라 체계적으로 이력서를 정비하고 업계 네트워크를 확장하면서 퇴사 절차를 밟아나가는 것이 좋습니다. 다만 결정을 미루는 성향이 있으므로, 구체적 행동 계획(예: 3개월간 구직 활동 병행)을 세워 실행력을 높이세요. 단기적 손실(급여 중단 등)보다 장기적 경력 발전을 우선시하는 선택이 필요합니다."
+}
+2025-08-07 20:54:36 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-07 20:54:36 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 오늘 사용자는 퇴사 고민을 상담했어. 주요 문제는 과도한 업무량과 포괄임금제로 인한 추가수당 미지급이야. 팀장에게 말했지만 해결되지 않았고, 이로 인해 스트레스가 심한 상태야. 사용자의 핵심 가치는 '성공'이고, 결정을 미루며 과거 경험을 신뢰하지. 
+
+선택지는 퇴사(A안) vs 잔류(B안). A안은 즉각적 탈출이지만 리스크가 있고, B안은 협상 재시도나 이직 준비 같은 대안 모색이야. 사용자의 성공을 위해서는 장기적 경력 발전이 중요하니, 당장 퇴보단 체계적으로 움직여야 해. 하지만 현재 환경이 개선될 기미가 없으니 새로운 기회를 찾는 게 좋을 수도 있지. 그러나 결정을 미루는 성향이라 서두르지 않을 거야. 따라서 현 단계에선 이직을 준비하며 퇴로를 확보하는 전략이 적합하다고 판단돼. 결론은 A안을 추천하되, 철저한 준비를 강조해야겠어.
+2025-08-07 20:54:36 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 20:54:38 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "야근 및 주말출근에 대한 보상 없는 포괄임금제 때문에 퇴사 고민 중", "content": "홍길동님은 매일 야근하고 주말에도 자주 출근하지만 포괄임금제 때문에 추가수당을 못 받아서 힘들며, 팀장님께 이야기했지만 소용없었다고 합니다."}
+2025-08-07 20:54:38 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-07 20:54:38 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - roadId : 13
+2025-08-07 20:54:38 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-07 20:54:38 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
+2025-08-07 20:55:19 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 20:55:19 [http-nio-7777-exec-3] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 20:55:19 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 20:55:19 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 20:55:19 [http-nio-7777-exec-3] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1e3127e8] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 20:55:19 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1e3127e8] [c6fcf752-4] Response 200 OK
+2025-08-07 20:55:20 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 일식과 한식 중에서는 어떤 음식을 선호하시나요? 일식은 깔끔하고 담백한 맛을 좋아하신다면, 한식은 푸짐하고 든든한 식사를 원하신다면 더 좋을 것 같습니다. 혹시 특별히 먹고 싶은 음식이 있으신가요?
+2025-08-07 20:55:20 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 20:55:20 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 20:55:20 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 20:55:51 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 20:55:51 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 20:55:51 [http-nio-7777-exec-10] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 3]
+2025-08-07 20:55:51 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 20:55:51 [http-nio-7777-exec-10] DEBUG o.s.w.r.f.client.ExchangeFunctions - [64fc162] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 20:55:52 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [64fc162] [c6fcf752-5] Response 200 OK
+2025-08-07 20:55:53 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 초밥과 비빔밥 모두 훌륭한 선택이죠! 만약 초밥을 드실 계획이라면 다양한 종류의 초밥을 맛볼 수 있는 회전초밥집을 추천드립니다. 반면 비빔밥을 드신다면 신선한 야채와 고소한 고추장이 어우러진 전통 한정식을 제공하는 식당을 찾아보시는 건 어떨까요? 두 가지 메뉴를 즐기며 하루를 마무리하시면 좋겠습니다.
+2025-08-07 20:55:53 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-07 20:55:53 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - REPORT
+2025-08-07 20:56:01 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "일식_초밥",
+  "answerA": "✅ A안: 초밥\n✅ 가치 일치도: 높음\n이유 : 초밥은 고급스러운 이미지와 완성도 높은 맛으로 '성공적인 식사 경험'을 상징하기에 사용자님의 핵심 가치와 잘 맞습니다. 또한 새로운 메뉴 탐색 욕구를 충족시켜 후회 감소 가능성도 큽니다.",
+  
+  "titleB": "한식_비빔밥",
+  "answerB": "❌ B안: 비빔밥\n❌ 가치 일치도: 낮음\n이유 : 일상적이고 친숙한 메뉴이므로 특별함이나 성취감이 떨어집니다. 반복된 선택 이력이 있다면 신선함이 부족해 후회 가능성 증가",
+  
+  "conclusion": "홍길동님의 핵심 가치는 '성공'이며, 이는 독특하고 완성도 높은 경험을 추구하는 성향과 연결됩니다. 초밥은 세련된 분위기·특별한 맛으로 성공적 외식을 구현하지만, 비빔밥은 안정적이되 예측 가능한 선택입니다. 과거 경험상 새로운 메뉴 도전 시 만족했던 패턴을 고려할 때, 이번에도 초밥 선택이 후회 리스크가 낮을 것으로 보입니다."
+}
+2025-08-07 20:56:01 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-07 20:56:01 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 오늘 저녁 메뉴로 일식의 초밥과 한식의 비빔밥 중에서 고민 중인 사용자에게 적합한 선택을 제안해야 합니다. 사용자의 핵심 가치는 '성공'이고, 결정 시 오래 고민하며 후회를 피하기 위해 과거 경험을 신뢰합니다. 
+
+초밥(A안)을 선택하면 신선한 재료와 정교한 맛으로 만족도가 높아 성공적 식사가 될 수 있습니다. 특히 특별한 날이나 기분 전환에 좋고, 일식의 깔끔함이 좋은 경험이라면 더욱 맞습니다. 반면 비빔밥(B안)은 익숙함과 편안함을 주지만, 평소 자주 먹는 메뉴라 새로움이 부족할 수 있어 성공감 측면에서 덜할 수 있습니다. 
+
+사용자의 성향을 고려할 때 새로운 경험(A안)을 통해 만족감을 얻는 것이 후회 가능성을 낮추므로 초밥을 추천하는 게 좋습니다. 하지만 사용자가 과거에 초밥보다 비빔밥에서 더 큰 성공을 느꼈다면 달라질 수 있으나, 현재 정보로는 A안이 더 부합합니다.
+2025-08-07 20:56:01 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 20:56:03 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "일식과 한식 중 무엇을 먹을지 고민하는 사용자", "content": "사용자는 일식의 초밥과 한식의 비빔밥 중에서 선택하기 어려워하며, 이에 대해 조언을 구하고 있습니다."}
+2025-08-07 20:56:03 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-07 20:56:03 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - roadId : 14
+2025-08-07 20:56:03 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-07 20:56:03 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
+2025-08-07 20:56:45 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 20:56:45 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 20:56:45 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 20:56:45 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 20:56:45 [http-nio-7777-exec-1] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5c983a72] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 20:56:45 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5c983a72] [c6fcf752-6] Response 200 OK
+2025-08-07 20:56:46 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 힐링을 원하신다면 자연이 아름다운 제주도를 추천드립니다. 한라산 등반이나 오름 트레킹, 그리고 바다를 보며 여유로운 시간을 보내실 수 있습니다. 또한, 조용한 카페에서 책을 읽거나 해변을 산책하며 마음의 평화를 찾으실 수도 있을 것입니다.
+2025-08-07 20:56:46 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 20:56:46 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 20:56:46 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 20:57:41 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 20:57:41 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 20:57:41 [http-nio-7777-exec-2] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 3]
+2025-08-07 20:57:41 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 20:57:41 [http-nio-7777-exec-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [2b4e0f1a] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 20:57:41 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [2b4e0f1a] [c6fcf752-7] Response 200 OK
+2025-08-07 20:57:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 한라산은 경사가 가파른 편이라 체력적으로 부담이 될 수 있지만, 정상에서 보는 풍경과 성취감은 그만한 가치가 있습니다. 반면, 바다는 비교적 쉽게 접근할 수 있고, 다양한 활동을 즐길 수 있어서 선택지가 더 많습니다. 어떤 경험을 통해 더 큰 힐링을 느끼실지 고민해보시고 결정하시면 좋을 것 같습니다.
+2025-08-07 20:57:42 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-07 20:57:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - REPORT
+2025-08-07 20:57:54 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "바다힐링",
+  "answerA": "✅ A안: 제주도 바다에서 힐링\n✅ 가치 일치도: 중간\n이유 : 바쁜 일상에서 벗어나 여유롭게 마음을 다스리는 데 도움되지만, 사용자님의 핵심 가치인 '성공'과의 직접적 연관성은 약합니다. 다만 장기적 성공을 위한 재충전 차원에서 의미가 있을 수 있습니다.",
+  
+  "titleB": "한라산등반",
+  "answerB": "✅ B안: 한라산 등반으로 생각정리\n✅ 가치 일치도: 높음\n이유 : 신체적 도전을 통한 성취감과 정신적 정리가 동시에 가능해 '성공 추구형' 성향에 잘 맞습니다. 과거 경험상 운동/활동이 동기부여가 되었다면 더욱 효과적일 것입니다.",
+  
+  "conclusion": "홍길동님의 핵심 가치는 **성공**이며, 평소 신중하게 결정을 내리시는 성향을 고려할 때, 이번 선택에서 후회 가능성이 더 낮은 방향은 **B안(한라산 등반)**입니다. 신체적 도전 과정에서 얻는 작은 성취감이 자신감으로 이어져 궁극적으로 큰 성공에 기여할 수 있기 때문입니다. 물론 바다에서의 휴식도 단기적 힐링에는 유용하나, 사용자님의 가치관과 장기적 관점에선 등산이 더 적합하다고 판단됩니다."
+}
+2025-08-07 20:57:54 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-07 20:57:54 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 오늘 사용자가 제주도 여행 계획을 세우고 있는 것 같아. 그는 힐링을 위해 여행을 가고 싶어 하고, 특히 바다를 보러 갈지 아니면 한라산을 올라서 생각을 정리할지 고민 중이야. 사용자의 핵심 가치는 '성공'이라고 했어. 그런데 여기서 말하는 성공이란 개인의 성취감이나 목표 달성을 의미할까? 아마도 자신의 계획이나 목표를 이루는 것에 초점을 맞추는 사람일 거야. 하지만 현재 상황에서는 휴식과 재충전을 원하는 것 같으니, 이 부분을 어떻게 연결시켜야 할까?
+
+사용자는 결정을 미루는 경향이 있고 과거의 경험을 중요시한다고 했어. 그래서 각 옵션(A안과 B안)에 대해 그의 과거 경험이 어떤 영향을 미칠지도 고려해야 해. 예를 들어, 이전에 산악 활동을 통해 스트레스를 해소한 적이 있다면 한라산이 좋을 것이고, 반대로 바다에서의 휴식 경험이 긍정적이었다면 바다가 더 맞을 수 있지 않을까?
+
+또한 사용자는 후회할 때 원인을 찾는다고 하니, 선택한 후에 후회하지 않도록 장단점을 명확히 비교해주는 게 도움이 될 것 같아. A안은 바다에서의 여유로운 휴식이고, B안은 한라산 등반으로 활동적인 스트레스 해소 방법이야. 각각의 방법이 사용자의 현재 상태와 필요에 얼마나 부합하는지 평가해야 해.
+
+마지막으로 결론 부분에서는 사용자의 핵심 가치를 강조하면서 두 옵션 중에서 어느 것이 더 후회 가능성을 줄일 수 있는지 제시해야 해. 성공을 추구하는 사람에게 휴식이 필요한 시기라면 바다 쪽이 더 적합할 수도 있지만, 신체적 도전과 정신적 정리를 원한다면 한라산이 더 좋을 수 있겠지. 하지만 사용자의 성향을 고려했을 때, 결정하기 어려워하니 과거의 성공적인 경험을 기반으로 선택할 것을 권장하는 방향으로 가야 할 것 같아.
+2025-08-07 20:57:54 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 20:57:55 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "제주도에서 바다힐링 vs 한라산 등반 중 선택에 대한 고민", "content": "사용자는 제주도 여행을 계획하면서 바다를 보며 힐링할지, 한라산을 오르며 마음을 정화시킬지 결정하지 못하고 있다."}
+2025-08-07 20:57:55 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-07 20:57:55 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - roadId : 15
+2025-08-07 20:57:55 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-07 20:57:55 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
+2025-08-07 21:02:09 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 21068 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-07 21:02:09 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-07 21:02:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-07 21:02:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 217 ms. Found 5 JPA repository interfaces.
+2025-08-07 21:02:12 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-07 21:02:12 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-07 21:02:12 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-07 21:02:12 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-07 21:02:12 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-07 21:02:12 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3172 ms
+2025-08-07 21:02:12 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-07 21:02:12 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-07 21:02:13 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-07 21:02:13 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-07 21:02:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-07 21:02:13 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@74450c9b
+2025-08-07 21:02:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-07 21:02:13 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-07 21:02:15 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-07 21:02:15 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-07 21:02:16 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-07 21:02:18 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-07 21:02:18 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-07 21:02:18 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-07 21:02:18 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-07 21:02:18 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 10.942 seconds (process running for 11.724)
+2025-08-07 21:02:21 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-07 21:02:21 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-07 21:02:21 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2025-08-07 21:02:23 [http-nio-7777-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 910 ms
+2025-08-07 21:02:37 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 21:02:37 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 21:02:37 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 21:02:37 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 21:02:37 [http-nio-7777-exec-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [17559107] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 21:02:40 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [17559107] [7935b97e-1] Response 200 OK
+2025-08-07 21:02:41 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?
+2025-08-07 21:02:42 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 21:02:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 21:02:42 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 21:03:19 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 4116 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-07 21:03:19 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-07 21:03:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-07 21:03:21 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 233 ms. Found 5 JPA repository interfaces.
+2025-08-07 21:03:22 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-07 21:03:22 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-07 21:03:22 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-07 21:03:22 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-07 21:03:22 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-07 21:03:22 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3229 ms
+2025-08-07 21:03:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-07 21:03:23 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-07 21:03:23 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-07 21:03:23 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-07 21:03:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-07 21:03:23 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@a1b7549
+2025-08-07 21:03:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-07 21:03:24 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-07 21:03:25 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-07 21:03:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-07 21:03:26 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-07 21:03:28 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-07 21:03:28 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-07 21:03:29 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-07 21:03:29 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-07 21:03:29 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 11.112 seconds (process running for 11.858)
+2025-08-07 21:03:31 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-07 21:03:31 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-07 21:03:31 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2025-08-07 21:03:32 [http-nio-7777-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 946 ms
+2025-08-07 21:03:40 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 21:03:40 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 21:03:40 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 21:03:40 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 21:03:40 [http-nio-7777-exec-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [4961c09] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 21:03:43 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [4961c09] [b205a96b-1] Response 200 OK
+2025-08-07 21:03:43 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?
+2025-08-07 21:03:44 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 21:03:44 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 21:03:44 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 21:04:21 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 21:04:21 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 21:04:21 [http-nio-7777-exec-6] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 3]
+2025-08-07 21:04:21 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 21:04:21 [http-nio-7777-exec-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [64e79642] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 21:04:22 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [64e79642] [b205a96b-2] Response 200 OK
+2025-08-07 21:04:22 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 백엔드 개발에 대한 열정이 있으시다면 퇴사를 고려해 볼 만합니다. 새로운 기회를 찾기 위해 관련 경력을 쌓거나 교육 과정을 수강하는 것도 좋은 방법일 수 있습니다. 혹시 백엔드 프로젝트나 회사에 대해 조사해보신 곳이 있나요?
+2025-08-07 21:04:23 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-07 21:04:23 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - REPORT
+2025-08-07 21:04:33 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사 후 재도전",
+  "answerA": "현재 회사의 업무 환경이 백엔드 개발 역량 강화에 부적합하다고 판단된다면, 퇴사 후 백엔드 중심 조직으로 이동하는 것이 성공 목표 달성에 유리합니다. 새로운 환경에서 전문성을 빠르게 축적하며 경쟁력 확보가 가능하며, 장기적 경력 발전에 긍정적일 것입니다. 다만 철저한 시장 조사와 이력 준비가 선행되어야 합니다.",
+  
+  "titleB": "현직장 내 스킬 전환 시도",
+  "answerB": "회사 내에서 프로젝트 제안 등을 통해 백엔드 역할을 일부 수용하도록 협상한다면 현업 유지와 동시에 기술 확장이 가능합니다. 안정적인 수입원을 유지하며 단계적 성장을 도모할 수 있으나, 조직 문화나 인력 구조상 한계가 있을 경우 발전 속도 저하로 인한 후회가 발생할 수 있습니다.",
+  
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 성공이므로, 백엔드 전문가로서의 성장을 최우선으로 고려해야 합니다. 과거의 유사한 상황에서 도전을 통한 성과 경험이 있다면 A안이 적합하나, 안정 지향적 선택을 주로 했다면 B안의 점진적 변화도 검토 필요합니다. 그러나 현재 환경의 제약이 크다면 과감한 결단을 내려 타 업계로의 전환이 궁극적 성공 가능성을 높일 것으로 보입니다."
+}
+2025-08-07 21:04:33 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-07 21:04:33 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 좋아, 이제 사용자의 상황을 파악해보자. 홍길동은 현재 회사에서 프론트엔드 위주로 일하면서 백엔드 경력을 쌓지 못해 걱정이고, 퇴사를 고민 중이다. 그의 핵심 가치는 성공이라고 했으니, 이 선택이 자신의 성공에 어떻게 영향을 미칠지 고려해야겠다.
+
+먼저 A안은 퇴사해서 백엔드 개발에 집중할 수 있는 새로운 기회를 찾는 것이고, B안은 현재 회사에 남아서 프론트엔드와 백엔드를 병행하거나 전환을 시도하는 거겠지. 
+
+가치 일치도를 보면, 성공을 중요시하는 홍길동에게 A안이 더 맞을까? 퇴사하면 원하는 분야로 이동해 전문성을 키울 수 있으니 성공 가능성은 높아질 거야. 하지만 리스크가 크고 시간이 걸릴 수도 있지. 반면 B안은 안정적이지만 성장 속도가 느려서 후회할 수 있어. 
+
+과거 경험을 믿는다니, 이전에도 비슷한 선택을 했을 때의 결과를 떠올려보라고 조언해야겠다. 예를 들어 이전에 변화를 추구했던 경험이 성공적이었다면 A안을, 아니면 보수적으로 접근했다면 B안을 선택할지도. 
+
+하지만 홍길동이 결정을 미루는 성향이라면 서두르지 말고 정보를 수집하라고 말해주는 게 좋을 것 같아. 결론적으로는 자신의 목표를 명확히 하고, 위험을 감수하더라도 도전하는 쪽(A안)이 성공에 더 가깝다고 판단될 듯하다. 그래서 추천은 A안으로 해야겠다.
+2025-08-07 21:04:33 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 21:04:34 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "백엔드 개발자로서의 경력을 쌓기 위해 퇴사를 고민 중인가요?", "content": "현재 회사에서 프론트 위주의 업무만을 수행하고 있어 백엔드 개발자로서 경력을 쌓지 못하고 있다는 고민을 하고 계십니다."}
+2025-08-07 21:04:35 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-07 21:04:35 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - roadId : 16
+2025-08-07 21:04:35 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-07 21:04:35 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
+2025-08-07 21:13:45 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 15716 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-07 21:13:45 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-07 21:13:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-07 21:13:47 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 243 ms. Found 5 JPA repository interfaces.
+2025-08-07 21:13:48 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-07 21:13:48 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-07 21:13:48 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-07 21:13:48 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-07 21:13:49 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-07 21:13:49 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3092 ms
+2025-08-07 21:13:49 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-07 21:13:49 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-07 21:13:49 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-07 21:13:50 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-07 21:13:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-07 21:13:50 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@40aad17d
+2025-08-07 21:13:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-07 21:13:50 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-07 21:13:52 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-07 21:13:52 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-07 21:13:52 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-07 21:13:55 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-07 21:13:55 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-07 21:13:55 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-07 21:13:55 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-07 21:13:55 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 11.225 seconds (process running for 12.074)
+2025-08-07 21:13:56 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-07 21:13:56 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-07 21:13:56 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-07 21:13:57 [http-nio-7777-exec-4] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 923 ms
+2025-08-07 21:14:05 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 21:14:05 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 21:14:05 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 3]
+2025-08-07 21:14:05 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 21:14:06 [http-nio-7777-exec-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [37ba4dc0] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 21:14:08 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [37ba4dc0] [16ac768a-1] Response 200 OK
+2025-08-07 21:14:09 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 퇴사 결정은 신중하게 고려해야 할 중요한 문제입니다. 현재 직장에서 느끼는 불만족스러운 점이나 퇴사를 고려하게 된 구체적인 이유가 있으신가요? 그리고 장기적인 경력 목표와 어떤 선택이 더 부합하는지 생각해 보셨나요?
+2025-08-07 21:14:10 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-07 21:14:10 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE AI Response Success! [memberId : 3]
+2025-08-07 21:14:10 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 21:14:38 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send  ]==================================
+2025-08-07 21:14:38 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 3
+2025-08-07 21:14:38 [http-nio-7777-exec-6] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 3]
+2025-08-07 21:14:38 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 3]
+2025-08-07 21:14:38 [http-nio-7777-exec-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5fa51531] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-07 21:14:39 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5fa51531] [16ac768a-2] Response 200 OK
+2025-08-07 21:14:40 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI CHAT : 홍길동 님, 백엔드 개발에 대한 열정이 있으시다면 새로운 기회를 찾아보는 것도 좋은 방법일 수 있습니다. 현재 회사에서 백엔드 관련 경력을 쌓기 어려운 상황이라면, 온라인 강의나 프로젝트를 통해 실력을 키우는 것도 고려해 볼 만합니다. 또한, 업계 동향을 파악하고 네트워킹을 통해 다른 회사의 백엔드 개발자 포지션을 알아보는 것도 도움이 될 것입니다.
+2025-08-07 21:14:40 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-07 21:14:40 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - REPORT
+2025-08-07 21:14:49 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사이후새회사찾기",
+  "answerA": "현재 회사에서 원하는 백엔드 경력을 쌓기 어려워 보이므로, 전문성을 키울 수 있는 새 회사를 찾는 것이 좋습니다. 이는 단기적 불확실성은 있으나 장기적 성공 가능성을 높이는 선택으로, 사용자님의 핵심 가치인 '성공'과 부합합니다.",
+  
+  "titleB": "현직장내역량강화",
+  "answerB": "현재 회사에서 프론트엔드 중심 업무라도 개인 학습/사이드 프로젝트를 병행하며 백엔드 역량을 보완할 수 있습니다. 안정적이지만 성장 속도가 느릴 수 있으며, 회사가 지원을 해주지 않을 경우 한계가 발생할 우려가 있어 성공 추구 관점에선 적합도가 낮습니다.",
+  
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 '성공'이며, 이를 위해선 백엔드 전문성 확보가 필수적입니다. 현재 환경에서의 제약이 명확하다면 과감히 환경을 바꿔 도전하는 A안이 후회 가능성을 줄일 것입니다. 다만 과거 유사한 위기 상황에서 어떻게 해결했는지 경험을 돌아보고, 네트워킹 등을 통한 정보 수집으로 리스크 관리 방안을 마련하시길 권장드립니다."
+}
+2025-08-07 21:14:49 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - ======================================================================================
+2025-08-07 21:14:49 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Thinking Content : 오늘 사용자가 퇴사 고민을 상담했어. 그는 백엔드 개발자가 되고 싶지만 회사에서 프론트엔드 위주로 일해서 커리어에 방해가 될 것 같다고 했지. 그의 핵심 가치는 성공이고, 결정을 미루며 과거 경험을 신뢰하니까 이 부분을 고려해야 해.
+
+먼저 A안은 퇴사 후 새로운 회사를 찾는 거야. 백엔드 경력을 쌓을 수 있는 곳으로 가면 목표를 달성하기 쉬울 테니 성공 가능성은 높아져. 하지만 리스크가 크고 안정성이 떨어질 수 있지. 그래도 사용자의 성공을 위한 선택이라 가치 일치도는 높을 거야.
+
+B안은 현재 회사에 남아서 백엔드 역량을 스스로 키우는 방법이지. 사이드 프로젝트나 교육을 통해 경험을 쌓을 수 있어. 안전하지만 시간이 걸리고 회사의 지원 여부에 따라 한계가 있을 수 있으니 가치 일치도는 낮아 보여. 
+
+사용자의 성향을 보면 과거의 경험을 중요시하니 이전 성공 사례를 떠올려 볼 필요가 있겠어. 만약 이전에 비슷한 상황에서 잘 극복했다면 현명하게 대처할 수도 있겠지만, 그렇지 않다면 위험 부담이 클 거야. 결론적으로 빠른 성과를 원한다면 A안이 낫겠지만, 안정적인 성장을 원하면 B안을 선택할 수도 있겠다. 그러나 사용자의 성공 욕구가 강하므로 A안을 더 추천해야 할 것 같아.
+2025-08-07 21:14:49 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI Check Success! [memberId : 3]
+2025-08-07 21:14:51 [reactor-http-nio-2] INFO  c.t.s.chatting.service.AiChatService - Summary Content : {"title": "백엔드 개발자로서의 커리어 발전을 위해 퇴사 고민 중", "content": "현재 회사에서 프론트 위주의 업무만 수행하고 있어 백엔드 개발자로서 커리어를 쌓기 어렵다고 느끼며, 이에 따라 퇴사를 고민 중인 상황입니다."}
+2025-08-07 21:14:51 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-07 21:14:51 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - roadId : 17
+2025-08-07 21:14:51 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 3]
+2025-08-07 21:14:51 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - Chatting List Save Success! [memberId : 3]
+2025-08-07 21:15:18 [http-nio-7777-exec-7] INFO  c.t.s.road.controller.RoadController - ==================================[ getReport  ]==================================
+2025-08-07 21:16:57 [http-nio-7777-exec-10] INFO  c.t.s.road.controller.RoadController - ==================================[ getReport  ]==================================

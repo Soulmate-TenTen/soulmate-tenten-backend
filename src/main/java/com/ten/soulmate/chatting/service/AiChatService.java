@@ -112,6 +112,7 @@ public class AiChatService {
 
         // 프론트로 원본 SSE 전송 (모든 이벤트)
         responseFlux.subscribe(rawEvent -> {
+        	//log.info(rawEvent);
             sink.tryEmitNext(rawEvent);
         });
 
@@ -219,6 +220,7 @@ public class AiChatService {
              String answerB = jsonData.get("answerB").asText();  
              
              String conclusion = jsonData.get("conclusion").asText();    
+             String recommend = jsonData.get("recommend").asText();
                  
              responseAi = ReportAiResponse.builder()
             		 						.thinkingContent(thinkingContent)
@@ -226,6 +228,7 @@ public class AiChatService {
             		 						.titleB(titleB)
             		 						.answerA(answerA)
             		 						.answerB(answerB)
+            		 						.recommend(recommend)
             		 						.conclusion(conclusion).build();
 
           

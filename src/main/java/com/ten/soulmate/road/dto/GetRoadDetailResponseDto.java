@@ -31,6 +31,9 @@ public class GetRoadDetailResponseDto {
 			+ " 이유: 단기적 안정성은 있으나 과도한 업무 강도가 장기적 성공 방해 요소로 작용할 우려. 과거 문제 방치했다 악화된 경험 있다면 비추천.")
 	private String contentB;
 	
+	@Schema(description = "결론 제목", example = "소울메이트는 A안을 추천합니다.")
+	private String coclusionTitle;
+	
 	@Schema(description = "결론", example = "홍길동님의 핵심 가치는 **성공**이며,\r\n"
 			+ " 성향상 신중하나 현재 업무 환경의 구조적 문제가 지속된다면 **A안(퇴사)**이 후회 가능성을 낮추는 선택입니다.\r\n"
 			+ " 단, 이직 전 구체적 계획 수립 필수.")
