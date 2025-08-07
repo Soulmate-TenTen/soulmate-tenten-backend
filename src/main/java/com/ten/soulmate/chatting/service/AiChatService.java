@@ -1,17 +1,20 @@
 package com.ten.soulmate.chatting.service;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.core.io.buffer.DataBufferUtils;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
+import org.springframework.web.reactive.function.client.WebClient;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ten.soulmate.chatting.dto.AiRequestDto;
@@ -19,9 +22,11 @@ import com.ten.soulmate.chatting.dto.ReportAiResponse;
 import com.ten.soulmate.chatting.dto.SummaryAiResponse;
 import com.ten.soulmate.global.prompt.PromptService;
 import com.ten.soulmate.global.type.SoulMateType;
-
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import reactor.core.publisher.Sinks;
 
 
 
@@ -33,6 +38,7 @@ public class AiChatService {
     private final RestTemplate restTemplate = new RestTemplate();
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final PromptService promptService = new PromptService();
+    private final WebClient webClient;
     
     @Value("${clova.api.url}")
     private String apiUrl;
@@ -60,50 +66,61 @@ public class AiChatService {
         
     
     //HCX-002-DASH
-    //채팅용 모델
-    public String ResponseChatMessage(AiRequestDto aiRequestDto)
-    {
-    	try {
-			String systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
-	        String answerType = "";
-	        
-	        if(aiRequestDto.getSoulMateType().equals(SoulMateType.T))
-	        	answerType = Ttype;
-	        if(aiRequestDto.getSoulMateType().equals(SoulMateType.F))
-	        	answerType = Ftype;
-	        
-	        Map<String, String> replacements = Map.of(
-    		        "soulmate", aiRequestDto.getSoulmateName(),
-    		        "member", aiRequestDto.getMemberName(),
-    		        "answerType", answerType
-    		    );
-			
-	    	String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
-	        
-			HttpHeaders headers = new HttpHeaders();
-	        headers.setContentType(MediaType.APPLICATION_JSON);
-	        headers.set("Authorization", "Bearer "+apiKey);	         	
-	        
-	        Map<String, Object> body = new HashMap<>();
-	         body.put("messages", new Object[] {
-	         		Map.of("role", "system", "content", fullPrompt),
-	                Map.of("role", "user", "content", aiRequestDto.getMessage())
-	         });
-	        
-	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
-             ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+dash, request, String.class);
-             JsonNode root = objectMapper.readTree(response.getBody());
-             String answer = root.path("result").path("message").path("content").asText();
-			
-             return answer;
-             
-		} catch (IOException e) {			
-			log.error("HCX-002-DASH Error : "+e.getMessage());
-			e.printStackTrace();
-			
-			return e.getMessage();
-		}
+    //채팅용 모델   
+    public Flux<String> ResponseChatMessage(AiRequestDto aiRequestDto, Sinks.Many<String> sink) {
+        String systemPrompt;
+        try {
+            systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
+        } catch (IOException e) {
+            sink.tryEmitNext("System 프롬프트 로딩 오류");
+            return Flux.empty();
+        }
+
+        String answerType = "";
+        if (aiRequestDto.getSoulMateType().equals(SoulMateType.T))
+            answerType = Ttype;
+        if (aiRequestDto.getSoulMateType().equals(SoulMateType.F))
+            answerType = Ftype;
+
+        Map<String, String> replacements = Map.of(
+            "soulmate", aiRequestDto.getSoulmateName(),
+            "member", aiRequestDto.getMemberName(),
+            "answerType", answerType
+        );
+
+        String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+
+        Map<String, Object> body = Map.of(
+            "messages", new Object[]{
+                Map.of("role", "system", "content", fullPrompt),
+                Map.of("role", "user", "content", aiRequestDto.getMessage())
+            }
+        );
+
+        Flux<String> responseFlux = webClient.post()
+            .uri(dash)
+            .bodyValue(body)
+            .retrieve()
+            .bodyToFlux(DataBuffer.class)
+            .map(buffer -> {
+                byte[] bytes = new byte[buffer.readableByteCount()];
+                buffer.read(bytes);
+                DataBufferUtils.release(buffer);
+                return new String(bytes, StandardCharsets.UTF_8);
+            })
+            .share(); // 멀티 구독 가능하도록 공유
+
+        // 프론트로 원본 SSE 전송 (모든 이벤트)
+        responseFlux.subscribe(rawEvent -> {
+            sink.tryEmitNext(rawEvent);
+        });
+
+        // Usage 존재하는 데이터만 메시지 추출해 반환
+        return responseFlux
+            .filter(this::hasUsage)
+            .flatMap(rawEvent -> Mono.justOrEmpty(extractMessageContent(rawEvent)));
     }
+    
     
     //HCX-005
     //정보량 판단용 모델
@@ -287,4 +304,28 @@ public class AiChatService {
                 .replaceAll("`", "")                          // inline 백틱 제거
                 .trim();
     }
+    
+    private String extractMessageContent(String rawEvent) {
+        try {
+            int jsonStart = rawEvent.indexOf('{');
+            if (jsonStart == -1) return null;
+
+            String jsonPart = rawEvent.substring(jsonStart);
+            JsonNode root = new ObjectMapper().readTree(jsonPart);
+            JsonNode contentNode = root.path("message").path("content");
+
+            if (!contentNode.isMissingNode() && !contentNode.asText().isBlank()) {
+                return contentNode.asText();
+            }
+        } catch (Exception e) {
+            log.error("JSON 파싱 오류", e);
+        }
+        return null;
+    }
+
+    private boolean hasUsage(String rawEvent) {
+        return rawEvent.contains("\"usage\"") && !rawEvent.contains("\"usage\":null");
+    }
+
+
 }
