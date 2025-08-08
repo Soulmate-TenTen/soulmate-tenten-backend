@@ -1,9 +1,11 @@
 package com.ten.soulmate.member.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.member.dto.UpdateSoulmateNameDto;
@@ -37,5 +39,18 @@ public class MemberController {
 		log.info("==================================[ updateSoulmateName  ]==================================");	
 		return memberService.updateSoulmateName(request);
 	}
+	
+	
+	@Operation(summary = "회원 탈퇴", description = "회원 탈퇴")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "회원 탈퇴 성공.",content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "회원 탈퇴 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+	@DeleteMapping("/out")
+	public ResponseEntity<?> deleteMember(@RequestParam("memberId") Long memberId){
+		log.info("==================================[ deleteMember  ]==================================");	
+		return memberService.deleteMember(memberId);
+	}
+	
 	
 }
