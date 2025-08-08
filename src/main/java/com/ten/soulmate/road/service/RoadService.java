@@ -121,7 +121,7 @@ public class RoadService {
 			Optional<Road> road = roadRepository.findById(roadId);
 						
 			GetRoadDetailResponseDto response = GetRoadDetailResponseDto.builder()
-												.coclusionTitle("소울메이트는 "+road.get().getRecommend()+"안을 추천합니다.")
+												.conclusionTitle("소울메이트는 "+road.get().getRecommend()+"안을 추천합니다.")
 												.thinkingContent(road.get().getThinkinContent())
 												.conclusion(road.get().getConclusion())
 												.titleA(road.get().getTitleA())
