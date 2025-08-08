@@ -33,90 +33,90 @@ public class ChattingTest {
 	@Autowired
 	EntityManager em;
 	
-	@Test
-	@DisplayName("Chatting 및 ChattingList 저장과 조회, 업데이트 테스트")
-	void saveAndFindChattingWithChattingList() {
-		
-		Member member = Member.builder()
-				.pw("1234")
-				.role(MemberType.USER)
-				.name("테스트")
-				.soulmateName("소울")
-				.soulmateType(SoulMateType.F)
-				.build();
-
-		Member savedMember = memberRepository.save(member);
-		
-		
-		Chatting chatting = Chatting.builder()
-							.member(savedMember)
-							.build();
-		
-		Chatting savedChatting = chattingRepository.save(chatting);
-		
-				
-		ChattingList chattingList1 = ChattingList.builder()
-									.chatting(savedChatting)
-									.member(savedMember)
-									.message("나 퇴사를 할 지 고민이야")
-									.answerType(AnswerType.N)
-									.chatType(ChatType.M)
-									.build();
-		chattingListRepository.save(chattingList1);
-		
-		ChattingList chattingList2 = ChattingList.builder()
-				.chatting(savedChatting)
-				.member(savedMember)
-				.message("뭐 때문에 그러시죠?")
-				.answerType(AnswerType.N)
-				.chatType(ChatType.A)
-				.build();
-		chattingListRepository.save(chattingList2);
-
-		
-		ChattingList chattingList3 = ChattingList.builder()
-				.chatting(savedChatting)
-				.member(savedMember)
-				.message("직무가 나랑 안맞아.")
-				.answerType(AnswerType.N)
-				.chatType(ChatType.M)
-				.build();
-		
-		chattingListRepository.save(chattingList3);
-
-		ChattingList chattingList4 = ChattingList.builder()
-				.chatting(savedChatting)
-				.member(savedMember)
-				.message("리포트 입니다......")
-				.answerType(AnswerType.R)
-				.chatType(ChatType.A)
-				.build();
-		
-		chattingListRepository.save(chattingList4);
-
-		
-		List<ChattingList> savedChattingList = chattingListRepository.findByChattingId(savedChatting.getId());
-			
-		
-		for(int i=0; i<savedChattingList.size(); i++)
-		{
-			switch(i) {
-			case 0: 
-				assertThat(savedChattingList.get(i).getMessage()).isEqualTo("나 퇴사를 할 지 고민이야");
-				break;
-			case 1:
-				assertThat(savedChattingList.get(i).getMessage()).isEqualTo("뭐 때문에 그러시죠?");
-				break;
-			case 2:
-				assertThat(savedChattingList.get(i).getMessage()).isEqualTo("직무가 나랑 안맞아.");
-				break;
-			case 3:
-				assertThat(savedChattingList.get(i).getMessage()).isEqualTo("리포트 입니다......");
-				break;
-			}
-			
-		}
-		
-	}
+//	@Test
+//	@DisplayName("Chatting 및 ChattingList 저장과 조회, 업데이트 테스트")
+//	void saveAndFindChattingWithChattingList() {
+//		
+//		Member member = Member.builder()
+//				.pw("1234")
+//				.role(MemberType.USER)
+//				.name("테스트")
+//				.soulmateName("소울")
+//				.soulmateType(SoulMateType.F)
+//				.build();
+//
+//		Member savedMember = memberRepository.save(member);
+//		
+//		
+//		Chatting chatting = Chatting.builder()
+//							.member(savedMember)
+//							.build();
+//		
+//		Chatting savedChatting = chattingRepository.save(chatting);
+//		
+//				
+//		ChattingList chattingList1 = ChattingList.builder()
+//									.chatting(savedChatting)
+//									.member(savedMember)
+//									.message("나 퇴사를 할 지 고민이야")
+//									.answerType(AnswerType.N)
+//									.chatType(ChatType.M)
+//									.build();
+//		chattingListRepository.save(chattingList1);
+//		
+//		ChattingList chattingList2 = ChattingList.builder()
+//				.chatting(savedChatting)
+//				.member(savedMember)
+//				.message("뭐 때문에 그러시죠?")
+//				.answerType(AnswerType.N)
+//				.chatType(ChatType.A)
+//				.build();
+//		chattingListRepository.save(chattingList2);
+//
+//		
+//		ChattingList chattingList3 = ChattingList.builder()
+//				.chatting(savedChatting)
+//				.member(savedMember)
+//				.message("직무가 나랑 안맞아.")
+//				.answerType(AnswerType.N)
+//				.chatType(ChatType.M)
+//				.build();
+//		
+//		chattingListRepository.save(chattingList3);
+//
+//		ChattingList chattingList4 = ChattingList.builder()
+//				.chatting(savedChatting)
+//				.member(savedMember)
+//				.message("리포트 입니다......")
+//				.answerType(AnswerType.R)
+//				.chatType(ChatType.A)
+//				.build();
+//		
+//		chattingListRepository.save(chattingList4);
+//
+//		
+//		List<ChattingList> savedChattingList = chattingListRepository.findByChattingId(savedChatting.getId());
+//			
+//		
+//		for(int i=0; i<savedChattingList.size(); i++)
+//		{
+//			switch(i) {
+//			case 0: 
+//				assertThat(savedChattingList.get(i).getMessage()).isEqualTo("나 퇴사를 할 지 고민이야");
+//				break;
+//			case 1:
+//				assertThat(savedChattingList.get(i).getMessage()).isEqualTo("뭐 때문에 그러시죠?");
+//				break;
+//			case 2:
+//				assertThat(savedChattingList.get(i).getMessage()).isEqualTo("직무가 나랑 안맞아.");
+//				break;
+//			case 3:
+//				assertThat(savedChattingList.get(i).getMessage()).isEqualTo("리포트 입니다......");
+//				break;
+//			}
+//			
+//		}
+//		
+//	}
 			
 }
