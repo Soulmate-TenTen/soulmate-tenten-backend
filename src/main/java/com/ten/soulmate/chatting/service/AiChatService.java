@@ -270,10 +270,11 @@ public class AiChatService {
             		 						.recommend(recommend)
             		 						.conclusion(conclusion).build();
 
+             log.info("Create Report!");
           
-             log.info("HCX-007 Content : "+content);
-             log.info("======================================================================================");
-             log.info("HCX-007 Thinking Content : "+thinkingContent);	       	    		
+             //log.info("HCX-007 Content : "+content);
+             //log.info("======================================================================================");
+             //log.info("HCX-007 Thinking Content : "+thinkingContent);	       	    		
     	}    	
     	catch(Exception e)
     	{            
@@ -314,7 +315,7 @@ public class AiChatService {
              JsonNode root = objectMapper.readTree(response.getBody());
              String answer = root.path("result").path("message").path("content").asText();
              	
-             log.info("Summary Content : "+answer);
+             //log.info("Summary Content : "+answer);
             
              answer = cleanJson(answer);
              
@@ -328,6 +329,8 @@ public class AiChatService {
             		 		.summaryTitle(title)
             		 		.summaryContent(content)
             		 		.build();                       
+             
+             log.info("Summary Success!");
              
 		} catch (IOException e) {			
 			log.error("HCX-005-Summary Error : "+e.getMessage());

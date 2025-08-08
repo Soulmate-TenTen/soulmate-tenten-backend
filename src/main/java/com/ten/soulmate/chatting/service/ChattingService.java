@@ -151,10 +151,7 @@ public class ChattingService {
     	                			
     	        
     	        //정보량 판단로직에 그동안 수행한 데이터를 전달해야 함
-    	        aiRequestDto.setMessage(buildUserPrompt(tempChatMap.get(memberId), "HCX-005"));        
-    	        
-    	        
-    	        log.info("대화 \n "+ buildUserPrompt(tempChatMap.get(memberId), "HCX-005"));  
+    	        aiRequestDto.setMessage(buildUserPrompt(tempChatMap.get(memberId), "HCX-005"));           	           	         
     	        
     	        //2. 정보량 판단 로직
     	        //true -> 리포트 생성 가능
