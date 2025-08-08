@@ -33,11 +33,31 @@ public class MemberService {
 			
 		} catch(Exception e)
 		{
-			log.error("Update SoulmateName Success!");
+			log.error("Update SoulmateName Error : "+e.getMessage());
 			response.setMessage("Failed");
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 		}
 				
 	}
-
+	
+	@Transactional
+	public ResponseEntity<?> deleteMember(Long memberId)
+	{
+		ResponseDto response = new ResponseDto();		
+		try {
+			
+			memberRepository.deleteById(memberId);
+			
+			log.info("Delete Member Success!");
+			response.setMessage("Success");
+			
+			return ResponseEntity.ok(response);
+		} catch(Exception e)
+		{
+			log.error("Delete Member Error : "+e.getMessage());
+			response.setMessage("Failed");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+		}
+	}
+	
 }
