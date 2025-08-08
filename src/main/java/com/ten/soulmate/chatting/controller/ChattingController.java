@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.ten.soulmate.chatting.dto.ChattingDto;
 import com.ten.soulmate.chatting.dto.ChattingListResponseDto;
+import com.ten.soulmate.chatting.dto.ResponseChattingDto;
 import com.ten.soulmate.chatting.service.ChattingService;
 import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
@@ -45,24 +46,24 @@ public class ChattingController {
 //    	
 //		return chattingService.connect(memberId);
 //    }
-    
-	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
-			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-		            description = "채팅 요청 정보",
-		            required = true,
-		            content = @Content(schema = @Schema(implementation = ChattingDto.class))
-		        ))
-	@ApiResponses(value = {			
-			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
-	})
-    @PostMapping("/sse/send")
-    public Flux<String> chat(@RequestBody ChattingDto request)
-    {
-    	log.info("==================================[ SSE Send  ]==================================");	
-    	log.info("SSE Send Member Id : "+request.getMemberId());
-    	
-    	return chattingService.handleChat(request);
-    }
+//    
+//	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
+//			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+//		            description = "채팅 요청 정보",
+//		            required = true,
+//		            content = @Content(schema = @Schema(implementation = ChattingDto.class))
+//		        ))
+//	@ApiResponses(value = {			
+//			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
+//	})
+//    @PostMapping("/sse/send")
+//    public Flux<String> chat(@RequestBody ChattingDto request)
+//    {
+//    	log.info("==================================[ SSE Send 2 ]==================================");	
+//    	log.info("SSE Send Member Id : "+request.getMemberId());
+//    	
+//    	return chattingService.handleChat2(request);
+//    }
 	
 //	@Operation(
 //	    summary = "SSE 연결 종료",
@@ -79,6 +80,23 @@ public class ChattingController {
 //	    chattingService.disconnect(memberId);
 //	}
 //    
+	
+    
+	@Operation(summary = "채팅 API", description = "채팅 발송 API")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "채팅 발송 성공.",content = @Content(schema = @Schema(implementation = ResponseChattingDto.class))),
+			@ApiResponse(responseCode = "400", description = "채팅 발송 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+    @PostMapping("/api/send")
+    public ResponseEntity<?> chat(@RequestBody ChattingDto request)
+    {
+    	log.info("==================================[ API Chatting Send ]==================================");	
+    	log.info("API Send Member Id : "+request.getMemberId());
+    	
+    	return chattingService.handleChat(request);
+    }
+	
+	
 	
 	@Operation(summary = "대화 내용 조회 API", description = "대화 내용 조회")
 	@ApiResponses(value = {			
