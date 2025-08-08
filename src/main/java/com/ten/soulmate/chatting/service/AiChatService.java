@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
@@ -27,8 +26,6 @@ import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
-
-
 
 @Slf4j
 @Service
@@ -87,7 +84,7 @@ public class AiChatService {
             "member", aiRequestDto.getMemberName(),
             "answerType", answerType
         );
-
+        
         String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
 
         Map<String, Object> body = Map.of(
@@ -96,7 +93,7 @@ public class AiChatService {
                 Map.of("role", "user", "content", aiRequestDto.getMessage())
             }
         );
-
+        
         Flux<String> responseFlux = webClient.post()
             .uri(dash)
             .bodyValue(body)
@@ -109,13 +106,13 @@ public class AiChatService {
                 return new String(bytes, StandardCharsets.UTF_8);
             })
             .share(); // 멀티 구독 가능하도록 공유
-
+        
         // 프론트로 원본 SSE 전송 (모든 이벤트)
         responseFlux.subscribe(rawEvent -> {
         	//log.info(rawEvent);
             sink.tryEmitNext(rawEvent);
         });
-
+        
         // Usage 존재하는 데이터만 메시지 추출해 반환
         return responseFlux
             .filter(this::hasUsage)

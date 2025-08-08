@@ -93,127 +93,219 @@ public class ChattingService {
     }
 	
 	//채팅 로직
-	@Transactional
-	public void handleChat(ChattingDto request) {
+//	@Transactional
+//	public void handleChat(ChattingDto request) {
+//        Long memberId = request.getMemberId();
+//        String message = request.getQuestion();
+//                
+//        connect(memberId);       
+//
+//        Sinks.Many<String> sink = userSinkMap.get(memberId);
+//        if (sink == null) return;
+//
+//        // 1. 메시지 임시 저장
+//        ChattingListDto chattingListDto = ChattingListDto.builder()
+//        									.message(message)
+//        									.createAt(LocalDateTime.now())
+//        									.answerType(AnswerType.N)
+//        									.chatType(ChatType.M)
+//        									.build();
+//        	        	        
+//        tempChatMap.get(memberId).add(chattingListDto);
+//        
+//        log.info("SSE Send Success! [memberId : "+memberId+"]");
+//        
+//        //여기에 챗봇 로직 추가해야함
+//        Member member = memberRepository.findById(memberId).get();
+//        MemberAttribute memberAttribute = memberAttributeRepository.findByMemberId(memberId).get();
+//        String memberName = member.getName();
+//        String soulmateName = member.getSoulmateName();
+//        String valueAttribute = memberAttribute.getValueAttribute();
+//        String decision = memberAttribute.getDecision();
+//        String regret = memberAttribute.getRegret();
+//        String decisionTrust = memberAttribute.getDecisionTrust();
+//        SoulMateType soulmateType = member.getSoulmateType();
+//        
+//        //1. 대화형 챗봇 로직
+//        AiRequestDto aiRequestDto = AiRequestDto.builder()
+//        							.message(message)
+//        							.memberName(memberName)
+//        							.soulmateName(soulmateName)
+//        							.valueAttribute(valueAttribute)
+//        							.decision(decision)
+//        							.regret(regret)
+//        							.decisionTrust(decisionTrust)
+//        							.soulMateType(soulmateType)
+//        							.build();
+//        							               
+//        String userPromptChat = buildUserPrompt(tempChatMap.get(memberId), "DASH");             
+//        aiRequestDto.setMessage(userPromptChat);       
+//                             
+//        aiChatService.ResponseChatMessage(aiRequestDto, sink)
+//        .subscribe(response -> {
+//            log.info("AI CHAT : " + response);
+//            
+//            String aiResponse = response;
+//            ChattingListDto aiResponseDto = ChattingListDto.builder()
+//                .chatting(null)
+//                .member(null)
+//                .message(aiResponse)
+//                .createAt(LocalDateTime.now())
+//                .answerType(AnswerType.N)
+//                .chatType(ChatType.A)
+//                .build();
+//            
+//            //정보량 판단 AI 세팅            
+//            String userPrompt = buildUserPrompt(tempChatMap.get(memberId), "HCX-005");
+//            aiRequestDto.setMessage(userPrompt);
+//
+//            AnswerType AiAnswerType = null;
+//            //리포트 생성 AI 세팅
+//            AtomicReference<ReportAiResponse> reportDataRef = new AtomicReference<>(null);
+//
+//            if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
+//                AiAnswerType = AnswerType.R;
+//                log.info("REPORT");
+//                sink.tryEmitNext("REPORT");                                              
+//
+//                String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
+//                aiRequestDto.setMessage(userPromptReport);
+//
+//                ReportAiResponse responseAi = aiChatService.ResponseReportMessage(aiRequestDto);
+//                reportDataRef.set(responseAi);
+//
+//                ChattingListDto aiResponseDtoReport = ChattingListDto.builder()
+//                    .chatting(null)
+//                    .member(null)
+//                    .message("REPORT")
+//                    .createAt(LocalDateTime.now())
+//                    .answerType(AnswerType.R)
+//                    .chatType(ChatType.A)
+//                    .build();
+//
+//                tempChatMap.get(memberId).add(aiResponseDtoReport);
+//            } else {
+//                AiAnswerType = AnswerType.N;
+//                tempChatMap.get(memberId).add(aiResponseDto);
+//                log.info("SSE AI Response Success! [memberId : " + memberId + "]");
+//            }
+//
+//            log.info("AI Check Success! [memberId : " + memberId + "]");
+//
+//            if (AiAnswerType == AnswerType.R) {
+//                String userPromptSummary = buildUserPrompt(tempChatMap.get(memberId), "Summary");
+//                aiRequestDto.setMessage(userPromptSummary);
+//                SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
+//
+//                // 동기 호출 (바로 호출)
+//                Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportDataRef.get());
+//
+//                log.info("roadId : " + roadId);
+//                sink.tryEmitNext("roadId : " + roadId);
+//                tempChatMap.put(memberId, new ArrayList<>());
+//                
+//                //roadId를 보내고 연결종료
+//                disconnect(memberId);
+//                
+//                log.info("Chatting List Save Success! [memberId : " + memberId + "]");
+//                               
+//            }
+//        });
+//              
+//    }
+    
+    @Transactional
+    public Flux<String> handleChat(ChattingDto request) {
         Long memberId = request.getMemberId();
         String message = request.getQuestion();
-                
-        connect(memberId);       
+
+        connect(memberId);
 
         Sinks.Many<String> sink = userSinkMap.get(memberId);
-        if (sink == null) return;
+        if (sink == null) {
+            return Flux.empty();
+        }
 
         // 1. 메시지 임시 저장
         ChattingListDto chattingListDto = ChattingListDto.builder()
-        									.message(message)
-        									.createAt(LocalDateTime.now())
-        									.answerType(AnswerType.N)
-        									.chatType(ChatType.M)
-        									.build();
-        	        	        
-        tempChatMap.get(memberId).add(chattingListDto);
-        
-        log.info("SSE Send Success! [memberId : "+memberId+"]");
-        
-        //여기에 챗봇 로직 추가해야함
-        Member member = memberRepository.findById(memberId).get();
-        MemberAttribute memberAttribute = memberAttributeRepository.findByMemberId(memberId).get();
-        String memberName = member.getName();
-        String soulmateName = member.getSoulmateName();
-        String valueAttribute = memberAttribute.getValueAttribute();
-        String decision = memberAttribute.getDecision();
-        String regret = memberAttribute.getRegret();
-        String decisionTrust = memberAttribute.getDecisionTrust();
-        SoulMateType soulmateType = member.getSoulmateType();
-        
-        //1. 대화형 챗봇 로직
-        AiRequestDto aiRequestDto = AiRequestDto.builder()
-        							.message(message)
-        							.memberName(memberName)
-        							.soulmateName(soulmateName)
-        							.valueAttribute(valueAttribute)
-        							.decision(decision)
-        							.regret(regret)
-        							.decisionTrust(decisionTrust)
-        							.soulMateType(soulmateType)
-        							.build();
-        							       
-        
-        String userPromptChat = buildUserPrompt(tempChatMap.get(memberId), "DASH");             
-        aiRequestDto.setMessage(userPromptChat);       
-                             
-        aiChatService.ResponseChatMessage(aiRequestDto, sink)
-        .subscribe(response -> {
-            log.info("AI CHAT : " + response);
-
-            String aiResponse = response;
-            ChattingListDto aiResponseDto = ChattingListDto.builder()
-                .chatting(null)
-                .member(null)
-                .message(aiResponse)
+                .message(message)
                 .createAt(LocalDateTime.now())
                 .answerType(AnswerType.N)
-                .chatType(ChatType.A)
+                .chatType(ChatType.M)
                 .build();
 
-            //정보량 판단 AI 세팅            
-            String userPrompt = buildUserPrompt(tempChatMap.get(memberId), "HCX-005");
-            aiRequestDto.setMessage(userPrompt);
+        tempChatMap.get(memberId).add(chattingListDto);
 
-            AnswerType AiAnswerType = null;
-            //리포트 생성 AI 세팅
-            AtomicReference<ReportAiResponse> reportDataRef = new AtomicReference<>(null);
+        log.info("SSE Send Success! [memberId : {}]", memberId);
 
-            if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
-                AiAnswerType = AnswerType.R;
-                log.info("REPORT");
-                sink.tryEmitNext("REPORT");                                              
+        // AI 요청 세팅
+        Member member = memberRepository.findById(memberId).get();
+        MemberAttribute memberAttribute = memberAttributeRepository.findByMemberId(memberId).get();
 
-                String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
-                aiRequestDto.setMessage(userPromptReport);
+        AiRequestDto aiRequestDto = AiRequestDto.builder()
+                .message(buildUserPrompt(tempChatMap.get(memberId), "DASH"))
+                .memberName(member.getName())
+                .soulmateName(member.getSoulmateName())
+                .valueAttribute(memberAttribute.getValueAttribute())
+                .decision(memberAttribute.getDecision())
+                .regret(memberAttribute.getRegret())
+                .decisionTrust(memberAttribute.getDecisionTrust())
+                .soulMateType(member.getSoulmateType())
+                .build();
 
-                ReportAiResponse responseAi = aiChatService.ResponseReportMessage(aiRequestDto);
-                reportDataRef.set(responseAi);
+        // AI 응답 Flux
+        return aiChatService.ResponseChatMessage(aiRequestDto, sink)
+                .doOnNext(response -> {
+                    log.info("AI CHAT : {}", response);
 
-                ChattingListDto aiResponseDtoReport = ChattingListDto.builder()
-                    .chatting(null)
-                    .member(null)
-                    .message("REPORT")
-                    .createAt(LocalDateTime.now())
-                    .answerType(AnswerType.R)
-                    .chatType(ChatType.A)
-                    .build();
+                    ChattingListDto aiResponseDto = ChattingListDto.builder()
+                            .chatting(null)
+                            .member(null)
+                            .message(response)
+                            .createAt(LocalDateTime.now())
+                            .answerType(AnswerType.N)
+                            .chatType(ChatType.A)
+                            .build();
 
-                tempChatMap.get(memberId).add(aiResponseDtoReport);
-            } else {
-                AiAnswerType = AnswerType.N;
-                tempChatMap.get(memberId).add(aiResponseDto);
-                log.info("SSE AI Response Success! [memberId : " + memberId + "]");
-            }
+                    // REPORT 여부 판단
+                    String userPrompt = buildUserPrompt(tempChatMap.get(memberId), "HCX-005");
+                    aiRequestDto.setMessage(userPrompt);
 
-            log.info("AI Check Success! [memberId : " + memberId + "]");
+                    if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
+                        log.info("REPORT");
+                        sink.tryEmitNext("REPORT");
 
-            if (AiAnswerType == AnswerType.R) {
-                String userPromptSummary = buildUserPrompt(tempChatMap.get(memberId), "Summary");
-                aiRequestDto.setMessage(userPromptSummary);
-                SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
+                        String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
+                        aiRequestDto.setMessage(userPromptReport);
 
-                // 동기 호출 (바로 호출)
-                Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportDataRef.get());
+                        ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
 
-                log.info("roadId : " + roadId);
-                sink.tryEmitNext("roadId : " + roadId);
-                tempChatMap.put(memberId, new ArrayList<>());
-                
-                //roadId를 보내고 연결종료
-                disconnect(memberId);
-                
-                log.info("Chatting List Save Success! [memberId : " + memberId + "]");
-                               
-            }
-        });
-              
+                        ChattingListDto reportDto = ChattingListDto.builder()
+                                .message("REPORT")
+                                .createAt(LocalDateTime.now())
+                                .answerType(AnswerType.R)
+                                .chatType(ChatType.A)
+                                .build();
+
+                        tempChatMap.get(memberId).add(reportDto);
+
+                        String summaryPrompt = buildUserPrompt(tempChatMap.get(memberId), "Summary");
+                        aiRequestDto.setMessage(summaryPrompt);
+                        SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
+
+                        Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
+                        sink.tryEmitNext("roadId : " + roadId);
+
+                        tempChatMap.put(memberId, new ArrayList<>());
+                        disconnect(memberId);
+                    } else {
+                        tempChatMap.get(memberId).add(aiResponseDto);
+                        log.info("SSE AI Response Success! [memberId : {}]", memberId);
+                    }
+                })
+                .doOnComplete(() -> log.info("AI Check Success! [memberId : {}]", memberId));
     }
+
 	 
 	@Transactional
 	public Long saveToDB(Long memberId, List<ChattingListDto> chatList, SummaryAiResponse summary, ReportAiResponse reportData) {

@@ -46,7 +46,7 @@ public class ChattingController {
 //		return chattingService.connect(memberId);
 //    }
     
-	@Operation( summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
+	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
 		            description = "채팅 요청 정보",
 		            required = true,
@@ -56,12 +56,12 @@ public class ChattingController {
 			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
 	})
     @PostMapping("/sse/send")
-    public void chat(@RequestBody ChattingDto request)
+    public Flux<String> chat(@RequestBody ChattingDto request)
     {
     	log.info("==================================[ SSE Send  ]==================================");	
     	log.info("SSE Send Member Id : "+request.getMemberId());
     	
-    	chattingService.handleChat(request);
+    	return chattingService.handleChat(request);
     }
 	
 //	@Operation(
