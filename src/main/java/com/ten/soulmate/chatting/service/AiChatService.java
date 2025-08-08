@@ -24,7 +24,6 @@ import com.ten.soulmate.global.type.SoulMateType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
 
 @Slf4j
@@ -63,7 +62,7 @@ public class AiChatService {
         
     
     //HCX-002-DASH
-    //채팅용 모델   
+    //채팅용 모델       
     public Flux<String> ResponseChatMessage(AiRequestDto aiRequestDto, Sinks.Many<String> sink) {
         String systemPrompt;
         try {
@@ -84,7 +83,7 @@ public class AiChatService {
             "member", aiRequestDto.getMemberName(),
             "answerType", answerType
         );
-        
+
         String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
 
         Map<String, Object> body = Map.of(
@@ -93,7 +92,7 @@ public class AiChatService {
                 Map.of("role", "user", "content", aiRequestDto.getMessage())
             }
         );
-        
+
         Flux<String> responseFlux = webClient.post()
             .uri(dash)
             .bodyValue(body)
@@ -105,20 +104,13 @@ public class AiChatService {
                 DataBufferUtils.release(buffer);
                 return new String(bytes, StandardCharsets.UTF_8);
             })
-            .share(); // 멀티 구독 가능하도록 공유
-        
-        // 프론트로 원본 SSE 전송 (모든 이벤트)
-        responseFlux.subscribe(rawEvent -> {
-        	//log.info(rawEvent);
-            sink.tryEmitNext(rawEvent);
-        });
-        
-        // Usage 존재하는 데이터만 메시지 추출해 반환
-        return responseFlux
-            .filter(this::hasUsage)
-            .flatMap(rawEvent -> Mono.justOrEmpty(extractMessageContent(rawEvent)));
+            .share();
+
+        // 1) 토큰 단위 원본 스트림 클라이언트 전달
+        responseFlux.subscribe(sink::tryEmitNext);
+
+        return responseFlux;
     }
-    
     
     //HCX-005
     //정보량 판단용 모델
@@ -305,27 +297,27 @@ public class AiChatService {
                 .trim();
     }
     
-    private String extractMessageContent(String rawEvent) {
-        try {
-            int jsonStart = rawEvent.indexOf('{');
-            if (jsonStart == -1) return null;
-
-            String jsonPart = rawEvent.substring(jsonStart);
-            JsonNode root = new ObjectMapper().readTree(jsonPart);
-            JsonNode contentNode = root.path("message").path("content");
-
-            if (!contentNode.isMissingNode() && !contentNode.asText().isBlank()) {
-                return contentNode.asText();
-            }
-        } catch (Exception e) {
-            log.error("JSON 파싱 오류", e);
-        }
-        return null;
-    }
-
-    private boolean hasUsage(String rawEvent) {
-        return rawEvent.contains("\"usage\"") && !rawEvent.contains("\"usage\":null");
-    }
+//    private String extractMessageContent(String rawEvent) {
+//        try {
+//            int jsonStart = rawEvent.indexOf('{');
+//            if (jsonStart == -1) return null;
+//
+//            String jsonPart = rawEvent.substring(jsonStart);
+//            JsonNode root = new ObjectMapper().readTree(jsonPart);
+//            JsonNode contentNode = root.path("message").path("content");
+//
+//            if (!contentNode.isMissingNode() && !contentNode.asText().isBlank()) {
+//                return contentNode.asText();
+//            }
+//        } catch (Exception e) {
+//            log.error("JSON 파싱 오류", e);
+//        }
+//        return null;
+//    }
+//
+//    private boolean hasUsage(String rawEvent) {
+//        return rawEvent.contains("\"usage\"") && !rawEvent.contains("\"usage\":null");
+//    }
 
 
 }
