@@ -32,7 +32,7 @@ public class GetRoadDetailResponseDto {
 	private String contentB;
 	
 	@Schema(description = "결론 제목", example = "소울메이트는 A안을 추천합니다.")
-	private String coclusionTitle;
+	private String conclusionTitle;
 	
 	@Schema(description = "결론", example = "홍길동님의 핵심 가치는 **성공**이며,\r\n"
 			+ " 성향상 신중하나 현재 업무 환경의 구조적 문제가 지속된다면 **A안(퇴사)**이 후회 가능성을 낮추는 선택입니다.\r\n"
