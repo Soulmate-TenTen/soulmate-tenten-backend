@@ -86,12 +86,16 @@ public class AiChatService {
 
         String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
 
-        Map<String, Object> body = Map.of(
-            "messages", new Object[]{
-                Map.of("role", "system", "content", fullPrompt),
-                Map.of("role", "user", "content", aiRequestDto.getMessage())
-            }
-        );
+        Map<String, Object> body = new HashMap<>();
+        body.put("messages", new Object[]{
+            Map.of("role", "system", "content", fullPrompt),
+            Map.of("role", "user", "content", aiRequestDto.getMessage()),
+        });
+        body.put("topP", 0.8);
+        body.put("topK", 0);
+        body.put("maxTokens", 256);
+        body.put("repetitionPenalty", 1.1);
+        body.put("includeAiFilters", true);
 
         Flux<String> responseFlux = webClient.post()
             .uri(dash)
