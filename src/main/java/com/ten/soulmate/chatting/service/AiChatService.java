@@ -62,59 +62,105 @@ public class AiChatService {
         
     
     //HCX-002-DASH
-    //채팅용 모델       
-    public Flux<String> ResponseChatMessage(AiRequestDto aiRequestDto, Sinks.Many<String> sink) {
-        String systemPrompt;
-        try {
-            systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
-        } catch (IOException e) {
-            sink.tryEmitNext("System 프롬프트 로딩 오류");
-            return Flux.empty();
-        }
-
-        String answerType = "";
-        if (aiRequestDto.getSoulMateType().equals(SoulMateType.T))
-            answerType = Ttype;
-        if (aiRequestDto.getSoulMateType().equals(SoulMateType.F))
-            answerType = Ftype;
-
-        Map<String, String> replacements = Map.of(
-            "soulmate", aiRequestDto.getSoulmateName(),
-            "member", aiRequestDto.getMemberName(),
-            "answerType", answerType
-        );
-
-        String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
-
-        Map<String, Object> body = new HashMap<>();
-        body.put("messages", new Object[]{
-            Map.of("role", "system", "content", fullPrompt),
-            Map.of("role", "user", "content", aiRequestDto.getMessage()),
-        });
-        body.put("topP", 0.8);
-        body.put("topK", 0);
-        body.put("maxTokens", 256);
-        body.put("repetitionPenalty", 1.1);
-        body.put("includeAiFilters", true);
-
-        Flux<String> responseFlux = webClient.post()
-            .uri(dash)
-            .bodyValue(body)
-            .retrieve()
-            .bodyToFlux(DataBuffer.class)
-            .map(buffer -> {
-                byte[] bytes = new byte[buffer.readableByteCount()];
-                buffer.read(bytes);
-                DataBufferUtils.release(buffer);
-                return new String(bytes, StandardCharsets.UTF_8);
-            })
-            .share();
-
-        // 1) 토큰 단위 원본 스트림 클라이언트 전달
-        responseFlux.subscribe(sink::tryEmitNext);
-
-        return responseFlux;
+    //채팅용 모델 - 고도화 때 진행      
+//    public Flux<String> ResponseChatMessage(AiRequestDto aiRequestDto, Sinks.Many<String> sink) {
+//        String systemPrompt;
+//        try {
+//            systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
+//        } catch (IOException e) {
+//            sink.tryEmitNext("System 프롬프트 로딩 오류");
+//            return Flux.empty();
+//        }
+//
+//        String answerType = "";
+//        if (aiRequestDto.getSoulMateType().equals(SoulMateType.T))
+//            answerType = Ttype;
+//        if (aiRequestDto.getSoulMateType().equals(SoulMateType.F))
+//            answerType = Ftype;
+//
+//        Map<String, String> replacements = Map.of(
+//            "soulmate", aiRequestDto.getSoulmateName(),
+//            "member", aiRequestDto.getMemberName(),
+//            "answerType", answerType
+//        );
+//
+//        String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+//
+//        Map<String, Object> body = new HashMap<>();
+//        body.put("messages", new Object[]{
+//            Map.of("role", "system", "content", fullPrompt),
+//            Map.of("role", "user", "content", aiRequestDto.getMessage()),
+//        });
+//        body.put("topP", 0.8);
+//        body.put("topK", 0);
+//        body.put("maxTokens", 256);
+//        body.put("repetitionPenalty", 1.1);
+//        body.put("includeAiFilters", true);
+//
+//        Flux<String> responseFlux = webClient.post()
+//            .uri(dash)
+//            .bodyValue(body)
+//            .retrieve()
+//            .bodyToFlux(DataBuffer.class)
+//            .map(buffer -> {
+//                byte[] bytes = new byte[buffer.readableByteCount()];
+//                buffer.read(bytes);
+//                DataBufferUtils.release(buffer);
+//                return new String(bytes, StandardCharsets.UTF_8);
+//            })
+//            .share();
+//
+//        // 1) 토큰 단위 원본 스트림 클라이언트 전달
+//        responseFlux.subscribe(sink::tryEmitNext);
+//
+//        return responseFlux;
+//    }
+    
+    
+    public String ResponseChatMessage(AiRequestDto aiRequestDto)
+    {
+    	try {
+			String systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
+	        String answerType = "";
+	        
+	        if(aiRequestDto.getSoulMateType().equals(SoulMateType.T))
+	        	answerType = Ttype;
+	        if(aiRequestDto.getSoulMateType().equals(SoulMateType.F))
+	        	answerType = Ftype;
+	        
+	        Map<String, String> replacements = Map.of(
+    		        "soulmate", aiRequestDto.getSoulmateName(),
+    		        "member", aiRequestDto.getMemberName(),
+    		        "answerType", answerType
+    		    );
+			
+	    	String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+	        
+			HttpHeaders headers = new HttpHeaders();
+	        headers.setContentType(MediaType.APPLICATION_JSON);
+	        headers.set("Authorization", "Bearer "+apiKey);	         	
+	        
+	        Map<String, Object> body = new HashMap<>();
+	         body.put("messages", new Object[] {
+	         		Map.of("role", "system", "content", fullPrompt),
+	                Map.of("role", "user", "content", aiRequestDto.getMessage())
+	         });
+	        
+	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+             ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+dash, request, String.class);
+             JsonNode root = objectMapper.readTree(response.getBody());
+             String answer = root.path("result").path("message").path("content").asText();
+			
+             return answer;
+             
+		} catch (IOException e) {			
+			log.error("HCX-002-DASH Error : "+e.getMessage());
+			e.printStackTrace();
+			
+			return e.getMessage();
+		}
     }
+      
     
     //HCX-005
     //정보량 판단용 모델
