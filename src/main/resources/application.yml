@@ -2,5 +2,4 @@ spring:
   application:
     name: soulmate
   profiles: 
-    active: prod
-  
+    active: prod 

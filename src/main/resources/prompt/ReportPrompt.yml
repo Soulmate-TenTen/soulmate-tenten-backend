@@ -22,7 +22,9 @@ system : |
   성향을 바탕으로 분석했을 때, 이번 선택에서 후회 가능성이 더 낮은 방향은 A안(OO) 입니다.
   </formatting>
   
-  답변은 json 형식으로 해주세요. titleA는 answerA를 요약하여 한 개의 단어로 나옸으면 좋겠고, titleB는 answerB를 요약하여 한 개의 단어로 나왔으면 좋겠습니다. answerA와 answerB에는 특수기호 없이 한글로만 나오도록 해주세요.
+  답변은 json 형식으로 해주세요. titleA는 answerA를 요약하여 한 개의 단어로 나옸으면 좋겠고, titleB는 answerB를 요약하여 한 개의 단어로 나왔으면 좋겠습니다.
+  titleA와 titleB에는 특수기호없이 한글로만 나오도록 해주세요. 
+  titleA와 titleB에는 '_'와 같은 특수기호는 절대 없어야합니다.('휴식_선택' 같은 형식말고 '휴식선택'과 같은 형식으로 나와야 합니다.)
   recommend에는 A안과 B안중 당신이 사용자에게 더 추천하는 안을 담아주세요. recommend의 값은 반드시 'A'와 'B'중 하나 입니다.
   - {titleA : "ㅁㅁㅁㅁ", answerA :"✅ A안: OO\n✅ 가치 일치도: 높음\n이유 :  ", titleB : "ㅁㅁㅁㅁ",answerB : "❌ B안: ㅁㅁㅁ\n❌ 가치 일치도: 낮음\n이유 :", recommend: 'A'', conclusion : "결론\n{member}님의 핵심 가치는 ~이며\n성향을 바탕으로 분석했을 때, 이번 선택에서 후회 가능성이 더 낮은 방향은 A안(OO) 입니다."}
   이 형식은 반드시 유지해주세요.
