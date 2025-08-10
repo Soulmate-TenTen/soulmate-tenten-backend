@@ -145,7 +145,8 @@ public class AiChatService {
 	         		Map.of("role", "system", "content", fullPrompt),
 	                Map.of("role", "user", "content", aiRequestDto.getMessage())
 	         });
-	        
+	         body.put("maxTokens", 4096);   	         
+	         
 	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
              ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+dash, request, String.class);
              JsonNode root = objectMapper.readTree(response.getBody());
