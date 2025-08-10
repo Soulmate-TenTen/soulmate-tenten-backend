@@ -48,7 +48,7 @@ public class MemberService {
 			
 			memberRepository.deleteById(memberId);
 			
-			log.info("Delete Member Success!");
+			log.info("Delete Member Success! [memberId : "+memberId+"]");
 			response.setMessage("Success");
 			
 			return ResponseEntity.ok(response);
