@@ -188,6 +188,7 @@ public class ChattingService {
     	            						.message("REPORT")
     	            						.roadId(roadId).build();
     	            
+    	            log.info("[member Id :"+memberId+"] Road Id : "+roadId);    	            
     	            
     	            return ResponseEntity.ok(responseChattingDto);
     	        }
@@ -519,7 +520,7 @@ public class ChattingService {
 	    if(type.equals("HCX-007"))
 	    {
 	    	userPrompt.append("### 요청 ###\r\n"
-	    			+ "- 소울메이트(assistant)의 말은 제외하고, 오로지 외계공룡(user)의 말들 중에서 판단할 수 있는 부분을 찾아야 합니다.\r\n"
+	    			+ "- 소울메이트(assistant)의 말은 제외하고, 오로지 사용자(user)의 말들 중에서 판단할 수 있는 부분을 찾아야 합니다.\r\n"
 	    			+ "- 근거는 납득 가능해야 합니다.\r\n"
 	    			+ "- 부차적인 말은 생략하고, 판단 근거에 집중해주세요.");
 	    }	
