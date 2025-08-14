@@ -2,8 +2,12 @@ package com.ten.soulmate.chatting.service;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.buffer.DataBuffer;
 import org.springframework.core.io.buffer.DataBufferUtils;
@@ -98,23 +102,60 @@ public class AiChatService {
         body.put("repetitionPenalty", 1.1);
         body.put("includeAiFilters", true);
 
+//        Flux<String> responseFlux = webClient.post()
+//            .uri(dash)
+//            .bodyValue(body)
+//            .retrieve()
+//            .bodyToFlux(DataBuffer.class)
+//            .map(buffer -> {
+//                byte[] bytes = new byte[buffer.readableByteCount()];
+//                buffer.read(bytes);
+//                DataBufferUtils.release(buffer);
+//                return new String(bytes, StandardCharsets.UTF_8);
+//            })
+//            .share();
+//
+//        // 1) 토큰 단위 원본 스트림 클라이언트 전달
+//        responseFlux.subscribe(sink::tryEmitNext);
+//
+//        return responseFlux;       
+        
         Flux<String> responseFlux = webClient.post()
-            .uri(dash)
-            .bodyValue(body)
-            .retrieve()
-            .bodyToFlux(DataBuffer.class)
-            .map(buffer -> {
-                byte[] bytes = new byte[buffer.readableByteCount()];
-                buffer.read(bytes);
-                DataBufferUtils.release(buffer);
-                return new String(bytes, StandardCharsets.UTF_8);
-            })
-            .share();
+                .uri(dash)
+                .bodyValue(body)
+                .retrieve()
+                .bodyToFlux(DataBuffer.class)
+                .map(buffer -> {
+                    byte[] bytes = new byte[buffer.readableByteCount()];
+                    buffer.read(bytes);
+                    DataBufferUtils.release(buffer);
+                    return new String(bytes, StandardCharsets.UTF_8);
+                })
+                .flatMapIterable(new Function<String, Iterable<String>>() {
+                    private final StringBuilder acc = new StringBuilder();
 
-        // 1) 토큰 단위 원본 스트림 클라이언트 전달
+                    @Override
+                    public Iterable<String> apply(String chunk) {
+                        acc.append(chunk);
+                        List<String> events = new ArrayList<>();
+                        int idx;
+                        while ((idx = acc.indexOf("\n\n")) >= 0) {
+                            String event = acc.substring(0, idx).trim();
+                            if (!event.isEmpty()) {
+                                events.add(event);
+                            }
+                            acc.delete(0, idx + 2);
+                        }
+                        return events;
+                    }
+                })
+                .share();
+
+        // 완전한 이벤트만 방출
         responseFlux.subscribe(sink::tryEmitNext);
 
-        return responseFlux;       
+        return responseFlux;
+
     }
     
     
