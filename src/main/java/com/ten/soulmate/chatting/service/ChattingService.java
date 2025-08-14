@@ -60,20 +60,7 @@ public class ChattingService {
     private final RoadRepository roadRepository;
     private final AiChatService aiChatService;
 	
-	//SSE 연결 요청
-//	private Flux<String> connect(Long memberId){    	
-//        Sinks.Many<String> sink = Sinks.many().unicast().onBackpressureBuffer();
-//		userSinkMap.put(memberId, sink);
-//        tempChatMap.put(memberId, new ArrayList<>());
-//        log.info("SSE Connection Success! [memberId : "+memberId+"]");
-//		
-//        return sink.asFlux()
-//                .doFinally(signalType -> {
-//                    userSinkMap.remove(memberId);
-//                    tempChatMap.remove(memberId); 
-//                });		
-//    }
-    
+   
     public void putCompletedMessage(Long memberId, String message) {
         Sinks.Many<String> sink = userSinkMap.get(memberId);
         if (sink != null) {
@@ -83,6 +70,7 @@ public class ChattingService {
         }
     }
     
+	//SSE 연결 요청
     private Flux<String> connect(Long memberId) {
         // 이미 연결된 sink가 있는 경우, 해당 Flux 그대로 반환
         if (userSinkMap.containsKey(memberId)) {
