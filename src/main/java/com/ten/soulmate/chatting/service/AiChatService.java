@@ -17,6 +17,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ten.soulmate.chatting.dto.AiRequestDto;
+import com.ten.soulmate.chatting.dto.ProverbAiResponse;
 import com.ten.soulmate.chatting.dto.ReportAiResponse;
 import com.ten.soulmate.chatting.dto.SummaryAiResponse;
 import com.ten.soulmate.global.prompt.PromptService;
@@ -63,58 +64,58 @@ public class AiChatService {
     
     //HCX-002-DASH
     //채팅용 모델 - 고도화 때 진행      
-//    public Flux<String> ResponseChatMessage(AiRequestDto aiRequestDto, Sinks.Many<String> sink) {
-//        String systemPrompt;
-//        try {
-//            systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
-//        } catch (IOException e) {
-//            sink.tryEmitNext("System 프롬프트 로딩 오류");
-//            return Flux.empty();
-//        }
-//
-//        String answerType = "";
-//        if (aiRequestDto.getSoulMateType().equals(SoulMateType.T))
-//            answerType = Ttype;
-//        if (aiRequestDto.getSoulMateType().equals(SoulMateType.F))
-//            answerType = Ftype;
-//
-//        Map<String, String> replacements = Map.of(
-//            "soulmate", aiRequestDto.getSoulmateName(),
-//            "member", aiRequestDto.getMemberName(),
-//            "answerType", answerType
-//        );
-//
-//        String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
-//
-//        Map<String, Object> body = new HashMap<>();
-//        body.put("messages", new Object[]{
-//            Map.of("role", "system", "content", fullPrompt),
-//            Map.of("role", "user", "content", aiRequestDto.getMessage()),
-//        });
-//        body.put("topP", 0.8);
-//        body.put("topK", 0);
-//        body.put("maxTokens", 256);
-//        body.put("repetitionPenalty", 1.1);
-//        body.put("includeAiFilters", true);
-//
-//        Flux<String> responseFlux = webClient.post()
-//            .uri(dash)
-//            .bodyValue(body)
-//            .retrieve()
-//            .bodyToFlux(DataBuffer.class)
-//            .map(buffer -> {
-//                byte[] bytes = new byte[buffer.readableByteCount()];
-//                buffer.read(bytes);
-//                DataBufferUtils.release(buffer);
-//                return new String(bytes, StandardCharsets.UTF_8);
-//            })
-//            .share();
-//
-//        // 1) 토큰 단위 원본 스트림 클라이언트 전달
-//        responseFlux.subscribe(sink::tryEmitNext);
-//
-//        return responseFlux;
-//    }
+    public Flux<String> ResponseChatMessageSSE(AiRequestDto aiRequestDto, Sinks.Many<String> sink) {
+        String systemPrompt;
+        try {
+            systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
+        } catch (IOException e) {
+            sink.tryEmitNext("System 프롬프트 로딩 오류");
+            return Flux.empty();
+        }
+
+        String answerType = "";
+        if (aiRequestDto.getSoulMateType().equals(SoulMateType.T))
+            answerType = Ttype;
+        if (aiRequestDto.getSoulMateType().equals(SoulMateType.F))
+            answerType = Ftype;
+
+        Map<String, String> replacements = Map.of(
+            "soulmate", aiRequestDto.getSoulmateName(),
+            "member", aiRequestDto.getMemberName(),
+            "answerType", answerType
+        );
+
+        String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("messages", new Object[]{
+            Map.of("role", "system", "content", fullPrompt),
+            Map.of("role", "user", "content", aiRequestDto.getMessage()),
+        });
+        body.put("topP", 0.8);
+        body.put("topK", 0);
+        body.put("maxTokens", 4096);
+        body.put("repetitionPenalty", 1.1);
+        body.put("includeAiFilters", true);
+
+        Flux<String> responseFlux = webClient.post()
+            .uri(dash)
+            .bodyValue(body)
+            .retrieve()
+            .bodyToFlux(DataBuffer.class)
+            .map(buffer -> {
+                byte[] bytes = new byte[buffer.readableByteCount()];
+                buffer.read(bytes);
+                DataBufferUtils.release(buffer);
+                return new String(bytes, StandardCharsets.UTF_8);
+            })
+            .share();
+
+        // 1) 토큰 단위 원본 스트림 클라이언트 전달
+        responseFlux.subscribe(sink::tryEmitNext);
+
+        return responseFlux;       
+    }
     
     
     public String ResponseChatMessage(AiRequestDto aiRequestDto)
@@ -261,19 +262,28 @@ public class AiChatService {
              
              String conclusion = jsonData.get("conclusion").asText();    
              String recommend = jsonData.get("recommend").asText();
-                 
+             String category = jsonData.get("category").asText();
+             
              responseAi = ReportAiResponse.builder()
-            		 						.thinkingContent(thinkingContent)
-            		 						.titleA(titleA)
-            		 						.titleB(titleB)
-            		 						.answerA(answerA)
-            		 						.answerB(answerB)
-            		 						.recommend(recommend)
-            		 						.conclusion(conclusion).build();
-
+						.thinkingContent(thinkingContent)
+						.titleA(titleA)
+						.titleB(titleB)
+						.answerA(answerA)
+						.answerB(answerB)
+						.conclusion(conclusion)
+						.recommend(recommend)
+						.category(category)
+						.build();
+             
+                          
+             ProverbAiResponse proverb = ResponseProverbMessage(aiRequestDto, responseAi);
+             
+             responseAi.setConclusion(proverb.getProverbContent());
+             responseAi.setTitleConclusion(proverb.getProverbTitle());
+         
              log.info("Create Report!");
           
-             //log.info("HCX-007 Content : "+content);
+             log.info("HCX-007 Content : "+content);
              //log.info("======================================================================================");
              //log.info("HCX-007 Thinking Content : "+thinkingContent);	       	    		
     	}    	
@@ -340,6 +350,68 @@ public class AiChatService {
     	    	
     	return responseAi;
     }
+    
+    
+    private ProverbAiResponse ResponseProverbMessage(AiRequestDto aiRequestDto, ReportAiResponse reportData)
+    {
+    	ProverbAiResponse responseAi = null;    	
+    	
+    	try {
+			String systemPrompt = promptService.getSystemPrompt("ProverbPrompt");
+			
+			Map<String, String> replacements = Map.of(
+    		        "member", aiRequestDto.getMemberName(),
+    		        "valueAttribute", aiRequestDto.getValueAttribute(),
+    		        "recommend",reportData.getRecommend(),
+    		        "titleA",reportData.getTitleA(),
+    		        "titleB",reportData.getTitleB()
+    		    );
+			
+	    	String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+			
+							        
+			HttpHeaders headers = new HttpHeaders();
+	        headers.setContentType(MediaType.APPLICATION_JSON);
+	        headers.set("Authorization", "Bearer "+apiKey);	         	
+	        
+	        Map<String, Object> body = new HashMap<>();
+	         body.put("messages", new Object[] {
+	         		Map.of("role", "system", "content", fullPrompt),
+	                Map.of("role", "user", "content", reportData.getConclusion())
+	         });
+	         
+	         body.put("maxTokens", 4096);
+	        
+	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+             ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+hcx005, request, String.class);
+             JsonNode root = objectMapper.readTree(response.getBody());
+             String answer = root.path("result").path("message").path("content").asText();
+             	
+             log.info("Proverb Content : "+answer);
+            
+             answer = cleanJson(answer);
+             
+             ObjectMapper objectMapper = new ObjectMapper();
+             JsonNode jsonData = objectMapper.readTree(answer);
+
+             String title = jsonData.get("title").asText();
+             String content = jsonData.get("content").asText();           
+             
+             responseAi = ProverbAiResponse.builder()
+            		 		.proverbTitle(title)
+            		 		.proverbContent(content)
+            		 		.build();                       
+             
+             log.info("Proverb Success!");
+             
+		} catch (IOException e) {			
+			log.error("HCX-005-Proverb Error : "+e.getMessage());
+			e.printStackTrace();			
+		}
+    	    	
+    	return responseAi;
+    }
+    
     
     
     public static String cleanJson(String input) {

@@ -47,23 +47,23 @@ public class ChattingController {
 //		return chattingService.connect(memberId);
 //    }
 //    
-//	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
-//			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-//		            description = "채팅 요청 정보",
-//		            required = true,
-//		            content = @Content(schema = @Schema(implementation = ChattingDto.class))
-//		        ))
-//	@ApiResponses(value = {			
-//			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
-//	})
-//    @PostMapping("/sse/send")
-//    public Flux<String> chat(@RequestBody ChattingDto request)
-//    {
-//    	log.info("==================================[ SSE Send 2 ]==================================");	
-//    	log.info("SSE Send Member Id : "+request.getMemberId());
-//    	
-//    	return chattingService.handleChat2(request);
-//    }
+	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
+			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+		            description = "채팅 요청 정보",
+		            required = true,
+		            content = @Content(schema = @Schema(implementation = ChattingDto.class))
+		        ))
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
+	})
+    @PostMapping("/sse/send")
+    public Flux<String> chatSSE(@RequestBody ChattingDto request)
+    {
+    	log.info("==================================[ SSE Send 2 ]==================================");	
+    	log.info("SSE Send Member Id : "+request.getMemberId());
+    	
+    	return chattingService.handleChatSSE(request);
+    }
 	
 //	@Operation(
 //	    summary = "SSE 연결 종료",

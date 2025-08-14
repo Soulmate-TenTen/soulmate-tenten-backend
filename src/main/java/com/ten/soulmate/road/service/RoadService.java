@@ -1,6 +1,8 @@
 package com.ten.soulmate.road.service;
 
+import java.time.LocalDateTime;
 import java.time.YearMonth;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -9,11 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.ten.soulmate.global.dto.ResponseDto;
+import com.ten.soulmate.member.repository.MemberRepository;
 import com.ten.soulmate.road.dto.CheckCalendarRoadDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDetailResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDto;
 import com.ten.soulmate.road.dto.GetRoadResponseDto;
+import com.ten.soulmate.road.dto.RemindResponseDto;
 import com.ten.soulmate.road.dto.RoadCountResponseDto;
 import com.ten.soulmate.road.dto.RoadData;
 import com.ten.soulmate.road.dto.SaveRoadDto;
@@ -28,6 +32,7 @@ import lombok.extern.slf4j.Slf4j;
 public class RoadService {
 	
 	private final RoadRepository roadRepository;
+	private final MemberRepository memberRepository;
 	
 	public ResponseEntity<?> getRoadList(GetRoadDto request)
 	{
@@ -121,7 +126,8 @@ public class RoadService {
 			Optional<Road> road = roadRepository.findById(roadId);
 						
 			GetRoadDetailResponseDto response = GetRoadDetailResponseDto.builder()
-												.conclusionTitle("소울메이트는 "+road.get().getRecommend()+"안을 추천합니다.")
+												//.conclusionTitle("소울메이트는 "+road.get().getRecommend()+"안을 추천합니다.")
+												.conclusionTitle(road.get().getTitleConclusion())
 												.thinkingContent(road.get().getThinkinContent())
 												.conclusion(road.get().getConclusion())
 												.titleA(road.get().getTitleA())
@@ -172,5 +178,77 @@ public class RoadService {
 		}
 						
 	}
+		
+	public ResponseEntity<?> getRemindRoad(Long memberId)
+	{
+		try {
+			Optional<Road> road = roadRepository.findNotSelectRoad(memberId);
+			RemindResponseDto response = null;
+						
+			if(road.isPresent())
+			{
+				
+				LocalDateTime roadCreateTime = road.get().getCreateAt();
+				LocalDateTime now = LocalDateTime.now();
+				// 시간 차이 계산 (단위: 시간)
+				long hours = ChronoUnit.HOURS.between(roadCreateTime, now);				
+				long day = hours / 24;
+								
+				String category = road.get().getCategory();
+				String memberName = memberRepository.findById(memberId).get().getName();
+				category = getPostWord(category, "을", "를");
+				
+				
+				response = RemindResponseDto.builder()
+							.title(memberName+"님 "+day+"일 전에 "+category+" 고민했어요.")
+							.roadId(road.get().getId())
+							.remindYn("Y")
+							.build();							
+			}
+			else {
+				response = RemindResponseDto.builder()
+							.remindYn("N").build();
+			}								 										
+
+			return ResponseEntity.ok(response);							
+		} catch(Exception e)
+		{
+			ResponseDto res = new ResponseDto();
+			res.setMessage("Failed");
+			log.error("Get Not Select Road Error : "+e.getMessage());
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
+		}
+	}
+	
+	private String getPostWord(String str, String firstVal, String secondVal) {
+
+		try {
+				char laststr = str.charAt(str.length() - 1);
+				// 한글의 제일 처음과 끝의 범위밖일 경우는 오류
+				if (laststr < 0xAC00 || laststr > 0xD7A3) {
+				    return str;
+				}
+		
+				int lastCharIndex = (laststr - 0xAC00) % 28;
+		
+				// 종성인덱스가 0이상일 경우는 받침이 있는경우이며 그렇지 않은경우는 받침이 없는 경우
+				if(lastCharIndex > 0) {
+					// 받침이 있는경우
+					// 조사가 '로'인경우 'ㄹ'받침으로 끝나는 경우는 '로' 나머지 경우는 '으로'
+					if(firstVal.equals("으로") && lastCharIndex == 8) {
+						str += secondVal;
+					} else {
+						str += firstVal;
+					}
+				} else {
+					// 받침이 없는 경우
+					str += secondVal;
+				}
+			} catch (Exception e) {
+				//e.printStackTrace();
+			}
+
+			return str;
+		}
 	
 }

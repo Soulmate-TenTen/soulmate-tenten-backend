@@ -224,121 +224,120 @@ public class ChattingService {
     		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(res);
     	}
 
-    }
-    
+    }   
 	
     //채팅 로직        
-//    @Transactional
-//    public Flux<String> handleChat(ChattingDto request) {
-//        Long memberId = request.getMemberId();
-//        String message = request.getQuestion();
-//
-//        connect(memberId);
-//
-//        Sinks.Many<String> sink = userSinkMap.get(memberId);
-//        if (sink == null) {
-//            return Flux.empty();
-//        }
-//
-//        ChattingListDto chattingListDto = ChattingListDto.builder()
-//                .message(message)
-//                .createAt(LocalDateTime.now())
-//                .answerType(AnswerType.N)
-//                .chatType(ChatType.M)
-//                .build();
-//
-//        tempChatMap.get(memberId).add(chattingListDto);
-//        log.info("SSE Send Success! [memberId : {}]", memberId);
-//
-//        Member member = memberRepository.findById(memberId).get();
-//        MemberAttribute memberAttribute = memberAttributeRepository.findByMemberId(memberId).get();
-//
-//        AiRequestDto aiRequestDto = AiRequestDto.builder()
-//                .message(buildUserPrompt(tempChatMap.get(memberId), "DASH"))
-//                .memberName(member.getName())
-//                .soulmateName(member.getSoulmateName())
-//                .valueAttribute(memberAttribute.getValueAttribute())
-//                .decision(memberAttribute.getDecision())
-//                .regret(memberAttribute.getRegret())
-//                .decisionTrust(memberAttribute.getDecisionTrust())
-//                .soulMateType(member.getSoulmateType())
-//                .build();
-//
-//        Flux<String> tokenStream = aiChatService.ResponseChatMessage(aiRequestDto, sink)
-//                .doOnNext(token -> {
-//                    log.debug("Token: {}", token);
-//                });
-//
-//        Flux<String> completeMessageFlux = tokenStream
-//                .filter(this::hasUsage)
-//                .flatMap(rawEvent -> Mono.justOrEmpty(extractMessageContent(rawEvent)))
-//                .flatMap(completedMessage -> {
-//                    ChattingListDto aiResponseDto = ChattingListDto.builder()
-//                            .chatting(null)
-//                            .member(null)
-//                            .message(completedMessage)
-//                            .createAt(LocalDateTime.now())
-//                            .answerType(AnswerType.N)
-//                            .chatType(ChatType.A)
-//                            .build();
-//
-//                    tempChatMap.get(memberId).add(aiResponseDto);
-//                    log.info("완성된 AI 메시지 저장 완료 [memberId: {}]", memberId);
-//
-//                    String userPrompt = buildUserPrompt(tempChatMap.get(memberId), "HCX-005");
-//                    aiRequestDto.setMessage(userPrompt);
-//
-//                    if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
-//                        log.info("REPORT 시작 [memberId: {}]", memberId);
-//
-//                        // REPORT 이벤트만 먼저 보내는 Flux
-//                        Flux<String> reportFlux = Flux.just("REPORT")
-//                                .doOnNext(event -> log.info("REPORT 이벤트 전송: {}", event));
-//
-//                        // REPORT 처리
-//                        String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
-//                        aiRequestDto.setMessage(userPromptReport);
-//
-//                        ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
-//
-//                        ChattingListDto reportDto = ChattingListDto.builder()
-//                                .message("REPORT")
-//                                .createAt(LocalDateTime.now())
-//                                .answerType(AnswerType.R)
-//                                .chatType(ChatType.A)
-//                                .build();
-//
-//                        tempChatMap.get(memberId).add(reportDto);
-//
-//                        String summaryPrompt = buildUserPrompt(tempChatMap.get(memberId), "Summary");
-//                        aiRequestDto.setMessage(summaryPrompt);
-//
-//                        SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
-//
-//                        Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
-//
-//                        // roadId 이벤트 Flux
-//                        Flux<String> roadIdFlux = Flux.just("roadId : " + roadId)
-//                                .doOnNext(event -> log.info("roadId 이벤트 전송: {}", event))
-//                                .concatWith(Mono.fromRunnable(() -> {
-//                                    tempChatMap.put(memberId, new ArrayList<>());
-//                                    disconnect(memberId);
-//                                }));
-//
-//                        // REPORT 이벤트 전송 후 roadId 이벤트 전송
-//                        return reportFlux.concatWith(roadIdFlux);
-//
-//                    } else {
-//                        return Flux.empty();
-//                    }
-//                });
-//
-//        return Flux.merge(tokenStream, completeMessageFlux)
-//                .doOnComplete(() -> {
-//                    log.info("AI 토큰 스트림 완료 [memberId: {}]", memberId);
-//                    // disconnect는 roadId 이벤트에서 처리함
-//                });
-//    }
+    @Transactional
+    public Flux<String> handleChatSSE(ChattingDto request) {
+        Long memberId = request.getMemberId();
+        String message = request.getQuestion();
+
+        connect(memberId);
+
+        Sinks.Many<String> sink = userSinkMap.get(memberId);
+        if (sink == null) {
+            return Flux.empty();
+        }
+
+        ChattingListDto chattingListDto = ChattingListDto.builder()
+                .message(message)
+                .createAt(LocalDateTime.now())
+                .answerType(AnswerType.N)
+                .chatType(ChatType.M)
+                .build();
+
+        tempChatMap.get(memberId).add(chattingListDto);
+        log.info("SSE Send Success! [memberId : {}]", memberId);
+
+        Member member = memberRepository.findById(memberId).get();
+        MemberAttribute memberAttribute = memberAttributeRepository.findByMemberId(memberId).get();
+
+        AiRequestDto aiRequestDto = AiRequestDto.builder()
+                .message(buildUserPrompt(tempChatMap.get(memberId), "DASH"))
+                .memberName(member.getName())
+                .soulmateName(member.getSoulmateName())
+                .valueAttribute(memberAttribute.getValueAttribute())
+                .decision(memberAttribute.getDecision())
+                .regret(memberAttribute.getRegret())
+                .decisionTrust(memberAttribute.getDecisionTrust())
+                .soulMateType(member.getSoulmateType())
+                .build();
+
+        Flux<String> tokenStream = aiChatService.ResponseChatMessageSSE(aiRequestDto, sink)
+                .doOnNext(token -> {
+                    log.debug("Token: {}", token);
+                });
+
+        Flux<String> completeMessageFlux = tokenStream
+                .filter(this::hasUsage)
+                .flatMap(rawEvent -> Mono.justOrEmpty(extractMessageContent(rawEvent)))
+                .flatMap(completedMessage -> {
+                    ChattingListDto aiResponseDto = ChattingListDto.builder()
+                            .chatting(null)
+                            .member(null)
+                            .message(completedMessage)
+                            .createAt(LocalDateTime.now())
+                            .answerType(AnswerType.N)
+                            .chatType(ChatType.A)
+                            .build();
+
+                    tempChatMap.get(memberId).add(aiResponseDto);
+                    log.info("완성된 AI 메시지 저장 완료 [memberId: {}]", memberId);
+
+                    String userPrompt = buildUserPrompt(tempChatMap.get(memberId), "HCX-005");
+                    aiRequestDto.setMessage(userPrompt);
+
+                    if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
+                        log.info("REPORT 시작 [memberId: {}]", memberId);
+
+                        // REPORT 이벤트만 먼저 보내는 Flux
+                        Flux<String> reportFlux = Flux.just("REPORT")
+                                .doOnNext(event -> log.info("REPORT 이벤트 전송: {}", event));
+
+                        // REPORT 처리
+                        String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
+                        aiRequestDto.setMessage(userPromptReport);
+
+                        ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
+
+                        ChattingListDto reportDto = ChattingListDto.builder()
+                                .message("REPORT")
+                                .createAt(LocalDateTime.now())
+                                .answerType(AnswerType.R)
+                                .chatType(ChatType.A)
+                                .build();
+
+                        tempChatMap.get(memberId).add(reportDto);
+
+                        String summaryPrompt = buildUserPrompt(tempChatMap.get(memberId), "Summary");
+                        aiRequestDto.setMessage(summaryPrompt);
+
+                        SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
+
+                        Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
+
+                        // roadId 이벤트 Flux
+                        Flux<String> roadIdFlux = Flux.just("roadId : " + roadId)
+                                .doOnNext(event -> log.info("roadId 이벤트 전송: {}", event))
+                                .concatWith(Mono.fromRunnable(() -> {
+                                    tempChatMap.put(memberId, new ArrayList<>());
+                                    disconnect(memberId);
+                                }));
+
+                        // REPORT 이벤트 전송 후 roadId 이벤트 전송
+                        return reportFlux.concatWith(roadIdFlux);
+
+                    } else {
+                        return Flux.empty();
+                    }
+                });
+
+        return Flux.merge(tokenStream, completeMessageFlux)
+                .doOnComplete(() -> {
+                    log.info("AI 토큰 스트림 완료 [memberId: {}]", memberId);
+                    // disconnect는 roadId 이벤트에서 처리함
+                });
+    }
 
 
     //사전로직 검사 코드 - 고도화때 진행
@@ -489,8 +488,10 @@ public class ChattingService {
 	    			.titleB(reportData.getTitleB())
 	    			.answerB(reportData.getAnswerB())
 	    			.recommend(reportData.getRecommend())
+	    			.titleConclusion(reportData.getTitleConclusion())
 	    			.conclusion(reportData.getConclusion())
 	    			.thinkinContent(reportData.getThinkingContent())
+	    			.category(reportData.getCategory())
 	    			.build();
 	    
 	   return roadRepository.saveAndFlush(road).getId();    	    
