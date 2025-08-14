@@ -31,5 +31,18 @@ public interface RoadRepository extends JpaRepository<Road, Long>{
 	long countByMemberId(@Param("memberId") Long memberId);
 
     Optional<Road> findByChatting(Chatting chatting);
-	
+        
+    
+    @Query(value = """
+    	    SELECT *
+    	    FROM road
+    	    WHERE memberId = :memberId
+    	      AND roadStatus IN (0, 1)
+    	      AND createAt <= NOW() - INTERVAL 24 HOUR
+    	    ORDER BY RAND()
+    	    LIMIT 1
+    	""", nativeQuery = true)
+    Optional<Road> findNotSelectRoad(@Param("memberId") Long memberId); 
+    
+    
 }

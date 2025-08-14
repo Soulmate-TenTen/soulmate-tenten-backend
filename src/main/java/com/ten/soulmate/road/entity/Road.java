@@ -74,7 +74,13 @@ public class Road {
     
     @Column(columnDefinition = "TEXT")
     private String conclusion;
+    
+    @Column(length = 500, name="titleConclusion")
+    private String titleConclusion;
        
+    @Column(length = 50, name="category")
+    private String category;
+    
     @Column(length = 100, name="titleA")
     private String titleA;
     
