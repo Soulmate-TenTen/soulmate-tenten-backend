@@ -22,6 +22,8 @@ public class ReportAiResponse {
 	
 	private String recommend;
 	private String conclusion;
+	private String titleConclusion;
+	private String category;
 
 	
 }

@@ -15,6 +15,7 @@ import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDetailResponseDto;
 import com.ten.soulmate.road.dto.GetRoadDto;
 import com.ten.soulmate.road.dto.GetRoadResponseDto;
+import com.ten.soulmate.road.dto.RemindResponseDto;
 import com.ten.soulmate.road.dto.RoadCountResponseDto;
 import com.ten.soulmate.road.dto.SaveRoadDto;
 import com.ten.soulmate.road.service.RoadService;
@@ -96,4 +97,15 @@ public class RoadController {
 		return roadService.saveRoad(request);
 	}
 	
+	@Operation(summary = "선택 또는 회고 작성이 되지 않은 기로 조회 API(홈 화면의 리마인드)", description = "선택 또는 회고 작성이 되지 않은 기로를 랜덤으로 조회")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "회고,선택X 기로 조회 성공.",content = @Content(schema = @Schema(implementation = RemindResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "회고,선택X 기로 조회 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+	@GetMapping("/remind")
+	public ResponseEntity<?> getRemindRoad(@RequestParam("memberId") Long memberId)
+	{
+		log.info("==================================[ getNotSelectRoad  ]==================================");	
+		return roadService.getRemindRoad(memberId);
+	}
 }
