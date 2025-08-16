@@ -58,7 +58,7 @@ public class ChattingController {
 			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
 	})
     @PostMapping("/sse/send")
-    public Flux<ServerSentEvent<String>> chatSSE(@RequestBody ChattingDto request)
+    public Flux<String> chatSSE(@RequestBody ChattingDto request)
     {
     	log.info("==================================[ SSE Send 2 ]==================================");	
     	log.info("SSE Send Member Id : "+request.getMemberId());
