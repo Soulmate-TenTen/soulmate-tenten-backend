@@ -455,6 +455,58 @@ public class AiChatService {
     
     
     
+    public String ResponseAdviceMessage(AiRequestDto aiRequestDto)
+    {    	
+    	try {
+			String systemPrompt = promptService.getSystemPrompt("TodayAdvicePrompt");
+			
+			Map<String, String> replacements = Map.of(
+    		        "valueAttribute", aiRequestDto.getValueAttribute(),
+    		        "decision",aiRequestDto.getDecision(),
+    		        "regret",aiRequestDto.getRegret(),
+    		        "decisionTrust",aiRequestDto.getDecisionTrust()
+    		    );
+			
+	    	String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+			
+							        
+			HttpHeaders headers = new HttpHeaders();
+	        headers.setContentType(MediaType.APPLICATION_JSON);
+	        headers.set("Authorization", "Bearer "+apiKey);	         	
+	        
+	        Map<String, Object> body = new HashMap<>();
+	         body.put("messages", new Object[] {
+	         		Map.of("role", "system", "content", fullPrompt),
+	                Map.of("role", "user", "content", "사용자에게 필요한 명언을 말해주세요.")
+	         });
+	         
+	         body.put("maxTokens", 4096);
+	        
+	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
+             ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+hcx005, request, String.class);
+             JsonNode root = objectMapper.readTree(response.getBody());
+             String answer = root.path("result").path("message").path("content").asText();
+             	           
+             answer = cleanJson(answer);
+            
+             ObjectMapper objectMapper = new ObjectMapper();
+             JsonNode jsonData = objectMapper.readTree(answer);
+
+             String advice = jsonData.get("advice").asText();                   
+                          
+             return advice;
+             
+		} catch (IOException e) {			
+			log.error("HCX-005-Advice Error : "+e.getMessage());
+			e.printStackTrace();	
+			
+			return "error";
+		}
+    	    	    	
+    }
+    
+    
+    
     public static String cleanJson(String input) {
         // 백틱 및 마크다운 태그 제거
         return input
