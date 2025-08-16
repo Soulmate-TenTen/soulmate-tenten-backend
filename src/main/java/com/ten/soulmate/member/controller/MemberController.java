@@ -2,6 +2,7 @@ package com.ten.soulmate.member.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,6 +52,19 @@ public class MemberController {
 		log.info("==================================[ deleteMember  ]==================================");	
 		return memberService.deleteMember(memberId);
 	}
+	
+	
+	@Operation(summary = "오늘의 조언", description = "복권에 들어갈 조언")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "오늘의 조언 생성 성공.",content = @Content(schema = @Schema(implementation = ResponseDto.class))),
+			@ApiResponse(responseCode = "400", description = "오늘의 조언 생성 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+	@GetMapping("/todayAdvice")
+	public ResponseEntity<?> createTodayAdvice(@RequestParam("memberId") Long memberId){
+		log.info("==================================[ createTodayAdvice  ]==================================");	
+		return memberService.createTodayAdvice(memberId);
+	}
+	
 	
 	
 }
