@@ -823,3 +823,81 @@
 2025-08-16 17:39:47 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
 2025-08-16 17:39:47 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - roadId 생성 완료: roadId : 99
 2025-08-16 17:39:47 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 6]
+2025-08-16 18:03:24 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 17772 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-16 18:03:24 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-16 18:03:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-16 18:03:25 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 143 ms. Found 5 JPA repository interfaces.
+2025-08-16 18:03:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-16 18:03:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-16 18:03:26 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-16 18:03:26 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-16 18:03:26 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-16 18:03:26 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2055 ms
+2025-08-16 18:03:26 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-16 18:03:26 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-16 18:03:26 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-16 18:03:26 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-16 18:03:26 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-16 18:03:27 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@28db2afb
+2025-08-16 18:03:27 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-16 18:03:27 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-16 18:03:27 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-16 18:03:28 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-16 18:03:28 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-16 18:03:29 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-16 18:03:29 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-16 18:03:30 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-16 18:03:30 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-16 18:03:30 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 7.166 seconds (process running for 7.623)
+2025-08-16 18:03:50 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-16 18:03:50 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-16 18:03:50 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-16 18:03:50 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 18:03:50 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 18:03:50 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 6]
+2025-08-16 18:03:50 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 18:03:51 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 18:03:51 [http-nio-7777-exec-1] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7f7853c5] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-16 18:03:52 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [7f7853c5] [e37c39a2-1] Response 200 OK
+2025-08-16 18:03:52 [task-3] INFO  c.t.s.c.service.ChattingService - AI 응답 저장 완료 [memberId: 6]
+2025-08-16 18:04:00 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 18:04:00 [http-nio-7777-exec-5] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 18:04:00 [http-nio-7777-exec-5] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 6]
+2025-08-16 18:04:00 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 18:04:01 [http-nio-7777-exec-5] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 18:04:01 [http-nio-7777-exec-5] DEBUG o.s.w.r.f.client.ExchangeFunctions - [18841d71] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-16 18:04:02 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [18841d71] [e37c39a2-2] Response 200 OK
+2025-08-16 18:04:02 [task-6] INFO  c.t.s.c.service.ChattingService - AI 응답 저장 완료 [memberId: 6]
+2025-08-16 18:04:16 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 18:04:16 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 18:04:16 [http-nio-7777-exec-6] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 6]
+2025-08-16 18:04:16 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 18:04:16 [http-nio-7777-exec-6] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-16 18:04:16 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - REPORT 시작 [memberId: 6]
+2025-08-16 18:04:16 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - REPORT 이벤트 전송: REPORT
+2025-08-16 18:04:27 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Proverb Content : {
+  "title": "우물을 파도 한 우물을 파라",
+  "content": "홍길동님의 핵심 가치는 '성공'입니다. 현재의 열악한 근무 조건이 성공을 방해한다고 생각한다면, 이직이나 전직을 고려하기 전에 충분한 준비와 계획이 필요합니다. <danbi>우물을 파도 한 우물을 파라</danbi>라는 말처럼, 여러 가지 가능성을 열어두기보다는 하나의 목표에 집중하여 깊이 있는 준비를 해야 합니다. 그러므로 A안을 추천드립니다."
+}
+2025-08-16 18:04:27 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Proverb Success!
+2025-08-16 18:04:27 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Create Report!
+2025-08-16 18:04:27 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사 후 새 기회 찾기",
+  "answerA": "✅ A안: 퇴사 후 새 기회 찾기\n✅ 가치 일치도: 높음\n이유 : 현재의 과도한 업무와 보상 부족 상황에서 벗어나 성장을 위한 환경 변화가 필요함",
+  "titleB": "현 직장 유지",
+  "answerB": "❌ B안: 현 직장 유지\n❌ 가치 일치도: 낮음\n이유 : 지속적인 과로와 낮은 보상으로 인해 성공 추구에 부정적 영향 예상됨",
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 '성공'입니다. 현재의 열악한 근무 조건은 성공을 저해할 수 있으므로, 퇴사 후 체계적인 계획을 세워 새로운 기회를 모색하는 것이 더 적합합니다. 단 철저한 사전 준비가 필수적입니다.",
+  "category": "퇴사"
+}
+2025-08-16 18:04:29 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Summary Success!
+2025-08-16 18:04:29 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-16 18:04:29 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - roadId 생성 완료: roadId : 100
+2025-08-16 18:04:29 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 6]
