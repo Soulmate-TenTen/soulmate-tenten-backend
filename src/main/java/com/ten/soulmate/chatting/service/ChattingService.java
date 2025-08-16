@@ -1,5 +1,6 @@
 package com.ten.soulmate.chatting.service;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -385,7 +386,9 @@ public class ChattingService {
                                 .chatType(ChatType.A)
                                 .build();
                         tempChatMap.get(memberId).add(reportDto);
-                    });
+                    })
+                    .publishOn(Schedulers.boundedElastic())
+                    .delayElements(Duration.ofMillis(50));
 
             // 2️⃣ 무거운 작업 백그라운드 실행 후 roadId Flux
             Mono<String> roadIdMono = Mono.fromCallable(() -> {
