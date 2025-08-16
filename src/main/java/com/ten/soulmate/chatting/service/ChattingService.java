@@ -9,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -369,43 +370,50 @@ public class ChattingService {
                 .soulMateType(member.getSoulmateType())
                 .build();
 
-        // ✅ 질문만으로 사전 조건 검사
 //        if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
 //            log.info("REPORT 시작 [memberId: {}]", memberId);
 //
+//            // 1️⃣ REPORT 즉시 발송
 //            Flux<String> reportFlux = Flux.just("REPORT")
-//                    .doOnNext(event -> log.info("REPORT 이벤트 전송: {}", event));
+//                    .doOnNext(event -> {
+//                        log.info("REPORT 이벤트 전송: {}", event);
+//                        ChattingListDto reportDto = ChattingListDto.builder()
+//                                .message("REPORT")
+//                                .createAt(LocalDateTime.now())
+//                                .answerType(AnswerType.R)
+//                                .chatType(ChatType.A)
+//                                .build();
+//                        tempChatMap.get(memberId).add(reportDto);
+//                    });
 //
-//            String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
-//            aiRequestDto.setMessage(userPromptReport);
+//            // 2️⃣ 무거운 작업은 백그라운드 실행
+//            Mono<Long> roadIdMono = Mono.fromCallable(() -> {
+//                        String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
+//                        aiRequestDto.setMessage(userPromptReport);
+//                        ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
 //
-//            ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
+//                        String summaryPrompt = buildUserPrompt(tempChatMap.get(memberId), "Summary");
+//                        aiRequestDto.setMessage(summaryPrompt);
+//                        SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
 //
-//            ChattingListDto reportDto = ChattingListDto.builder()
-//                    .message("REPORT")
-//                    .createAt(LocalDateTime.now())
-//                    .answerType(AnswerType.R)
-//                    .chatType(ChatType.A)
-//                    .build();
-//            tempChatMap.get(memberId).add(reportDto);
+//                        return saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
+//                    })
+//                    .subscribeOn(Schedulers.boundedElastic()) // 이벤트 루프 블로킹 방지
+//                    .doOnSuccess(roadId -> log.info("roadId 생성 완료: {}", roadId));
 //
-//            String summaryPrompt = buildUserPrompt(tempChatMap.get(memberId), "Summary");
-//            aiRequestDto.setMessage(summaryPrompt);
-//
-//            SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
-//
-//            Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
-//
-//            Flux<String> roadIdFlux = Flux.just("roadId : " + roadId)
-//                    .doOnNext(event -> log.info("roadId 이벤트 전송: {}", event))
+//            // 3️⃣ roadId 발송 + 정리
+//            Flux<String> roadIdFlux = roadIdMono
+//                    .map(roadId -> "roadId : " + roadId)
 //                    .concatWith(Mono.fromRunnable(() -> {
 //                        tempChatMap.put(memberId, new ArrayList<>());
 //                        disconnect(memberId);
 //                    }));
 //
+//            // REPORT → roadId 순서로 발행
 //            return reportFlux.concatWith(roadIdFlux);
 //        }
-
+        
+        
         if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
             log.info("REPORT 시작 [memberId: {}]", memberId);
 
@@ -420,10 +428,11 @@ public class ChattingService {
                                 .chatType(ChatType.A)
                                 .build();
                         tempChatMap.get(memberId).add(reportDto);
-                    });
+                    })
+                    .publishOn(Schedulers.boundedElastic()); // 브라우저에 즉시 flush 가능
 
             // 2️⃣ 무거운 작업은 백그라운드 실행
-            Mono<Long> roadIdMono = Mono.fromCallable(() -> {
+            Mono<String> roadIdMono = Mono.fromCallable(() -> {
                         String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
                         aiRequestDto.setMessage(userPromptReport);
                         ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
@@ -432,21 +441,18 @@ public class ChattingService {
                         aiRequestDto.setMessage(summaryPrompt);
                         SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
 
-                        return saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
+                        Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
+                        return "roadId : " + roadId;
                     })
-                    .subscribeOn(Schedulers.boundedElastic()) // 이벤트 루프 블로킹 방지
-                    .doOnSuccess(roadId -> log.info("roadId 생성 완료: {}", roadId));
-
-            // 3️⃣ roadId 발송 + 정리
-            Flux<String> roadIdFlux = roadIdMono
-                    .map(roadId -> "roadId : " + roadId)
-                    .concatWith(Mono.fromRunnable(() -> {
+                    .subscribeOn(Schedulers.boundedElastic())
+                    .doOnSuccess(event -> {
+                        log.info("roadId 생성 완료: {}", event);
                         tempChatMap.put(memberId, new ArrayList<>());
                         disconnect(memberId);
-                    }));
+                    });
 
             // REPORT → roadId 순서로 발행
-            return reportFlux.concatWith(roadIdFlux);
+            return reportFlux.concatWith(roadIdMono.flux());
         }
         
         

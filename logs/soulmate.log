@@ -110,3 +110,253 @@
 2025-08-16 00:28:49 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
 2025-08-16 00:28:49 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - roadId 생성 완료: 90
 2025-08-16 00:28:49 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 6]
+2025-08-16 01:05:02 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 11528 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-16 01:05:03 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-16 01:05:04 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-16 01:05:05 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 197 ms. Found 5 JPA repository interfaces.
+2025-08-16 01:05:06 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-16 01:05:06 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-16 01:05:06 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-16 01:05:06 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-16 01:05:06 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-16 01:05:06 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3057 ms
+2025-08-16 01:05:06 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-16 01:05:06 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-16 01:05:06 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-16 01:05:07 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-16 01:05:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-16 01:05:07 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@570299e3
+2025-08-16 01:05:07 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-16 01:05:07 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-16 01:05:08 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-16 01:05:08 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-16 01:05:08 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-16 01:05:10 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-16 01:05:10 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-16 01:05:11 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-16 01:05:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-16 01:05:11 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 9.232 seconds (process running for 10.123)
+2025-08-16 01:06:09 [http-nio-7777-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-16 01:06:09 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-16 01:06:09 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 10 ms
+2025-08-16 01:06:10 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 01:06:10 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 01:06:10 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 6]
+2025-08-16 01:06:10 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 01:06:14 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 01:06:14 [http-nio-7777-exec-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [3be7b4d0] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-16 01:06:17 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [3be7b4d0] [48974710-1] Response 200 OK
+2025-08-16 01:06:18 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI 응답 저장 완료 [memberId: 6]
+2025-08-16 01:06:42 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 01:06:42 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 01:06:42 [http-nio-7777-exec-6] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 6]
+2025-08-16 01:06:42 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 01:06:43 [http-nio-7777-exec-6] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 01:06:43 [http-nio-7777-exec-6] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6df510f9] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-16 01:06:44 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [6df510f9] [48974710-2] Response 200 OK
+2025-08-16 01:06:44 [task-5] INFO  c.t.s.c.service.ChattingService - AI 응답 저장 완료 [memberId: 6]
+2025-08-16 01:07:04 [http-nio-7777-exec-7] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 01:07:04 [http-nio-7777-exec-7] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 01:07:04 [http-nio-7777-exec-7] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 6]
+2025-08-16 01:07:04 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 01:07:09 [http-nio-7777-exec-7] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-16 01:07:09 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - REPORT 시작 [memberId: 6]
+2025-08-16 01:07:09 [http-nio-7777-exec-7] INFO  c.t.s.c.service.ChattingService - REPORT 이벤트 전송: REPORT
+2025-08-16 01:07:19 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Proverb Content : {
+  "title": "우물을 파도 한 우물을 파라",
+  "content": "홍길동님의 핵심 가치는 '성장'입니다. 현재 직장에서 성장할 가능성이 낮다고 판단된다면, 새로운 기회를 모색하는 것이 현명한 선택일 것입니다. <danbi>우물을 파도 한 우물을 파라</danbi>라는 말처럼, 한 가지 목표에 집중하면 더 나은 성과를 얻을 수 있습니다. 따라서, 이직을 고려하기 전에 충분한 준비와 계획이 필요합니다. 그러므로 A안을 추천드립니다."
+}
+2025-08-16 01:07:19 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Proverb Success!
+2025-08-16 01:07:19 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Create Report!
+2025-08-16 01:07:19 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사 실행",
+  "answerA": "✅ A안: 퇴사 실행\n✅ 가치 일치도: 중간\n이유 : 과중한 업무와 보상 부족 문제가 성장을 방해하므로 탈출 필요성이 있지만, 준비 없는 퇴사는 위험",
+  "titleB": "현 직장 유지",
+  "answerB": "❌ B안: 현 직장 유지\n❌ 가치 일치도: 낮음\n이유 : 개선 가능성 낮은 환경에서 지속된 스트레스 누적 예상되며 성장 기회 제한됨",
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 '성장'입니다. 현재 근무환경이 성장을 가로막고 있으므로 변화를 추구해야 합니다. 퇴사 전 구체적인 계획을 세우고 대체 일자리를 탐색한다면 성공 가능성을 높일 수 있습니다.",
+  "category": "퇴사"
+}
+2025-08-16 01:07:21 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Summary Success!
+2025-08-16 01:07:22 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-16 01:07:22 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - roadId 생성 완료: 91
+2025-08-16 01:07:22 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 6]
+2025-08-16 16:14:58 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 25196 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-16 16:14:58 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-16 16:14:59 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-16 16:15:00 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 181 ms. Found 5 JPA repository interfaces.
+2025-08-16 16:15:00 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-16 16:15:00 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-16 16:15:00 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-16 16:15:00 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-16 16:15:00 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-16 16:15:00 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2191 ms
+2025-08-16 16:15:01 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-16 16:15:01 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-16 16:15:01 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-16 16:15:02 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-16 16:15:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-16 16:15:02 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@bff764c
+2025-08-16 16:15:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-16 16:15:02 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-16 16:15:03 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-16 16:15:03 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-16 16:15:03 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-16 16:15:04 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-16 16:15:04 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-16 16:15:05 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-16 16:15:05 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-16 16:15:05 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 7.599 seconds (process running for 8.968)
+2025-08-16 16:28:05 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-16 16:28:05 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-16 16:28:05 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-16 16:28:06 [http-nio-7777-exec-8] INFO  o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 544 ms
+2025-08-16 16:28:20 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - ==================================[ API Chatting Send ]==================================
+2025-08-16 16:28:20 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - API Send Member Id : 6
+2025-08-16 16:28:21 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 16:28:21 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - 리포트 생성 정보 부족 - 대화 계속 진행
+2025-08-16 16:28:37 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ API Chatting Send ]==================================
+2025-08-16 16:28:37 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - API Send Member Id : 6
+2025-08-16 16:28:38 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 16:28:38 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - 리포트 생성 정보 부족 - 대화 계속 진행
+2025-08-16 16:29:01 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - ==================================[ API Chatting Send ]==================================
+2025-08-16 16:29:01 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - API Send Member Id : 6
+2025-08-16 16:29:02 [http-nio-7777-exec-4] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 16:29:02 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - 리포트 생성 정보 부족 - 대화 계속 진행
+2025-08-16 16:29:35 [http-nio-7777-exec-10] INFO  c.t.s.c.c.ChattingController - ==================================[ Chatting Reset  ]==================================
+2025-08-16 16:29:35 [http-nio-7777-exec-10] INFO  c.t.s.c.service.ChattingService - Chatting Reset Success!
+2025-08-16 16:29:55 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 16:29:55 [http-nio-7777-exec-9] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 16:29:55 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 6]
+2025-08-16 16:29:55 [http-nio-7777-exec-9] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 16:29:55 [http-nio-7777-exec-9] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 16:29:55 [http-nio-7777-exec-9] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1bf7cd56] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-16 16:29:56 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [1bf7cd56] [5cb8c433-1] Response 200 OK
+2025-08-16 16:29:56 [task-3] INFO  c.t.s.c.service.ChattingService - AI 응답 저장 완료 [memberId: 6]
+2025-08-16 16:30:13 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 16:30:13 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 16:30:13 [http-nio-7777-exec-1] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 6]
+2025-08-16 16:30:13 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 16:30:13 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 16:30:13 [http-nio-7777-exec-1] DEBUG o.s.w.r.f.client.ExchangeFunctions - [15138344] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-16 16:30:14 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [15138344] [5cb8c433-2] Response 200 OK
+2025-08-16 16:30:14 [reactor-http-nio-2] INFO  c.t.s.c.service.ChattingService - AI 응답 저장 완료 [memberId: 6]
+2025-08-16 16:30:30 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 16:30:30 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 16:30:30 [http-nio-7777-exec-4] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 6]
+2025-08-16 16:30:30 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 16:30:31 [http-nio-7777-exec-4] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 16:30:31 [http-nio-7777-exec-4] DEBUG o.s.w.r.f.client.ExchangeFunctions - [2b8d7933] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-16 16:30:31 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [2b8d7933] [5cb8c433-3] Response 200 OK
+2025-08-16 16:30:32 [task-1] INFO  c.t.s.c.service.ChattingService - AI 응답 저장 완료 [memberId: 6]
+2025-08-16 16:31:00 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 16:31:00 [http-nio-7777-exec-6] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 16:31:00 [http-nio-7777-exec-6] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 6]
+2025-08-16 16:31:00 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 16:31:00 [http-nio-7777-exec-6] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-16 16:31:00 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - REPORT 시작 [memberId: 6]
+2025-08-16 16:31:00 [http-nio-7777-exec-6] INFO  c.t.s.c.service.ChattingService - REPORT 이벤트 전송: REPORT
+2025-08-16 16:31:12 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Proverb Content : {
+  "title": "우물을 파도 한 우물을 파라",
+  "content": "홍길동님의 핵심 가치는 '성공'입니다. <danbi>우물을 파도 한 우물을 파라</danbi>라는 말처럼, 여러 가지 방법을 시도하기보다는 이력서를 집중적으로 개선하는 것이 중요합니다. 현재 서류 탈락의 원인을 파악하고 이를 해결하기 위해 전문가의 조언을 받아 이력서를 수정한다면, 이는 곧 성공적인 취업으로 이어질 수 있습니다. 따라서 A안을 통해 이력서의 질을 높이고 일관된 전략을 세워 나가기를 권장 드립니다."
+}
+2025-08-16 16:31:12 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Proverb Success!
+2025-08-16 16:31:12 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Create Report!
+2025-08-16 16:31:12 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "이력서 컨설팅 받기",
+  "answerA": "✅ A안: 이력서 컨설팅 받기\n✅ 가치 일치도: 높음\n이유 : 서류 탈락 원인을 파악하고 전문가 도움으로 이력서를 개선하면 취업 성공 가능성을 높일 수 있어 사용자의 '성공' 가치에 부합합니다.",
+  "titleB": "지원 회사 확대",
+  "answerB": "❌ B안: 지원 회사 확대\n❌ 가치 일치도: 보통\n이유 : 단순히 지원처만 늘리는 것은 근본적 문제 해결 없이 시간과 에너지 소모가 커 효율성이 낮을 수 있습니다.",
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 '성공'입니다. 지속적인 서류 탈락 상황에서 문제의 근원인 이력서 품질을 개선하는 전략(A안)이 효과적일 것으로 보입니다. 전문가 피드백을 통한 구체적 보완이 장기적 성공을 이끌 것입니다.",
+  "category": "취업"
+}
+2025-08-16 16:31:14 [boundedElastic-1] INFO  c.t.s.chatting.service.AiChatService - Summary Success!
+2025-08-16 16:31:14 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-16 16:31:14 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - roadId 생성 완료: 92
+2025-08-16 16:31:14 [boundedElastic-1] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 6]
+2025-08-16 16:50:13 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 36048 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-16 16:50:13 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-16 16:50:14 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-16 16:50:15 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 131 ms. Found 5 JPA repository interfaces.
+2025-08-16 16:50:15 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-16 16:50:15 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-16 16:50:15 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-16 16:50:15 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-16 16:50:15 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-16 16:50:15 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1993 ms
+2025-08-16 16:50:16 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-16 16:50:16 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-16 16:50:16 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-16 16:50:16 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-16 16:50:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-16 16:50:16 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c1908c8
+2025-08-16 16:50:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-16 16:50:16 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-16 16:50:17 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-16 16:50:17 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-16 16:50:18 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-16 16:50:19 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-16 16:50:19 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-16 16:50:20 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-16 16:50:20 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-16 16:50:20 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 7.188 seconds (process running for 7.69)
+2025-08-16 16:50:37 [http-nio-7777-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-16 16:50:37 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-16 16:50:37 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2025-08-16 16:50:37 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 16:50:37 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 16:50:37 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 6]
+2025-08-16 16:50:37 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 16:50:39 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-16 16:50:39 [http-nio-7777-exec-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [cd1b6a5] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-16 16:50:40 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [cd1b6a5] [f8fb1030-1] Response 200 OK
+2025-08-16 16:50:41 [task-6] INFO  c.t.s.c.service.ChattingService - AI 응답 저장 완료 [memberId: 6]
+2025-08-16 16:51:10 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-16 16:51:10 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-16 16:51:10 [http-nio-7777-exec-4] WARN  c.t.s.c.service.ChattingService - SSE Connection Already Exists! [memberId: 6]
+2025-08-16 16:51:10 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - SSE Send Success! [memberId : 6]
+2025-08-16 16:51:11 [http-nio-7777-exec-4] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-16 16:51:11 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - REPORT 시작 [memberId: 6]
+2025-08-16 16:51:11 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - REPORT 이벤트 전송: REPORT
+2025-08-16 16:51:21 [boundedElastic-2] INFO  c.t.s.chatting.service.AiChatService - Proverb Content : {
+  "title": "우물을 파도 한 우물을 파라",
+  "content": "홍길동님의 핵심 가치는 '성장'입니다. <danbi>우물을 파도 한 우물을 파라</danbi>라는 말처럼, 현재 환경에서 백엔드 역량을 집중적으로 강화하기 어려운 상황이라면, 분산된 노력보다는 새로운 환경에서의 집중적인 성장이 더 효과적일 것입니다. 과거의 경험을 바탕으로 자신에게 적합한 환경을 선택한다면, 이는 장기적인 성장과 성공으로 이어질 가능성이 큽니다. 따라서, 새로운 기회를 탐색하며 자신의 가치를 실현할 수 있는 최적의 환경을 찾는 것을 권장 드립니다."
+}
+
+2025-08-16 16:51:21 [boundedElastic-2] INFO  c.t.s.chatting.service.AiChatService - Proverb Success!
+2025-08-16 16:51:21 [boundedElastic-2] INFO  c.t.s.chatting.service.AiChatService - Create Report!
+2025-08-16 16:51:21 [boundedElastic-2] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사 후 백엔드 기회 찾기",
+  "answerA": "✅ A안: 퇴사 후 백엔드 기회 찾기\n✅ 가치 일치도: 높음\n이유 : 사용자가 추구하는 백엔드 전문성을 확보하기 위해 환경을 바꾸면 성공 가능성 증가",
+  "titleB": "현재 직장서 역할 변경 요청",
+  "answerB": "❌ B안: 현재 직장서 역할 변경 요청\n❌ 가치 일치도: 중간\n이유 : 회사가 수용할지 불확실하나 경력 전환 기회 존재",
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 '성장'입니다. 현재 환경에서 백엔드 역량 강화가 어렵다면, 새로운 기회를 탐색하는 것이 장기적 성공으로 이어질 수 있습니다. 과거 경험을 통해 자신에게 맞는 환경을 선택해보세요.",
+  "category": "경력"
+}
+2025-08-16 16:51:23 [boundedElastic-2] INFO  c.t.s.chatting.service.AiChatService - Summary Success!
+2025-08-16 16:51:23 [boundedElastic-2] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-16 16:51:23 [boundedElastic-2] INFO  c.t.s.c.service.ChattingService - roadId 생성 완료: roadId : 93
+2025-08-16 16:51:23 [boundedElastic-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected. [memberId : 6]
