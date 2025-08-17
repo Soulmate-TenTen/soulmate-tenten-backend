@@ -57,7 +57,7 @@ public class ChattingController {
 	@ApiResponses(value = {			
 			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
 	})
-    @PostMapping("/sse/send")
+    @PostMapping(value = "/sse/send", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public Flux<ServerSentEvent<String>> chatSSE(@RequestBody ChattingDto request)
     {
     	log.info("==================================[ SSE Send 2 ]==================================");	
