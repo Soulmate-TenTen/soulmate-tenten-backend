@@ -268,7 +268,9 @@ public class ChattingService {
                         .chatType(ChatType.A)
                         .build();
                 tempChatMap.get(memberId).add(reportDto);
-            }).publishOn(Schedulers.boundedElastic());
+            })
+            .delayElements(Duration.ofMillis(50))		
+            .publishOn(Schedulers.boundedElastic());
 
             // 2️⃣ 무거운 작업 실행 후 roadId 이벤트 생성
             Mono<ServerSentEvent<String>> roadIdMono = Mono.fromCallable(() -> {
