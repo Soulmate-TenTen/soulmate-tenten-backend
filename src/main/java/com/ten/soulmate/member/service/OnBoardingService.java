@@ -6,9 +6,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.ten.soulmate.chatting.dto.AiRequestDto;
+import com.ten.soulmate.chatting.service.AiChatService;
 import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.member.dto.OnBoardingDto;
+import com.ten.soulmate.member.dto.TodayAdivceResponseDto;
+import com.ten.soulmate.member.entity.MemberAdvice;
 import com.ten.soulmate.member.entity.MemberAttribute;
+import com.ten.soulmate.member.repository.MemberAdviceRepository;
 import com.ten.soulmate.member.repository.MemberAttributeRepository;
 import com.ten.soulmate.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +27,8 @@ public class OnBoardingService {
 
 	private final MemberRepository memberRepository;
 	private final MemberAttributeRepository memberAttributeRepository;
+	private final MemberAdviceRepository memberAdviceRepository;
+	private final AiChatService aiChatService;
 			
 	
 	@Transactional
@@ -60,9 +68,38 @@ public class OnBoardingService {
 													.decisionTrust(request.getDecisionTrust())
 													.build();
 				
-				memberAttributeRepository.save(memberAttribute);
+				MemberAttribute savedMemberAttribute = memberAttributeRepository.saveAndFlush(memberAttribute);
 				
 				log.info("Onboarding Insert Success");
+				
+				
+				//최초의 온보딩 수행시 오늘의 조언도 생성되어야 한다.
+				AiRequestDto aiRequestDto = AiRequestDto.builder()
+											.valueAttribute(memberAttribute.getValueAttribute())
+											.decision(memberAttribute.getDecision())
+											.regret(memberAttribute.getRegret())
+											.decisionTrust(memberAttribute.getDecisionTrust())
+											.build();										
+						
+				String advice = aiChatService.ResponseAdviceMessage(aiRequestDto);
+				
+				if(advice.equals("error"))
+				{
+					log.error("AI Create Advice Error");
+			
+				}else {
+					log.info("AI Create Advice Success");
+				}				
+				
+				MemberAdvice memberAdvice = MemberAdvice.builder()
+											.advice(advice)
+											.member(savedMemberAttribute.getMember())
+											.build();
+				
+				memberAdviceRepository.save(memberAdvice);
+				
+				log.info("MemberAdvice Insert Success");
+				
 			}
 									
 			response.setMessage("Success");

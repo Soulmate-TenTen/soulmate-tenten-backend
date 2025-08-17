@@ -422,14 +422,14 @@ public class AiChatService {
 	         });
 	         
 	         body.put("maxTokens", 4096);
+	         body.put("temperature", 1.0);
+	         body.put("repetitionPenalty", 1.1);
 	        
 	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
              ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+hcx005, request, String.class);
              JsonNode root = objectMapper.readTree(response.getBody());
              String answer = root.path("result").path("message").path("content").asText();
-             	
-             log.info("Proverb Content : "+answer);
-            
+             	            
              answer = cleanJson(answer);
              
              ObjectMapper objectMapper = new ObjectMapper();
@@ -481,12 +481,14 @@ public class AiChatService {
 	         });
 	         
 	         body.put("maxTokens", 4096);
-	        
+	         body.put("temperature", 1.0);
+	         body.put("repetitionPenalty", 1.1);
+	         
 	         HttpEntity<Map<String, Object>> request = new HttpEntity<>(body, headers);
              ResponseEntity<String> response = restTemplate.postForEntity(apiUrl+hcx005, request, String.class);
              JsonNode root = objectMapper.readTree(response.getBody());
              String answer = root.path("result").path("message").path("content").asText();
-             	           
+             	                        
              answer = cleanJson(answer);
             
              ObjectMapper objectMapper = new ObjectMapper();
