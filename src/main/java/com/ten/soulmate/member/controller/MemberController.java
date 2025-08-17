@@ -60,9 +60,9 @@ public class MemberController {
 			@ApiResponse(responseCode = "400", description = "오늘의 조언 생성 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
 	})
 	@GetMapping("/todayAdvice")
-	public ResponseEntity<?> createTodayAdvice(@RequestParam("memberId") Long memberId){
-		log.info("==================================[ createTodayAdvice  ]==================================");	
-		return memberService.createTodayAdvice(memberId);
+	public ResponseEntity<?> selectTodayAdvice(@RequestParam("memberId") Long memberId){
+		log.info("==================================[ selectTodayAdvice  ]==================================");	
+		return memberService.selectTodayAdvice(memberId);
 	}
 	
 	

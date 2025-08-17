@@ -49,7 +49,9 @@ public class AuthService {
 				//모든 사용자는 첫 로그인 시 채팅방이 하나 생성되어야 한다.
 				Chatting chatting = Chatting.builder()
 									.member(newMember).build();
-				chattingRepository.save(chatting);											
+				chattingRepository.save(chatting);												
+				
+				
 				
 			}else {
 				response.setMemberId(member.get().getId());
