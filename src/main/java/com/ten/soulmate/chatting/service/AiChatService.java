@@ -2,6 +2,7 @@ package com.ten.soulmate.chatting.service;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -101,24 +102,6 @@ public class AiChatService {
         body.put("maxTokens", 4096);
         body.put("repetitionPenalty", 1.1);
         body.put("includeAiFilters", true);
-
-//        Flux<String> responseFlux = webClient.post()
-//            .uri(dash)
-//            .bodyValue(body)
-//            .retrieve()
-//            .bodyToFlux(DataBuffer.class)
-//            .map(buffer -> {
-//                byte[] bytes = new byte[buffer.readableByteCount()];
-//                buffer.read(bytes);
-//                DataBufferUtils.release(buffer);
-//                return new String(bytes, StandardCharsets.UTF_8);
-//            })
-//            .share();
-//
-//        // 1) 토큰 단위 원본 스트림 클라이언트 전달
-//        responseFlux.subscribe(sink::tryEmitNext);
-//
-//        return responseFlux;       
         
         Flux<String> responseFlux = webClient.post()
                 .uri(dash)
@@ -152,7 +135,9 @@ public class AiChatService {
                 .share();
 
         // 완전한 이벤트만 방출
-        responseFlux.subscribe(sink::tryEmitNext);
+        responseFlux
+        .delayElements(Duration.ofMillis(100))
+        .subscribe(sink::tryEmitNext);
 
         return responseFlux;
 
