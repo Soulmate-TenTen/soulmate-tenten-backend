@@ -3,10 +3,14 @@ package com.ten.soulmate.chatting.service;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -19,13 +23,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ten.soulmate.chatting.dto.AiRequestDto;
+import com.ten.soulmate.chatting.dto.ChattingListDto;
 import com.ten.soulmate.chatting.dto.ProverbAiResponse;
 import com.ten.soulmate.chatting.dto.ReportAiResponse;
 import com.ten.soulmate.chatting.dto.SummaryAiResponse;
 import com.ten.soulmate.global.prompt.PromptService;
+import com.ten.soulmate.global.type.AnswerType;
+import com.ten.soulmate.global.type.ChatType;
 import com.ten.soulmate.global.type.SoulMateType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -69,15 +78,94 @@ public class AiChatService {
     
     //HCX-002-DASH
     //채팅용 모델 - 고도화 때 진행      
-    public Flux<String> ResponseChatMessageSSE(AiRequestDto aiRequestDto, Sinks.Many<String> sink) {
+//    public Flux<String> ResponseChatMessageSSE(AiRequestDto aiRequestDto, Sinks.Many<String> sink) {
+//        String systemPrompt;
+//        try {
+//            systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
+//        } catch (IOException e) {
+//            sink.tryEmitNext("System 프롬프트 로딩 오류");
+//            return Flux.empty();
+//        }
+//
+//        String answerType = "";
+//        if (aiRequestDto.getSoulMateType().equals(SoulMateType.T))
+//            answerType = Ttype;
+//        if (aiRequestDto.getSoulMateType().equals(SoulMateType.F))
+//            answerType = Ftype;
+//
+//        Map<String, String> replacements = Map.of(
+//            "soulmate", aiRequestDto.getSoulmateName(),
+//            "member", aiRequestDto.getMemberName(),
+//            "answerType", answerType
+//        );
+//
+//        String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
+//
+//        Map<String, Object> body = new HashMap<>();
+//        body.put("messages", new Object[]{
+//            Map.of("role", "system", "content", fullPrompt),
+//            Map.of("role", "user", "content", aiRequestDto.getMessage()),
+//        });
+//        body.put("topP", 0.8);
+//        body.put("topK", 0);
+//        body.put("maxTokens", 4096);
+//        body.put("repetitionPenalty", 1.1);
+//        body.put("includeAiFilters", true);
+//        
+//        Flux<String> responseFlux = webClient.post()
+//                .uri(dash)
+//                .bodyValue(body)
+//                .retrieve()
+//                .bodyToFlux(DataBuffer.class)
+//                .map(buffer -> {
+//                    byte[] bytes = new byte[buffer.readableByteCount()];
+//                    buffer.read(bytes);
+//                    DataBufferUtils.release(buffer);
+//                    return new String(bytes, StandardCharsets.UTF_8);
+//                })
+//                .flatMapIterable(new Function<String, Iterable<String>>() {
+//                    private final StringBuilder acc = new StringBuilder();
+//
+//                    @Override
+//                    public Iterable<String> apply(String chunk) {
+//                        acc.append(chunk);
+//                        List<String> events = new ArrayList<>();
+//                        int idx;
+//                        while ((idx = acc.indexOf("\n\n")) >= 0) {
+//                            String event = acc.substring(0, idx).trim();
+//                            if (!event.isEmpty()) {
+//                                events.add(event);
+//                            }
+//                            acc.delete(0, idx + 2);
+//                        }
+//                        return events;
+//                    }
+//                })
+//                .share();
+//
+//        // 완전한 이벤트만 방출
+//        responseFlux
+//        .delayElements(Duration.ofMillis(100))
+//        .subscribe(sink::tryEmitNext);
+//
+//        return responseFlux;
+//
+//    }
+    
+        
+    public void ResponseChatMessageSSE(AiRequestDto aiRequestDto, Consumer<String> onToken) {
         String systemPrompt;
         try {
             systemPrompt = promptService.getSystemPrompt("ChattingPrompt");
         } catch (IOException e) {
-            sink.tryEmitNext("System 프롬프트 로딩 오류");
-            return Flux.empty();
+            onToken.accept("System 프롬프트 로딩 오류");
+            return;
         }
 
+        
+        System.out.println(aiRequestDto.getMessage());
+        
+        
         String answerType = "";
         if (aiRequestDto.getSoulMateType().equals(SoulMateType.T))
             answerType = Ttype;
@@ -85,25 +173,25 @@ public class AiChatService {
             answerType = Ftype;
 
         Map<String, String> replacements = Map.of(
-            "soulmate", aiRequestDto.getSoulmateName(),
-            "member", aiRequestDto.getMemberName(),
-            "answerType", answerType
+                "soulmate", aiRequestDto.getSoulmateName(),
+                "member", aiRequestDto.getMemberName(),
+                "answerType", answerType
         );
 
         String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
 
         Map<String, Object> body = new HashMap<>();
         body.put("messages", new Object[]{
-            Map.of("role", "system", "content", fullPrompt),
-            Map.of("role", "user", "content", aiRequestDto.getMessage()),
+                Map.of("role", "system", "content", fullPrompt),
+                Map.of("role", "user", "content", aiRequestDto.getMessage())
         });
         body.put("topP", 0.8);
         body.put("topK", 0);
         body.put("maxTokens", 4096);
         body.put("repetitionPenalty", 1.1);
         body.put("includeAiFilters", true);
-        
-        Flux<String> responseFlux = webClient.post()
+
+        webClient.post()
                 .uri(dash)
                 .bodyValue(body)
                 .retrieve()
@@ -132,18 +220,28 @@ public class AiChatService {
                         return events;
                     }
                 })
-                .share();
-
-        // 완전한 이벤트만 방출
-        responseFlux
-        .delayElements(Duration.ofMillis(100))
-        .subscribe(sink::tryEmitNext);
-
-        return responseFlux;
-
+                .delayElements(Duration.ofMillis(100))
+                .subscribe(onToken::accept, error -> {
+                    onToken.accept("에러 발생: " + error.getMessage());
+                });
     }
     
     
+        private Iterable<String> splitEvents(String chunk) {
+            List<String> events = new ArrayList<>();
+            int idx;
+            StringBuilder acc = new StringBuilder(chunk);
+
+            while ((idx = acc.indexOf("\n\n")) >= 0) {
+                String event = acc.substring(0, idx).trim();
+                if (!event.isEmpty()) events.add(event);
+                acc.delete(0, idx + 2);
+            }
+            return events;
+        }
+
+
+  
     public String ResponseChatMessage(AiRequestDto aiRequestDto)
     {
     	try {
@@ -233,6 +331,8 @@ public class AiChatService {
 		}
     	
     }
+    
+    
 
     //HCX-007
     //Report용 모델
@@ -503,27 +603,26 @@ public class AiChatService {
                 .trim();
     }
     
-//    private String extractMessageContent(String rawEvent) {
-//        try {
-//            int jsonStart = rawEvent.indexOf('{');
-//            if (jsonStart == -1) return null;
-//
-//            String jsonPart = rawEvent.substring(jsonStart);
-//            JsonNode root = new ObjectMapper().readTree(jsonPart);
-//            JsonNode contentNode = root.path("message").path("content");
-//
-//            if (!contentNode.isMissingNode() && !contentNode.asText().isBlank()) {
-//                return contentNode.asText();
-//            }
-//        } catch (Exception e) {
-//            log.error("JSON 파싱 오류", e);
-//        }
-//        return null;
-//    }
-//
-//    private boolean hasUsage(String rawEvent) {
-//        return rawEvent.contains("\"usage\"") && !rawEvent.contains("\"usage\":null");
-//    }
+    private String extractMessageContent(String rawEvent) {
+        try {
+            int jsonStart = rawEvent.indexOf('{');
+            if (jsonStart == -1) return null;
 
+            String jsonPart = rawEvent.substring(jsonStart);
+            JsonNode root = new ObjectMapper().readTree(jsonPart);
+            JsonNode contentNode = root.path("message").path("content");
+
+            if (!contentNode.isMissingNode() && !contentNode.asText().isBlank()) {
+                return contentNode.asText();
+            }
+        } catch (Exception e) {
+            log.error("JSON 파싱 오류", e);
+        }
+        return null;
+    }
+
+    private boolean hasUsage(String rawEvent) {
+        return rawEvent.contains("\"usage\"") && !rawEvent.contains("\"usage\":null");
+    }
 
 }
