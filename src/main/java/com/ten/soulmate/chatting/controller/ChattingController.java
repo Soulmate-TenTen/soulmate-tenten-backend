@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
+
 import com.ten.soulmate.chatting.dto.ChattingDto;
 import com.ten.soulmate.chatting.dto.ChattingListResponseDto;
 import com.ten.soulmate.chatting.dto.ResponseChattingDto;
@@ -48,6 +50,27 @@ public class ChattingController {
 //		return chattingService.connect(memberId);
 //    }
 //    
+	
+	
+//	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
+//			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
+//		            description = "채팅 요청 정보",
+//		            required = true,
+//		            content = @Content(schema = @Schema(implementation = ChattingDto.class))
+//		        ))
+//	@ApiResponses(value = {			
+//			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
+//	})
+//    @PostMapping(value = "/sse/send", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+//    public Flux<ServerSentEvent<String>> chatSSE(@RequestBody ChattingDto request)
+//    {
+//    	log.info("==================================[ SSE Send 2 ]==================================");	
+//    	log.info("SSE Send Member Id : "+request.getMemberId());
+//    	
+//    	return chattingService.handleChatSSE(request);
+//    }
+	
+	
 	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
 		            description = "채팅 요청 정보",
@@ -58,13 +81,27 @@ public class ChattingController {
 			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
 	})
     @PostMapping(value = "/sse/send", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<ServerSentEvent<String>> chatSSE(@RequestBody ChattingDto request)
+    public SseEmitter chatSSE(@RequestBody ChattingDto request)
     {
     	log.info("==================================[ SSE Send 2 ]==================================");	
     	log.info("SSE Send Member Id : "+request.getMemberId());
     	
-    	return chattingService.handleChatSSE(request);
+    	  SseEmitter emitter = new SseEmitter(30 * 60 * 1000L);
+
+    	    try {
+    	        // ChattingService에서 emitter를 관리하도록 위임
+    	        chattingService.handleChatSSE(request, emitter);
+
+    	    } catch (Exception e) {
+    	        log.error("SSE 에러 발생", e);
+    	        emitter.completeWithError(e);
+    	    }
+
+    	    return emitter;
     }
+	
+	
+	
 	
 //	@Operation(
 //	    summary = "SSE 연결 종료",
