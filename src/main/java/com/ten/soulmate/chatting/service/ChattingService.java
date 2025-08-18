@@ -403,39 +403,47 @@ public class ChattingService {
         if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
             try {
                 // 1️⃣ REPORT 이벤트 전송
-                emitter.send(SseEmitter.event().name("message").data("REPORT"));
-                emitter.send(SseEmitter.event().name("report-flush").data("")); 
-                
-                ChattingListDto reportDto = ChattingListDto.builder()
-                        .message("REPORT")
-                        .createAt(LocalDateTime.now())
-                        .answerType(AnswerType.R)
-                        .chatType(ChatType.A)
-                        .build();
-                tempChatMap.get(memberId).add(reportDto);
+//                emitter.send(SseEmitter.event().name("message").data("REPORT"));
+//                emitter.send(SseEmitter.event().name("report-flush").data("")); 
+//                
+//                ChattingListDto reportDto = ChattingListDto.builder()
+//                        .message("REPORT")
+//                        .createAt(LocalDateTime.now())
+//                        .answerType(AnswerType.R)
+//                        .chatType(ChatType.A)
+//                        .build();
+//                tempChatMap.get(memberId).add(reportDto);
+//
+//                // 2️⃣ 무거운 작업 실행 후 roadId 전송
+//                CompletableFuture.runAsync(() -> {
+//                    try {
+//                        String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
+//                        aiRequestDto.setMessage(userPromptReport);
+//                        ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
+//
+//                        String summaryPrompt = buildUserPrompt(tempChatMap.get(memberId), "Summary");
+//                        aiRequestDto.setMessage(summaryPrompt);
+//                        SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
+//
+//                        Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
+//
+//                        emitter.send(SseEmitter.event().name("message").data("roadId : " + roadId));
+//
+//                        tempChatMap.put(memberId, new ArrayList<>());
+//                        emitter.complete(); // 연결 종료
+//                    } catch (Exception e) {
+//                        log.error("REPORT 처리 중 오류", e);
+//                        emitter.completeWithError(e);
+//                    }
+//                });
+            	
+            	 // 1️⃣ REPORT 즉시 전송
+                sendReport(emitter, memberId);
 
-                // 2️⃣ 무거운 작업 실행 후 roadId 전송
-                CompletableFuture.runAsync(() -> {
-                    try {
-                        String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
-                        aiRequestDto.setMessage(userPromptReport);
-                        ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
-
-                        String summaryPrompt = buildUserPrompt(tempChatMap.get(memberId), "Summary");
-                        aiRequestDto.setMessage(summaryPrompt);
-                        SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
-
-                        Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
-
-                        emitter.send(SseEmitter.event().name("message").data("roadId : " + roadId));
-
-                        tempChatMap.put(memberId, new ArrayList<>());
-                        emitter.complete(); // 연결 종료
-                    } catch (Exception e) {
-                        log.error("REPORT 처리 중 오류", e);
-                        emitter.completeWithError(e);
-                    }
-                });
+                // 2️⃣ ROADID 및 무거운 작업 비동기 처리
+                processRoadIdAsync(emitter, memberId, aiRequestDto);
+            	
+            	
             } catch (Exception e) {
                 emitter.completeWithError(e);
             }
@@ -528,6 +536,53 @@ public class ChattingService {
 	    
 	   return roadRepository.saveAndFlush(road).getId();    	    
     }
+	
+	
+	// ====================== 별도 메서드 ======================
+
+	private void sendReport(SseEmitter emitter, Long memberId) throws IOException {
+	    // REPORT 이벤트 전송
+	    emitter.send(SseEmitter.event().name("message").data("REPORT"));
+
+	    // flush 용 빈 이벤트 (브라우저가 즉시 수신하도록)
+	    emitter.send(SseEmitter.event().name("flush").data(""));
+
+	    // 임시 저장
+	    ChattingListDto reportDto = ChattingListDto.builder()
+	            .message("REPORT")
+	            .createAt(LocalDateTime.now())
+	            .answerType(AnswerType.R)
+	            .chatType(ChatType.A)
+	            .build();
+	    tempChatMap.get(memberId).add(reportDto);
+	}
+
+	private void processRoadIdAsync(SseEmitter emitter, Long memberId, AiRequestDto aiRequestDto) {
+	    CompletableFuture.runAsync(() -> {
+	        try {
+	            String userPromptReport = buildUserPrompt(tempChatMap.get(memberId), "HCX-007");
+	            aiRequestDto.setMessage(userPromptReport);
+	            ReportAiResponse reportData = aiChatService.ResponseReportMessage(aiRequestDto);
+
+	            String summaryPrompt = buildUserPrompt(tempChatMap.get(memberId), "Summary");
+	            aiRequestDto.setMessage(summaryPrompt);
+	            SummaryAiResponse summary = aiChatService.ResponseSummaryMessage(aiRequestDto);
+
+	            Long roadId = saveToDB(memberId, tempChatMap.get(memberId), summary, reportData);
+
+	            // ROADID 전송
+	            emitter.send(SseEmitter.event().name("message").data("roadId : " + roadId));
+
+	            // temp 초기화 및 연결 종료
+	            tempChatMap.put(memberId, new ArrayList<>());
+	            emitter.complete();
+	        } catch (Exception e) {
+	            log.error("REPORT 처리 후 ROADID 오류", e);
+	            emitter.completeWithError(e);
+	        }
+	    });
+	}
+	
 	
 	private String buildUserPrompt(List<ChattingListDto> chattingList, String type) {
 	    StringBuilder userPrompt = new StringBuilder();
