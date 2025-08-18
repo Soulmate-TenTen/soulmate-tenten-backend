@@ -404,8 +404,7 @@ public class ChattingService {
             try {
                 // 1️⃣ REPORT 이벤트 전송
                 emitter.send(SseEmitter.event().name("message").data("REPORT"));
-                
-                Thread.sleep(50); 
+                emitter.send(SseEmitter.event().name("report-flush").data("")); 
                 
                 ChattingListDto reportDto = ChattingListDto.builder()
                         .message("REPORT")
@@ -449,7 +448,7 @@ public class ChattingService {
             try {
                 // 토큰 전송
                 emitter.send(SseEmitter.event().name("message").data(token));
-
+              
                 // usage 토큰 포함 여부 확인
                 if (hasUsage(token)) {
                     String completedMessage = extractMessageContent(token);
