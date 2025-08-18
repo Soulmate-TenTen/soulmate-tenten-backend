@@ -220,7 +220,6 @@ public class AiChatService {
                         return events;
                     }
                 })
-                .delayElements(Duration.ofMillis(100))
                 .subscribe(onToken::accept, error -> {
                     onToken.accept("에러 발생: " + error.getMessage());
                 });

@@ -54,11 +54,7 @@ import com.ten.soulmate.road.entity.Road;
 import com.ten.soulmate.road.repository.RoadRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
-import reactor.core.scheduler.Schedulers;
-import org.springframework.http.codec.ServerSentEvent;
 
 @Slf4j
 @Service
@@ -408,6 +404,8 @@ public class ChattingService {
             try {
                 // 1️⃣ REPORT 이벤트 전송
                 emitter.send(SseEmitter.event().name("message").data("REPORT"));
+                emitter.send(SseEmitter.event().comment("flush"));
+                
                 ChattingListDto reportDto = ChattingListDto.builder()
                         .message("REPORT")
                         .createAt(LocalDateTime.now())
