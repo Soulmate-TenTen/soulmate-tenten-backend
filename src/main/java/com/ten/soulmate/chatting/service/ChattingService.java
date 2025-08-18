@@ -404,7 +404,8 @@ public class ChattingService {
             try {
                 // 1️⃣ REPORT 이벤트 전송
                 emitter.send(SseEmitter.event().name("message").data("REPORT"));
-                emitter.send(SseEmitter.event().comment("flush"));
+                
+                Thread.sleep(50); 
                 
                 ChattingListDto reportDto = ChattingListDto.builder()
                         .message("REPORT")
