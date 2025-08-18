@@ -2352,3 +2352,64 @@ Caused by: java.net.SocketException: Bad address: listen
 2025-08-18 16:56:54 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - Summary Success!
 2025-08-18 16:56:54 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
 2025-08-18 16:56:54 [http-nio-7777-exec-8] INFO  c.t.s.c.service.ChattingService - SSE Disconnected! [memberId : 6]
+2025-08-18 17:12:19 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 38892 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-18 17:12:19 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-18 17:12:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-18 17:12:20 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 141 ms. Found 6 JPA repository interfaces.
+2025-08-18 17:12:21 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-18 17:12:21 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-18 17:12:21 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-18 17:12:21 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-18 17:12:21 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-18 17:12:21 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2089 ms
+2025-08-18 17:12:22 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-18 17:12:22 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-18 17:12:22 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-18 17:12:22 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-18 17:12:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-18 17:12:22 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3bc6c10f
+2025-08-18 17:12:22 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-18 17:12:22 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-18 17:12:23 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-18 17:12:23 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-18 17:12:24 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-18 17:12:25 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-18 17:12:25 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-18 17:12:26 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-18 17:12:26 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-18 17:12:26 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 7.236 seconds (process running for 7.699)
+2025-08-18 17:12:38 [http-nio-7777-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-18 17:12:38 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-18 17:12:38 [http-nio-7777-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-18 17:12:38 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-18 17:12:38 [http-nio-7777-exec-1] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-18 17:12:38 [http-nio-7777-exec-1] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 6]
+2025-08-18 17:12:39 [http-nio-7777-exec-1] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-18 17:12:39 [http-nio-7777-exec-1] DEBUG o.s.w.r.f.client.ExchangeFunctions - [192a7f58] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-18 17:12:41 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [192a7f58] [dde532c1-1] Response 200 OK
+2025-08-18 17:12:42 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Disconnected! [memberId : 6]
+2025-08-18 17:12:51 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-18 17:12:51 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-18 17:12:51 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 6]
+2025-08-18 17:12:52 [http-nio-7777-exec-4] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-18 17:13:04 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - Proverb Success!
+2025-08-18 17:13:04 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - Create Report!
+2025-08-18 17:13:04 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사 실행",
+  "answerA": "✅ A안: 퇴사 실행\n✅ 가치 일치도: 중간\n이유 : 현재의 과로와 보상 부족 문제를 해결하기 위한 변화 추구 측면에서 성공 가능성 있으나, 갑작스러운 퇴직 시 대체 직장 확보 어려움 존재",
+  "titleB": "현직장 유지",
+  "answerB": "❌ B안: 현직장 유지\n❌ 가치 일치도: 낮음\n이유 : 현재의 극심한 워라밸 붕괴 상황이 지속될 경우 신체적·정신적 한계 도달 우려되며 성장 기회 제한됨",
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 '성공'입니다. 현재 포괄임금제의 악용으로 인한 착취적 노동환경이 성장을 저해하고 있습니다. 즉각적인 탈출(A안)보다는 단계적 전환(B안의 일부 요소 차용)이 이상적이지만, 현 상황의 심각성을 감안할 때 신속한 결단 요구됩니다.",
+  "category": "퇴사고민"
+}
+2025-08-18 17:13:06 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - Summary Success!
+2025-08-18 17:13:06 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-18 17:13:06 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Disconnected! [memberId : 6]
