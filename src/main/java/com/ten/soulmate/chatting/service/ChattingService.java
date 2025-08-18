@@ -257,7 +257,7 @@ public class ChattingService {
             	// 스트림 종료를 비동기로 처리
             	CompletableFuture.runAsync(() -> {
             	    try {
-            	        Thread.sleep(1000); // 브라우저가 REPORT를 처리할 시간 확보
+            	        Thread.sleep(10000); // 브라우저가 REPORT를 처리할 시간 확보
             	        emitter.complete();
             	    } catch (Exception e) {
             	        emitter.completeWithError(e);
