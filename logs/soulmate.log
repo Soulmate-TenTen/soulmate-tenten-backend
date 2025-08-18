@@ -2116,3 +2116,178 @@ Caused by: java.net.SocketException: Bad address: listen
 2025-08-18 16:27:33 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - Summary Success!
 2025-08-18 16:27:33 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
 2025-08-18 16:27:33 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Disconnected! [memberId : 6]
+2025-08-18 16:40:09 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 6192 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-18 16:40:09 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "prod"
+2025-08-18 16:40:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-18 16:40:10 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 145 ms. Found 6 JPA repository interfaces.
+2025-08-18 16:40:11 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-18 16:40:11 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-18 16:40:11 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-18 16:40:11 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-18 16:40:11 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-18 16:40:11 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2381 ms
+2025-08-18 16:40:11 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-18 16:40:11 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-18 16:40:11 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-18 16:40:12 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-18 16:40:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-18 16:40:12 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2a5d2041
+2025-08-18 16:40:12 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-18 16:40:12 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.42
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-18 16:40:13 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-18 16:40:13 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-18 16:40:14 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-18 16:40:15 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-18 16:40:15 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-18 16:40:16 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-18 16:40:16 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-18 16:40:16 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 7.707 seconds (process running for 8.207)
+2025-08-18 16:41:06 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 16764 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-18 16:41:06 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-18 16:41:07 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-18 16:41:08 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 135 ms. Found 6 JPA repository interfaces.
+2025-08-18 16:41:08 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-18 16:41:08 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-18 16:41:08 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-18 16:41:08 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-18 16:41:08 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-18 16:41:08 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1968 ms
+2025-08-18 16:41:09 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-18 16:41:09 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-18 16:41:09 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-18 16:41:10 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-18 16:41:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-18 16:41:10 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4a5d5b38
+2025-08-18 16:41:10 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-18 16:41:10 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-18 16:41:11 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-18 16:41:11 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-18 16:41:11 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-18 16:41:12 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-18 16:41:12 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-18 16:41:13 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-18 16:41:13 [main] WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-08-18 16:41:13 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-08-18 16:41:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-08-18 16:41:13 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2025-08-18 16:41:13 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-08-18 16:41:13 [main] ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:408)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:394)
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:586)
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75)
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:364)
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:310)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:1006)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:630)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350)
+	at com.ten.soulmate.SoulmateApplication.main(SoulmateApplication.java:13)
+Caused by: org.springframework.boot.web.server.WebServerException: Unable to start embedded Tomcat server
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:251)
+	at org.springframework.boot.web.servlet.context.WebServerStartStopLifecycle.start(WebServerStartStopLifecycle.java:44)
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:405)
+	... 14 common frames omitted
+Caused by: java.lang.IllegalArgumentException: standardService.connector.startFailed
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:222)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.addPreviouslyRemovedConnectors(TomcatWebServer.java:310)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.start(TomcatWebServer.java:236)
+	... 16 common frames omitted
+Caused by: org.apache.catalina.LifecycleException: Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1106)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:164)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:219)
+	... 18 common frames omitted
+Caused by: java.net.SocketException: Bad address: listen
+	at java.base/sun.nio.ch.Net.listen(Native Method)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:345)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:301)
+	at org.apache.tomcat.util.net.NioEndpoint.initServerSocket(NioEndpoint.java:266)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:221)
+	at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1399)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:1482)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:644)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1103)
+	... 20 common frames omitted
+2025-08-18 16:41:21 [main] INFO  c.ten.soulmate.SoulmateApplication - Starting SoulmateApplication using Java 21.0.4 with PID 22736 (D:\myproject\soulmate\soulmate\bin\main started by PC in D:\myproject\soulmate\soulmate)
+2025-08-18 16:41:21 [main] INFO  c.ten.soulmate.SoulmateApplication - The following 1 profile is active: "local"
+2025-08-18 16:41:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-08-18 16:41:22 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 130 ms. Found 6 JPA repository interfaces.
+2025-08-18 16:41:23 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 7777 (http)
+2025-08-18 16:41:23 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-7777"]
+2025-08-18 16:41:23 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-08-18 16:41:23 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.43]
+2025-08-18 16:41:23 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-08-18 16:41:23 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1892 ms
+2025-08-18 16:41:23 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-08-18 16:41:23 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.22.Final
+2025-08-18 16:41:23 [main] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-08-18 16:41:24 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-08-18 16:41:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-08-18 16:41:24 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2d8087da
+2025-08-18 16:41:24 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-08-18 16:41:24 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.0.32
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-08-18 16:41:25 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-08-18 16:41:25 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-08-18 16:41:25 [main] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-08-18 16:41:27 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-08-18 16:41:27 [main] INFO  o.s.v.b.OptionalValidatorFactoryBean - Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-08-18 16:41:27 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-7777"]
+2025-08-18 16:41:27 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 7777 (http) with context path '/'
+2025-08-18 16:41:27 [main] INFO  c.ten.soulmate.SoulmateApplication - Started SoulmateApplication in 6.92 seconds (process running for 7.405)
+2025-08-18 16:41:39 [http-nio-7777-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-08-18 16:41:39 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-08-18 16:41:39 [http-nio-7777-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-08-18 16:41:39 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-18 16:41:39 [http-nio-7777-exec-2] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-18 16:41:39 [http-nio-7777-exec-2] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 6]
+2025-08-18 16:41:40 [http-nio-7777-exec-2] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : No
+2025-08-18 16:41:40 [http-nio-7777-exec-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5a4e6e4d] HTTP POST https://clovastudio.stream.ntruss.com/testapp/v3/chat-completions/HCX-DASH-002
+2025-08-18 16:41:42 [reactor-http-nio-2] DEBUG o.s.w.r.f.client.ExchangeFunctions - [5a4e6e4d] [67f46a47-1] Response 200 OK
+2025-08-18 16:41:42 [http-nio-7777-exec-3] INFO  c.t.s.c.service.ChattingService - SSE Disconnected! [memberId : 6]
+2025-08-18 16:41:49 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - ==================================[ SSE Send 2 ]==================================
+2025-08-18 16:41:49 [http-nio-7777-exec-4] INFO  c.t.s.c.c.ChattingController - SSE Send Member Id : 6
+2025-08-18 16:41:49 [http-nio-7777-exec-4] INFO  c.t.s.c.service.ChattingService - SSE Connection Success! [memberId : 6]
+2025-08-18 16:41:49 [http-nio-7777-exec-4] INFO  c.t.s.chatting.service.AiChatService - AI Check Result : Yes
+2025-08-18 16:42:00 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - Proverb Success!
+2025-08-18 16:42:00 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - Create Report!
+2025-08-18 16:42:00 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - HCX-007 Content : {
+  "titleA": "퇴사하기",
+  "answerA": "✅ A안: 퇴사하기\n✅ 가치 일치도: 높음\n이유 : 과도한 업무량과 보상 부족으로 인한 스트레스 해소가 필요하며, 성공을 위해 더 나은 환경을 찾는 것이 가치에 부합함.",
+  "titleB": "잔류하기",
+  "answerB": "❌ B안: 잔류하기\n❌ 가치 일치도: 낮음\n이유 : 현재의 열악한 근로조건이 지속될 경우 개인의 성장과 성공 목표 달성에 장애물이 될 수 있음.",
+  "recommend": "A",
+  "conclusion": "홍길동님의 핵심 가치는 '성장'입니다. 현재의 지나친 업무 강도와 보상 체계 미비로 인해 개인 발전이 저해되고 있으므로, 보다 균형 잡힌 환경에서 역량을 발휘할 수 있는 방향으로 전환하시는 것이 바람직합니다.",
+  "category": "퇴사고민"
+}
+2025-08-18 16:42:02 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.chatting.service.AiChatService - Summary Success!
+2025-08-18 16:42:02 [ForkJoinPool.commonPool-worker-1] INFO  c.t.s.c.service.ChattingService - New Chatting Room Created!
+2025-08-18 16:42:02 [http-nio-7777-exec-5] INFO  c.t.s.c.service.ChattingService - SSE Disconnected! [memberId : 6]

@@ -38,8 +38,7 @@ import com.ten.soulmate.global.type.ChatType;
 import com.ten.soulmate.global.type.SoulMateType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Sinks;
+
 
 @Slf4j
 @Service
@@ -161,10 +160,6 @@ public class AiChatService {
             onToken.accept("System 프롬프트 로딩 오류");
             return;
         }
-
-        
-        System.out.println(aiRequestDto.getMessage());
-        
         
         String answerType = "";
         if (aiRequestDto.getSoulMateType().equals(SoulMateType.T))
