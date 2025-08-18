@@ -174,7 +174,7 @@ public class AiChatService {
         );
 
         String fullPrompt = promptService.buildFinalPrompt(systemPrompt, replacements);
-
+        
         Map<String, Object> body = new HashMap<>();
         body.put("messages", new Object[]{
                 Map.of("role", "system", "content", fullPrompt),
@@ -219,23 +219,7 @@ public class AiChatService {
                     onToken.accept("에러 발생: " + error.getMessage());
                 });
     }
-    
-    
-        private Iterable<String> splitEvents(String chunk) {
-            List<String> events = new ArrayList<>();
-            int idx;
-            StringBuilder acc = new StringBuilder(chunk);
-
-            while ((idx = acc.indexOf("\n\n")) >= 0) {
-                String event = acc.substring(0, idx).trim();
-                if (!event.isEmpty()) events.add(event);
-                acc.delete(0, idx + 2);
-            }
-            return events;
-        }
-
-
-  
+      
     public String ResponseChatMessage(AiRequestDto aiRequestDto)
     {
     	try {
@@ -403,7 +387,7 @@ public class AiChatService {
          
              log.info("Create Report!");
           
-             log.info("HCX-007 Content : "+content);
+             //log.info("HCX-007 Content : "+content);
              //log.info("======================================================================================");
              //log.info("HCX-007 Thinking Content : "+thinkingContent);	       	    		
     	}    	
@@ -585,8 +569,7 @@ public class AiChatService {
 		}
     	    	    	
     }
-    
-    
+        
     
     public static String cleanJson(String input) {
         // 백틱 및 마크다운 태그 제거
@@ -597,26 +580,4 @@ public class AiChatService {
                 .trim();
     }
     
-    private String extractMessageContent(String rawEvent) {
-        try {
-            int jsonStart = rawEvent.indexOf('{');
-            if (jsonStart == -1) return null;
-
-            String jsonPart = rawEvent.substring(jsonStart);
-            JsonNode root = new ObjectMapper().readTree(jsonPart);
-            JsonNode contentNode = root.path("message").path("content");
-
-            if (!contentNode.isMissingNode() && !contentNode.asText().isBlank()) {
-                return contentNode.asText();
-            }
-        } catch (Exception e) {
-            log.error("JSON 파싱 오류", e);
-        }
-        return null;
-    }
-
-    private boolean hasUsage(String rawEvent) {
-        return rawEvent.contains("\"usage\"") && !rawEvent.contains("\"usage\":null");
-    }
-
 }

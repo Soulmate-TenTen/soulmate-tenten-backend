@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import com.ten.soulmate.chatting.dto.ChattingDto;
 import com.ten.soulmate.chatting.dto.ChattingListResponseDto;
 import com.ten.soulmate.chatting.dto.ResponseChattingDto;
+import com.ten.soulmate.chatting.dto.ResponseReportDto;
 import com.ten.soulmate.chatting.service.ChattingService;
 import com.ten.soulmate.global.dto.ResponseDto;
 import com.ten.soulmate.road.dto.CheckCalendarRoadResponseDto;
@@ -37,39 +38,6 @@ public class ChattingController {
 	
 	private final ChattingService chattingService;
 
-//	@Operation( summary = "SSE 연결", description = "SSE 스트림을 통해 AI 챗봇의 실시간 응답을 수신합니다. 만약 응답으로 'REPORT'가 온다면 리포트 생성중입니다.\n리포트 생성이 완료되면 'roadId : 1' 이런 형식으로 roadId값을 드리겠습니다. 이 값은 기로 상세조회 API 사용 시 필요합니다.")
-//	@ApiResponses(value = {			
-//			@ApiResponse(responseCode = "200", description = "SSE 연결 성공, text/event-stream 형식으로 응답됨"
-//					,content =@Content(mediaType = MediaType.TEXT_EVENT_STREAM_VALUE, schema = @Schema(type = "string")))
-//	})
-//    @GetMapping(value = "/sse/connect", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-//    public Flux<String> connect(@RequestParam("memberId") Long memberId){    
-//		log.info("==================================[ SSE Connect  ]==================================");	
-//    	log.info("SSE Connection Member Id : "+memberId);
-//    	
-//		return chattingService.connect(memberId);
-//    }
-//    
-	
-	
-//	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
-//			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
-//		            description = "채팅 요청 정보",
-//		            required = true,
-//		            content = @Content(schema = @Schema(implementation = ChattingDto.class))
-//		        ))
-//	@ApiResponses(value = {			
-//			@ApiResponse(responseCode = "200", description = "질문 전송 성공")
-//	})
-//    @PostMapping(value = "/sse/send", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-//    public Flux<ServerSentEvent<String>> chatSSE(@RequestBody ChattingDto request)
-//    {
-//    	log.info("==================================[ SSE Send 2 ]==================================");	
-//    	log.info("SSE Send Member Id : "+request.getMemberId());
-//    	
-//    	return chattingService.handleChatSSE(request);
-//    }
-	
 	
 	@Operation(summary = "채팅 메시지 전송", description = "사용자의 질문을 전송하고 AI의 답변을 SSE로 받기 위한 요청입니다.",
 			requestBody = @io.swagger.v3.oas.annotations.parameters.RequestBody(
@@ -83,7 +51,7 @@ public class ChattingController {
     @PostMapping(value = "/sse/send", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public SseEmitter chatSSE(@RequestBody ChattingDto request)
     {
-    	log.info("==================================[ SSE Send 2 ]==================================");	
+    	log.info("==================================[ SSE Send ]==================================");	
     	log.info("SSE Send Member Id : "+request.getMemberId());
     	
     	  SseEmitter emitter = new SseEmitter(30 * 60 * 1000L);
@@ -101,24 +69,20 @@ public class ChattingController {
     }
 	
 	
-	
-	
-//	@Operation(
-//	    summary = "SSE 연결 종료",
-//	    description = "클라이언트 로그아웃 시 SSE 연결을 종료합니다."
-//	)
-//	@ApiResponses(value = {
-//	    @ApiResponse(responseCode = "200", description = "SSE 연결 종료 성공")
-//	})
-//	@PostMapping("/sse/close")
-//	public void closeSse(@RequestParam("memberId") Long memberId) {
-//	    log.info("==================================[ SSE Close  ]==================================");
-//	    log.info("SSE Close Member Id : " + memberId);
-//
-//	    chattingService.disconnect(memberId);
-//	}
-//    
-	
+	@Operation(summary = "리포트 생성 요청", description = "채팅이 마무리된 후('REPORT' 도착) 리포트 생성 요청")
+	@ApiResponses(value = {			
+			@ApiResponse(responseCode = "200", description = "리포트 생성 성공.",content = @Content(schema = @Schema(implementation = ResponseReportDto.class))),
+			@ApiResponse(responseCode = "400", description = "리포트 생성 실패, 백엔드 개발자에게 로그 확인 요청.",content = @Content(schema = @Schema(implementation = ResponseDto.class)))
+	})
+    @PostMapping(value = "/createReport")
+    public ResponseEntity<?> createReport(@RequestParam("memberId") Long memberId)
+    {
+    	log.info("==================================[ createReport ]==================================");	
+    	log.info("Create Report Member Id : "+memberId);
+    	
+    	return chattingService.createReport(memberId);
+    }
+		
     
 	@Operation(summary = "채팅 API", description = "채팅 발송 API")
 	@ApiResponses(value = {			
