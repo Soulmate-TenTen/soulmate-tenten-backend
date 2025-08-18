@@ -250,12 +250,10 @@ public class ChattingService {
         // ✅ REPORT 조건일 때
         if (aiChatService.ResponseCheckMessage(aiRequestDto)) {
             try {           	
-            	sendReport(emitter, memberId, () -> {
-            	   // processRoadIdAsync(emitter, memberId, aiRequestDto);
-            		
-            		 emitter.complete();
-            	});
-            	            	
+            	
+            	emitter.send(SseEmitter.event().name("message").data("REPORT"));
+            	emitter.complete();
+            	                        	            	
             } catch (Exception e) {
                 emitter.completeWithError(e);
             }
@@ -348,20 +346,6 @@ public class ChattingService {
 	    
 	   return roadRepository.saveAndFlush(road).getId();    	    
     }
-
-	public void sendReport(SseEmitter emitter, Long memberId, Runnable callback) {
-	    try {
-	        emitter.send(SseEmitter.event().name("message").data("REPORT"));
-	        emitter.send(SseEmitter.event().name("flush").data("")); // 강제 flush
-	        // 필요하면 DB 저장 등 로직 수행
-	        if (callback != null) {
-	            callback.run(); // REPORT 전송 완료 후 콜백 실행
-	        }
-	    } catch (IOException e) {
-	        log.error("REPORT 전송 오류", e);
-	        emitter.completeWithError(e);
-	    }
-	}
 			
 	public ResponseEntity<?> createReport(Long memberId)
 	{
