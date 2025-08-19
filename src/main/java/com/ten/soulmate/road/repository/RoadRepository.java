@@ -39,6 +39,7 @@ public interface RoadRepository extends JpaRepository<Road, Long>{
     	    WHERE memberId = :memberId
     	      AND roadStatus IN (0, 1)
     	      AND createAt <= NOW() - INTERVAL 24 HOUR
+    	      AND category IS NOT NULL
     	    ORDER BY RAND()
     	    LIMIT 1
     	""", nativeQuery = true)
